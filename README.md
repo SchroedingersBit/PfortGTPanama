@@ -1,5 +1,7 @@
 # PfortGT-WRO
 #Markdown
 Documentation for autonomous driving car for the **WRO Future Engineers** competition
-
+@startuml
+User-> Server
+@enduml
 Hier können wir die Key-Idee beschreiben und vlt. unsere grobe Struktur erklären
