@@ -3,6 +3,7 @@ Hier wird unsere Programmstruktur für das Hindernisrennen besprochen. Besonders
 
 ```mermaid
 graph TB;
+subgraph links
 A{Hindernis} -->B{PixyCam erkennt Farbcode};
 B-->E{grün}-->C1{Farbcode auf linker Screenhälfte};
 C1-->J1{Ja};
@@ -10,7 +11,15 @@ C1 --> Nein;
 J1-->R{Fährt links vorbei};
 Nein --> Lenkanpassung;
 Lenkanpassung-->C1;
+end
 
-
+subgraph rechts
+B-->C{rot}-->C2{Farbcode auf rechter Screenhälfte};
+C2 --> Nein; 
+C2-->J2{Ja};
+Nein --> Lenkanpassung;
+Lenkanpassung -->C2;
+J2-->L{Fährt rechts vorbei};
+end
 ```
 
