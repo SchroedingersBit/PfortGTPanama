@@ -19,12 +19,12 @@ J2-->L{Fährt rechts vorbei};
 ```mermaid
 graph TB;
 A((Hindernis)) -->|PixyCam erkennt Farbcode|B((Farbcode));
-B-->|grün|E((Screenhälfte links));
-B-->|rot|C((Screenhälfte rechts));
-C1((Farbcode links))-->|Ja|J1(Fährt links vorbei);
-C2((Farbcode rechts))-->|Ja|J2(Fährt rechts vorbei);
-C1-->|Nein|Lenkanpassung((Lenkanpassung));
-C2-->|Nein|Lenkanpassung;
-Lenkanpassung-->|rechts|C1;
-Lenkanpassung -->|links|C2;
+B-->|grün|C1((Screenhälfte links));
+B-->|rot|C2((Screenhälfte rechts));
+C1-->|Ja|J1(Fährt links vorbei);
+C1-->|Nein|L((Lenkanpassung));
+C2-->|Ja|J2(Fährt rechts vorbei);
+C2-->|Nein|L;
+L-->|rechts|C1;
+L-->|links|C2;
 ```
