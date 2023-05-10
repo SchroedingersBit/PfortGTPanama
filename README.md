@@ -14,6 +14,9 @@ Unser Auto wird durch einen Arduino und einen Raspberry Pi gesteuert (siehe [Har
 Unser Repository ist in mehrere Untergruppen aufgeteilt, in welchem die einzelnen Schwerpunkte besprochen werden.
 ### Entwicklung
 In [Entwicklung](/Entwicklung) beschreiben wir unseren Entwicklungsweg. Dabei gehen wir auf unsere Ideen ein, die wir währendessen hatten, Probleme welche uns beschäftigten und wie wir sie gelöst haben. Zum Schluss beleuchten wir kurz neue Probleme mit welchem wir uns noch auseinandersetzten und unsere zukünftigen Verbesserungen und Ideen für dieses Projekt.
-[Roboterauto](/Roboterauto/)
+### Programme
+In [Programme](/Programme) erläutern wir das Herzstück dieses Wettbewerbs, das Coding. Wir beschreiben und erklären dabei unsere Gliederung, die Entscheidung für C++ und die drei Schwerpunkte [Motorkontrolle](Programme/Motorkontrolle), [Eröffnunggsrennen](Programme/Eröffnungsrennen) und [Hindernisrennen](Programme/Hindernisrennen).
+### Roboterauto
+In [Roboterauto](/Roboterauto/)
 
 
