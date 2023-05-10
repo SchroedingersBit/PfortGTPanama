@@ -12,8 +12,4 @@ User-right->(write uml)
 Hier wird das allgemein Endprodukt diskutiert
 Hier können wir die Key-Idee beschreiben und vlt. unsere grobe Struktur erklären
 ## Aufbau
-X^2^
-kjnkjnkj
-klmlk kl
-jnbnkjn
-Adelon ist dumm
+
