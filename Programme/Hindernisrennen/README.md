@@ -10,14 +10,7 @@ C1 --> Nein;
 J1-->R{Fährt links vorbei};
 Nein --> Lenkanpassung;
 Lenkanpassung-->C1;
-B-->C{rot}-->C2{Farbcode auf rechter Screenhälfte};
-
-C2 --> Nein; 
-C2-->J2{Ja};
-Nein --> Lenkanpassung;
-Lenkanpassung -->C2;
 
 
-J2-->L{Fährt rechts vorbei};
 ```
 
