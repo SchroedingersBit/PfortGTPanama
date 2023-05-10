@@ -8,10 +8,11 @@ actor User
 User-right->(select template)
 User-right->(write uml)
 @enduml
-## Overview
-Hier wird das allgemein Endprodukt diskutiert
-Hier können wir die Key-Idee beschreiben und vlt. unsere grobe Struktur erklären
+## Überblick.
+Unser Auto wird durch einen Arduino und einen Raspberry Pi gesteuert. Es besteht aus einem fertigen Chassi welches mit individuell 3D-gedruckten Halterungen für die verschiedenen Sensoren und die Kamera ausgestattet ist. Die Stromversorgung läuft über einen Akku. Das Sensorenequipment besteht aus drei Ultraschall-Sensoren, einem Gyro-Sensor und einer Pixy Cam2. Für das Eröffnungsrennen verwendet das Auto einen Arduino Code, welches den Abstand zu den Wänden durch die Ultraschall-Sensoren verwendet, um kleine Lenkanpassugen des Autos zu treffen.
 ## Aufbau
+
+
 Das Auto besteht aus 4-Rädern und zwei Motoren und noch vieles mehr. 
 ## Codes
 Hier gibt es Codes
