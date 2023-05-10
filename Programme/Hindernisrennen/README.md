@@ -3,5 +3,5 @@ Hier wird unsere Programmstruktur für das Hindernisrennen besprochen. Besonders
 
 ```mermaid
 graph TB;Hindernis ---|PixyCam| rot--Code---rechts;
-Hindernis---|PixyCam| grün--Code---links
+Hindernis---|PixyCam| grün--Code---links:text
 ```
