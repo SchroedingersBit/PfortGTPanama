@@ -22,5 +22,4 @@ In [Quellen](/Quellen) dokumentieren wir unsere Informationsquellen von Youtube 
 In [Roboterauto](/Roboterauto/) wird ausführlich gezeigt, wie unser Auto aufgebaut ist. Wir zeigen die [Bauteile](/Roboterauto/Bauteile) des Autos sind, wie diese zusammengesetzt sind und welche davon gekauft oder von 3D-gedruckt wurden. Daneben besprechen wir die [Hardware](/Roboterauto/Hardware) mit welcher das Auto ausgestattet ist und was uns zu dieser Entscheidung bewegt hatte. In [Elektronik](/Roboterauto/Elektronik) wird unsere elektronische Verkabelung erläutert und darauf eingegangen, wie die Stromversorgung für die Motoren und Sensoren geregelt ist. Weiterhin werden unsere verwendeten [Sensoren](/Roboterauto/Sensoren) 
 erklärt, was die Besonderheiten sind und weshalb wir uns für die entschieden haben. Zusätzlich sind in [3D-Druck]{Roboterauto/3D-Druck} unsere Dateien und Arbeit für unsere gedruckten Bauteile aufgelistet.
 ### Videos und Fotos
-Bei [Videos und Fotos]{/Videos und Fotos} können sowohl der Aufbau und die einzelnen Komponenten, als auch die Leistungen unseres Autos in Teststrecken eingesehen werden. 
-
+Bei [Videos und Fotos](/Videos und Fotos) können sowohl der Aufbau und die einzelnen Komponenten, als auch die Leistungen unseres Autos in Teststrecken eingesehen werden. 
