@@ -11,7 +11,7 @@ User-right->(write uml)
 ## Überblick.
 Unser Auto wird durch einen Arduino und einen Raspberry Pi gesteuert. Es besteht aus einem fertigen Chassi welches mit individuell 3D-gedruckten Halterungen für die verschiedenen Sensoren und die Kamera ausgestattet ist. Die Stromversorgung läuft über einen Akku. Das Sensorenequipment besteht aus drei Ultraschall-Sensoren, einem Gyro-Sensor und einer Pixy Cam2. Für das Eröffnungsrennen verarbeitet ein Arduino Code den durch die Ultraschall gemessenen Abstand zu den Wänden, um kleine Lenkanpassugen des Autos zu treffen. Beim Hindernisrennen wird neben dem Ultraschall-Sensoren Code auch ein Kamera Script verwendet. Dieses sucht über die Pixy Cam nach roten und grünen Farbsignaturen und hält diese auf dem Bildschirmabschnitt (rechts oder links), welcher dem jeweiligen Abbiegen des Autos entspricht.
 ## Aufbau
-[Roboterauto](../Roboterauto/)
+[Roboterauto](/Roboterauto/)
 
 Das Auto besteht aus 4-Rädern und zwei Motoren und noch vieles mehr. 
 ## Codes
