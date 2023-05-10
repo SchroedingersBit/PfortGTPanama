@@ -1,2 +1,2 @@
 # Quellen
-Hier sind unsere Informationsquellen, Kaufverweise und Instalationspfade hinterlegt.
+Hier sind unsere Informationsquellen, getätigten Käufe und Instalationspfade hinterlegt.
