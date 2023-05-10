@@ -7,6 +7,6 @@ A{Hindernis} -->B{PixyCam erkennt Farbcode};
 B-->E{grün}-->C1{Farbcode auf linker Screenhälfte};
 B-->C{rot}-->C2{Farbcode auf rechter Screenhälfte};
 C1-->J1{Ja};
-C2-->J2{Ja};
+C2-->J1{Ja};
 C2 --> Nein; C1 --> Nein;
 ```
