@@ -17,14 +17,37 @@ J2-->L{Fährt rechts vorbei};
 ```
 
 ```mermaid
-graph TB;
-A((Hindernis)) -->|PixyCam erkennt Farbcode|B((Farbcode));
-B-->|grün|C1((Screenhälfte links));
-B-->|rot|C2((Screenhälfte rechts));
-C1-->|Ja|J1(Fährt links vorbei);
-C1-->|Nein|L((Lenkanpassung));
-C2-->|Ja|J2(Fährt rechts vorbei);
-C2-->|Nein|L;
-L-->|rechts|C1;
-L-->|links|C2;
+graph LR
+    subgraph Hindernis
+        A((Hindernis))
+        C((Farbcode))
+        C1(Farbcode links)
+        C2(Farbcode rechts)
+    end
+
+    subgraph Screenhälfte
+        E(Screenhälfte links)
+        F(Screenhälfte rechts)
+    end
+
+    subgraph Lenkanpassung
+        L(Fährt rechts vorbei)
+        R(Fährt links vorbei)
+        Lenkanpassung((Lenkanpassung))
+    end
+
+    A -- PixyCam erkennt Farbcode --> C
+    C -- grün --> E
+    C -- rot --> F
+    E --> C1
+    F --> C2
+    C1 -- Ja --> L
+    C2 -- Ja --> R
+    C1 -- Nein --> Lenkanpassung
+    C2 -- Nein --> Lenkanpassung
+    Lenkanpassung -- links --> C1
+    Lenkanpassung -- rechts --> C2
+    L --|Fährt links vorbei|A
+    R --|Fährt rechts vorbei|A
+
 ```
