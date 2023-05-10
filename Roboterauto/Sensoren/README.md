@@ -1,3 +1,3 @@
 # Sensoren
 Hier werden die Sensoren beschrieben und ihre Eigenschaften erklärt.
-PixyCam Training besprechen
+Dabei wird auch kurz auf das PixyCam Training eingegangen.
