@@ -3,6 +3,6 @@ Hier wird unsere Programmstruktur für das Hindernisrennen besprochen. Besonders
 
 ```mermaid
 graph TB;
-A{Hindernis} ---|P{PixyCam}| B{rot}--Code---C{rechts};
-A---|P| B{grün}--Code---C{links};
+A{Hindernis} -->C{PixyCam erkennt Farbcode} --> B{rot}--Code---C{rechts};
+A-->C-->D{grün}--Code---E{links};
 ```
