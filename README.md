@@ -15,3 +15,5 @@ Hier können wir die Key-Idee beschreiben und vlt. unsere grobe Struktur erklär
 X^2^
 kjnkjnkj
 klmlk kl
+jnbnkjn
+Adelon ist dumm
