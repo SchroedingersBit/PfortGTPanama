@@ -10,8 +10,8 @@ C1-->J1{Ja};
 C2 --> Nein; C1 --> Nein;
 C2-->J2{Ja};
 Nein --> Lenkanpassung;
-Lenkanpassung -->C1;
-Lenkanpassung-->C2;
+Lenkanpassung -->C2;
+Lenkanpassung-->C1;
 J1-->R{Fährt links vorbei};
 J2-->L{Fährt rechts vorbei};
 ```
