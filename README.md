@@ -19,6 +19,6 @@ In [Programme](/Programme) erläutern wir das Herzstück dieses Wettbewerbs, das
 ### Quellen
 In [Quellen](/Quellen) dokumentieren wir unsere Informationsquellen von Youtube und dem Internet. Daneben sind alle von uns getätigten Käufe für die zusätzlichen Bauteile hinterlegt und die Installationspfade und dazugehörigen Einrichtungshinweise für die von uns genutzte Software hinterlegt.
 ### Roboterauto
-In [Roboterauto](/Roboterauto/)
+In [Roboterauto](/Roboterauto/) wird ausführlich gezeigt, wie unser Auto aufgebaut ist. Wir zeigen die [Bauteile](/Roboterauto/Bauteile) des Autos sind, wie diese zusammengesetzt sind und welche davon gekauft oder von 3D-gedruckt wurden. Daneben besprechen wir die [Hardware](/Roboterauto/Hardware) mit welcher das Auto ausgestattet ist und was uns zu dieser Entscheidung bewegt hatte. In [Elektronik](/Roboterauto/Elektronik) wird unsere elektronische Verkabelung erläutert und darauf eingegangen, wie die Stromversorgung für die Motoren und Sensoren geregelt ist. Weiterhin werden die [Sensoren](/Roboterauto/Sensoren) 
 
 
