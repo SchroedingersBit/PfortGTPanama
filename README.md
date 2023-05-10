@@ -5,6 +5,7 @@ Dies ist das GitHub-repository für das autonom fahrende Auto des **PfortGT** Te
 In diesem repository gehen wir auf unseren Planungs - und Bauprozess für unser Auto ein. Wir beschreiben unsere Probleme und  Ideen, welche wir auf dem Weg hatten und erläutern unser Baupläne und Programme.
 
 ```mermaid
+flow diagram
 Bob -[#red]> Alice : hello
 Alice -[#0000FF]->Bob : ok
 ```
