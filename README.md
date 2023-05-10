@@ -12,5 +12,6 @@ User-right->(write uml)
 Hier wird das allgemein Endprodukt diskutiert
 Hier können wir die Key-Idee beschreiben und vlt. unsere grobe Struktur erklären
 ## Aufbau
+Hier ist der Aufbau
 ## Codes
-
+Hier gibt es Codes
