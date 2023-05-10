@@ -8,9 +8,9 @@ A{Hindernis} -->B{PixyCam erkennt Farbcode};
 B-->E{grün}-->C1{Farbcode auf linker Screenhälfte};
 C1-->J1{Ja};
 C1 --> Nein;
-J1-->R{Fährt links vorbei};
 Nein --> Lenkanpassung;
 Lenkanpassung-->C1;
+J1-->R{Fährt links vorbei};
 end
 
 subgraph rechts
