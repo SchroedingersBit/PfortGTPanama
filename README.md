@@ -20,7 +20,7 @@ erklärt, was die Besonderheiten sind und weshalb wir uns für die entschieden h
 ### Videos und Fotos
 Bei [Videos und Fotos](/Videos_und_Fotos) können sowohl der Aufbau und die einzelnen Komponenten, als auch die Leistungen unseres Autos in Teststrecken eingesehen werden. 
 
-```python
+```c++
 def Foo(self, bar):
   self.bar = bar
 ```
