@@ -12,14 +12,14 @@ C2 --> Nein;
 Lenkanpassung-->C1;
 Lenkanpassung -->C2;
 C1-->J{Ja};
-J-->R{Fährt links vorbei};
 
-J-->L{Fährt rechts vorbei};
+
+
 C2-->J;
 subgraph links
 E-->C1{Farbcode auf linker Screenhälfte};
 
-
+J-->R{Fährt links vorbei};
 
 
 end
@@ -27,7 +27,7 @@ end
 subgraph rechts
 C-->C2{Farbcode auf rechter Screenhälfte};
 
-
+J-->L{Fährt rechts vorbei};
 
 
 end
