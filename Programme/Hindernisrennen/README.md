@@ -3,33 +3,20 @@ Hier wird unsere Programmstruktur für das Hindernisrennen besprochen. Besonders
 
 ```mermaid
 flowchart TB;
-B-->C{rot};
+
 A{Hindernis} -->B{PixyCam erkennt Farbcode};
-B-->E{grün};
-C1 --> Nein;
-Nein --> Lenkanpassung;
-C2 --> Nein; 
-Lenkanpassung-->C1;
-Lenkanpassung -->C2;
-C1-->J{Ja};
+B-->C{rot} & E{grün};
+Lenkanpassung --- Nein;
+Lenkanpassung --> C2 & C1;
 
-
-
-C2-->J;
-subgraph links
-E-->C1{Farbcode auf linker Screenhälfte};
-
-J-->R{Fährt links vorbei};
-
-
-end
-
-subgraph rechts
+subgraph Rechts
 C-->C2{Farbcode auf rechter Screenhälfte};
-
-J-->L{Fährt rechts vorbei};
-
-
 end
+C1 & C2 --> Nein;
+subgraph Links
+E-->C1{Farbcode auf linker Screenhälfte};
+end
+
+C1 & C2---Ja;
 ```
 
