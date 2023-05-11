@@ -19,6 +19,6 @@ Datenverarbeitung:
 Installation der Arduino IDE:
 * https://www.arduino.cc/en/software
 
- Bau des funduino Autos: https://www.youtube.com/watch?v=ulTM1uV1Bvg
+
 
 
