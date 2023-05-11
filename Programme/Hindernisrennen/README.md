@@ -30,3 +30,17 @@ C1--- Lenken;
 Nein --> Lenken;
 C2 --- Lenken;
 ```
+
+```mermaid
+flowchart TB;
+
+Hindernis -->B{PixyCam Farbcode} --> Lenkanpassung;
+
+subgraph Lenkanpassung
+L{Lenkanpassung} --> C1 & C2;
+
+C2{Farbcode auf rechter Screenhälfte?} -->|Nein|L;
+
+C1{Farbcode auf linker Screenhälfte?}-->|Nein|L;
+end
+```
