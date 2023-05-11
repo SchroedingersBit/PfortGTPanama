@@ -1,6 +1,6 @@
 # PfortGT-WRO 🤖
 <div style="text-align:center">
-<img src="Videos_und_Fotos/Fotos/Logo.jpg" alt="description of image" width="25%" height="25%" style="display:block; margin:auto"></img>
+<img src="Videos_und_Fotos/Fotos/Logo.jpg" alt="description of image" width="25%" height="25%" style="display:block; margin:auto">
 </div>
 ## Einleitung
 Dies ist das GitHub-repository für das autonom fahrende Auto des **PfortGT** Teams der **Landesschule Pforta** für den **WRO Future Engineers** Wettbewerb.
