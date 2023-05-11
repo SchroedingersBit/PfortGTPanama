@@ -1,4 +1,4 @@
-# PfortGT-WRO
+# PfortGT-WRO 🤖
 
 ## Enleitung
 Dies ist das GitHub-repository für das autonom fahrende Auto des **PfortGT** Teams der **Landesschule Pforta** für den **WRO Future Engineers** Wettbewerb.
@@ -19,3 +19,8 @@ In [Roboterauto](/Roboterauto/) wird ausführlich gezeigt, wie unser Auto aufgeb
 erklärt, was die Besonderheiten sind und weshalb wir uns für die entschieden haben. Zusätzlich sind in [3D-Druck]{Roboterauto/3D-Druck} unsere Dateien und Arbeit für unsere gedruckten Bauteile aufgelistet.
 ### Videos und Fotos
 Bei [Videos und Fotos](/Videos_und_Fotos) können sowohl der Aufbau und die einzelnen Komponenten, als auch die Leistungen unseres Autos in Teststrecken eingesehen werden. 
+
+```python
+def Foo(self, bar):
+  self.bar = bar
+```
