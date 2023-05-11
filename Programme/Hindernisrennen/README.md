@@ -33,14 +33,13 @@ C2 --- Lenken;
 
 ```mermaid
 flowchart TB;
-
 Hindernis -->B{PixyCam Farbcode} --> Lenkanpassung;
-
 subgraph Lenkanpassung
 L{Lenkanpassung} --> C1 & C2;
-
 C2{Farbcode auf rechter Screenhälfte?} -->|Nein|L;
-
 C1{Farbcode auf linker Screenhälfte?}-->|Nein|L;
 end
+style C2 fill:red, stroke:none
+style C1 fill:green, stroke:none
+style Lenkanpassung stroke:none
 ```
