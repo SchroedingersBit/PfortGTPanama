@@ -14,7 +14,8 @@ Datenverarbeitung:
 * https://www.team3749.org/post/using-pixy2-and-arduino-for-vision-processing-1
 * 
 ## Arduino
- arduino ide: https://www.arduino.cc/en/software
+Installation der Arduino IDE:
+* https://www.arduino.cc/en/software
 
   pixycam doumentation: https://docs.pixycam.com/wiki/doku.php?id=wiki:v2:hooking_up_pixy_to_a_microcontroller_-28like_an_arduino-29
 
