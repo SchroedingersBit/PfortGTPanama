@@ -16,16 +16,16 @@ subgraph links
 E-->C1{Farbcode auf linker Screenhälfte};
 
 
-C1-->J1{Ja};
-J1-->R{Fährt links vorbei};
+C1-->J{Ja};
+J-->R{Fährt links vorbei};
 end
 
 subgraph rechts
 C-->C2{Farbcode auf rechter Screenhälfte};
 
 
-C2-->J2{Ja};
-J2-->L{Fährt rechts vorbei};
+C2-->J{Ja};
+J-->L{Fährt rechts vorbei};
 end
 ```
 
