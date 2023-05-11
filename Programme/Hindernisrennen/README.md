@@ -20,3 +20,13 @@ end
 C1 & C2---Ja;
 ```
 
+'''mermaid
+flowchart TB;
+
+A{Hindernis}-->B{PixyCam erkennt Farbcode};
+B-->C1{Farbcode im rechten Screen?}--> Nein;
+B-->C2{Farbcode im linken Screen?}--> Nein;
+C1--- Lenken;
+Nein --> Lenken;
+C2 --- Lenken;
+'''
