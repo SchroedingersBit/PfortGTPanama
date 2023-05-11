@@ -20,6 +20,6 @@ erklärt, was die Besonderheiten sind und weshalb wir uns für die entschieden h
 ### Videos und Fotos
 Bei [Videos und Fotos](/Videos_und_Fotos) können sowohl der Aufbau und die einzelnen Komponenten, als auch die Leistungen unseres Autos in Teststrecken eingesehen werden. 
 
-<div style="text-align:center">
+<p align="center">
 <img src="Videos_und_Fotos/Fotos/Logo.jpg" alt="description of image" width="50%" height="50%" style="display:block; margin:auto">
-</div>
+</p>
