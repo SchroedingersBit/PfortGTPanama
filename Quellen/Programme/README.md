@@ -9,6 +9,7 @@ Die PixyCam Dokumentation:
 Kallibrierung:
 * https://dronebotworkshop.com/pixy2-camera/
 * https://www.youtube.com/watch?v=Y7V7uf4-v70
+* https://www.youtube.com/watch?v=391dXDjqzXA&t=1255s
 * https://docs.pixycam.com/wiki/doku.php?id=wiki:v2:some_tips_on_generating_color_signatures_2
 * https://docs.pixycam.com/wiki/doku.php?id=wiki:v2:hooking_up_pixy_to_a_microcontroller_-28like_an_arduino-29
 Datenverarbeitung:
@@ -17,12 +18,6 @@ Datenverarbeitung:
 ## Arduino
 Installation der Arduino IDE:
 * https://www.arduino.cc/en/software
-
-
-
-
-
- pixy video:  https://www.youtube.com/watch?v=391dXDjqzXA&t=1255s
 
  Bau des funduino Autos: https://www.youtube.com/watch?v=ulTM1uV1Bvg
 
