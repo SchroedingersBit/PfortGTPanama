@@ -67,15 +67,17 @@ wird über die Abbruchbedingung das Programm beendet.
 Es wird am Ende `void print()` verwendet um die verschiedenen Sensordaten im Seriellen Monitor auszugeben und somit das Bugfixing und Verständnis von dem, was der Roboter tut, zu verbessern.
 
 ## ControlRC.h
-In dieser Header Datei sind alle Funktionen zur Steuerung desFahrzeugs basierend auf den Sensordaten enthalten.
+In dieser Header Datei sind alle Funktionen zur Steuerung des Fahrzeugs basierend auf den Sensordaten enthalten.
 Es werden Überprüfungen für die Sicherheitswinkel, Kurven und zur Aktualisierung der Referenzwinkeln initialisiert wodurch die Fahrzeugsteuerung garantiert wird.
+
 ```c++
+//Inkludieren der erforderlichen Bibliotheken.
 #ifndef Control_h
 #define Control_h
 #import <math.h>
 #include "variables.h"
 
-
+// Überprüfung, ob der Referenzwinkel in einem sicheren Berreich liegt, sodass keine Änderung im Lenken getroffen wird
 void checkSafeAngle() {
   if (referenceAngle - 10 <= roll && roll <= referenceAngle + 10) {
     safeAngle = true;
@@ -83,6 +85,7 @@ void checkSafeAngle() {
     safeAngle = false;
   }
 }
+// Aktualisiert Referenz Winkel durch Sensordaten
 void checkCurve() {
   if (abs(rightShift) >= MAX_DISTANCE - 340) {
     if (distances[0] < 90)
@@ -165,3 +168,4 @@ void drive() {
 
 #endif
 ```
+Zuerst werden in der include section, alle weiteren Bibliotheken und Header Datein importiert, die weiterhin benötigt werden. In `void checkSafeAngle()` wird überprüft, ob die Abweichungen der Ultraschall-Sensoren in einem sicheren Bereich liegen, sodass es zu keiner Änderung im Lenkverhalten kommt. Durch `void checkCurve()` wird der Referenzwinkel anhand der vorliegenden Sensordaten aktualisiert.
