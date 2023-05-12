@@ -62,6 +62,6 @@ void print() {
 
 ```
 
-Zuerst werden in `#include` alle wichtigen Header Dateien abgefragt um diese später zu verwenden. Danach wird in `void setup()` die serielle Verbindung erstellt und die Ports des Arduino aus dem Variable Header initialisiert.
+Zuerst werden in `#include` alle wichtigen Header Dateien abgefragt um diese später zu verwenden. Danach wird in `void setup()` die serielle Verbindung erstellt und die Ports des Arduino aus dem Variable Header initialisiert. Nun loopen wir in `void loop` über die Anweisungen für das Auto. Zuerst wird die UpdateControlData in der ControlRC Header Datei ausgeführt. Danach lassen wir das Auto über den drivingDC Port mit einer Geschwindigkeit fahren.
 
 Dabei wird `void print()` verwendet um die verschiedenen Sensordaten im Seriellen Monitor auszugeben und somit das Bugfixing und Verständnis von dem, was der Roboter tut, zu verbessern.
