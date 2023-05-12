@@ -62,7 +62,7 @@ void print() {
 
 ```
 
-Zuerst werden in `#include` alle wichtigen Header Dateien abgefragt um diese später zu verwenden
+Zuerst werden in `#include` alle wichtigen Header Dateien abgefragt um diese später zu verwenden. Danach wird in `void setup()` die serielle Verbindung erstellt und 
 
 Dabei wird
 ```c++
