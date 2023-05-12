@@ -2,10 +2,11 @@
 Hier werden unsere Programme und Ideen für das Eröffnungsrennen erklärt und dargestellt. Besonders sollte hier auf das Ultraschall-Sensoren Programm eingegangen werden.
 Für das Eröffnungsrennen wird kein Kamera Script benötigt. Dies liegt daran, dass allein die Spielfeldgröße im Mittelbereich angepasst wird. Daher werden nur die Ultraschall-Sensoren-Daten verarbeitet.
 
+Gestartet wird das Programm über das RC_Control.ino, welches alle weiteren Klassen öffnet und managed.
 ## RC_Control.ino
 ```c++
 #include "variables.h"  // all the vars, actuators, and sensors are defined and initialized here.
-#include "ControlRC.h"  // all functions for control, read sonsor and update variables are located here
+#include "ControlRC.h"  // all functions for control, read sensor and update variables are located here
 
 
 
@@ -18,7 +19,7 @@ void setup() {
 
 
 unsigned long stopTime = 0;  // keep track of when to stop
-
+// looping over all important classes
 void loop() {
   //drive();
   updateControlData();
@@ -46,7 +47,7 @@ void loop() {
 }
 
 
-
+// important informations for bugfixing
 void print() {
   //manager.printDistances();
   Serial.print("referenceAngle ");
@@ -60,3 +61,19 @@ void print() {
 }
 
 ```
+
+Dabei wird
+```c++
+void print() {
+  //manager.printDistances();
+  Serial.print("referenceAngle ");
+  Serial.print(referenceAngle);
+  Serial.print("       rightShift ");
+  Serial.print(rightShift);
+  Serial.print("       roll ");
+  Serial.print(roll);
+  Serial.print("       targetAngle ");
+  Serial.println(controlDataArr[0]);
+}
+```
+verwendet um die verschiedenen Sensordaten auszugeben und somit das Bugfixing und Verständnis von dem, was der Roboter tut, zu verbessern.
