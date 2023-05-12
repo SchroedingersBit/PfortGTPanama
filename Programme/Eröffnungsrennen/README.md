@@ -62,6 +62,8 @@ void print() {
 
 ```
 
+Zuerst werden in `#include` alle wichtigen Header Dateien abgefragt um diese später zu verwenden
+
 Dabei wird
 ```c++
 void print() {
@@ -76,4 +78,4 @@ void print() {
   Serial.println(controlDataArr[0]);
 }
 ```
-verwendet um die verschiedenen Sensordaten auszugeben und somit das Bugfixing und Verständnis von dem, was der Roboter tut, zu verbessern.
+verwendet um die verschiedenen Sensordaten im Seriellen Monitor auszugeben und somit das Bugfixing und Verständnis von dem, was der Roboter tut, zu verbessern.
