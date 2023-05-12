@@ -1,5 +1,4 @@
 # Eröffnungsrennen
-Hier werden unsere Programme und Ideen für das Eröffnungsrennen erklärt und dargestellt. Besonders sollte hier auf das Ultraschall-Sensoren Programm eingegangen werden.
 Für das Eröffnungsrennen wird kein Kamera Script benötigt. Dies liegt daran, dass allein die Spielfeldgröße im Mittelbereich angepasst wird. Daher werden nur die Ultraschall-Sensoren-Daten verarbeitet.
 
 ## RC_Control.ino
@@ -63,10 +62,6 @@ void print() {
 }
 
 ```
-
-Zuerst werden in `#include` alle wichtigen Header Dateien abgefragt um diese später zu verwenden. Danach wird in `void setup()` die serielle Verbindung erstellt und die Ports des Arduino aus dem Variable Header initialisiert. Nun loopen wir in `void loop` über die Anweisungen für das Auto. Zuerst wird die UpdateControlData in der ControlRC Header Datei ausgeführt. Danach lassen wir das Auto über den drivingDC Port mit einer Geschwindigkeit fahren und lenken am Ende gegebenenfalls. Sollte das Auto die drei Runden gefahren sein,
-wird über die Abbruchbedingung das Programm beendet.
-Es wird am Ende `void print()` verwendet um die verschiedenen Sensordaten im Seriellen Monitor auszugeben und somit das Bugfixing und Verständnis von dem, was der Roboter tut, zu verbessern.
 
 ## ControlRC.h
 In dieser Header Datei sind alle Funktionen zur Steuerung des Fahrzeugs basierend auf den Sensordaten enthalten.
@@ -173,7 +168,7 @@ void drive() {
 
 #endif
 ```
-Zuerst werden in der include section, alle weiteren Bibliotheken und Header Datein importiert, die weiterhin benötigt werden. In `void checkSafeAngle()` wird überprüft, ob die Abweichungen der Ultraschall-Sensoren in einem sicheren Bereich liegen, sodass es zu keiner Änderung im Lenkverhalten kommt. Durch `void checkCurve()` wird der Referenzwinkel anhand der vorliegenden Sensordaten aktualisiert.
+
 ## variables.h
 
 ```c++
