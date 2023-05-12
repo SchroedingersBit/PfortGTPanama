@@ -6,6 +6,9 @@ Ein weiterer Vorteil der PixyCam 2 ist ihre Benutzerfreundlichkeit. Sie verfügt
 
 Um die PixyCam 2 auf die Farbcodes bestimmter Objekte zu trainieren, wird die PixyMon Software verwendet. Dabei wird für ein Objekt der gewünschten Farbe in diesem Programm der Farbcode gespeichert, indem man es vor die Kamera hält. Danach werden weitere Aapassungen getroffen um die Erkennung möglichst präzise zu gestalten. Die PixyCam kann eine enorm hohe Anzahl an Objekten gleichzeitig detektieren. Allerdings benötigen wir immer nur gleichzeitig zwei Objekte mit insgesamt zwei verschiedenen Farbcodes. Die PixyCam sortiert dann das Objekt mit dem gesuchten Farbcode, welches die meisten Frames auf dem Bilfschirm einnimt, automatisch als ersten Block.
 
+![IMG_4444](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/eb3a5cff-a5a3-4a08-8798-f2fcd5b6ecfd)
+
+
 ## Ultraschall-Sensoren
 
 Die Verwendung von Ultraschallsensoren erlaubt es uns, vorallem für das Eröffnungsrennen, präzise, einfach und schnell Entfernungen zu Wändenn in der Umgebung des Fahrzeugs zu erfassen. Sie senden Ultraschallwellen aus und messen die Zeit, die benötigt wird, um das reflektierte Signal zurückzuerhalten. Dadurch können sie die Abstände zu Hindernissen oder anderen Fahrzeugen genau bestimmen. Dies ist entscheidend, um Kollisionen zu vermeiden und sicher, gerade und schnell die Kurven zu fahren.
@@ -14,6 +17,16 @@ Ein weiterer Vorteil von Ultraschallsensoren ist ihre Vielseitigkeit. Sie könne
 Für das Hindernisrennen erleichtern sie zudem die Unterscheidung zwischen den Blöcken und Problemfälle bei Kurven zu umgehen.
 Darüber hinaus arbeiten Ultraschallsensoren unabhängig von Lichtverhältnissen, was sie zuverlässig in verschiedenen Umgebungen, sowohl bei Tageslicht als auch bei Dunkelheit, macht. Sie sind unempfindlich gegenüber äußeren Einflüssen wie Blendung oder Reflexionen, die bei anderen Sensoren wie Kameras auftreten können. Allerdings hatten wir auch mit einem großen Problem zu kämpfen, was die Reflexion an schiefen Wänden betrifft, da eine nur geringfügig geneigte Wand, den Abstand zu dieser sehr stark beeinflussen konnte. Dies haben wir versucht in unserem Programm durch Fehlertoleranzen und Sensordatenbedingungen so weit wie möglich zu beheben.
 
+![5c7eafda-9405-4aaf-88a4-fdd4acd6300d](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/676ffe3f-2a61-47e1-96a9-5eed88ad20de)
+![IMG_4425](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/181f1490-14f6-43e2-95a2-e8d1b493da5a)
+
+
+
+
 ## Gyroskop
 
 Um das Auto nach drei Runden zum Stoppen zu bringen wurde zusätzlich ein Gyroskop installiert, welches die gedrehten Winkel bei Kurven misst und nach 1080° den Motor zum stoppen bringt. Außerdem hilft es bei der Lenkkorrektur.
+
+
+![IMG_4445](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/86dd095a-c874-4c95-8dc8-72763162c80c)
+
