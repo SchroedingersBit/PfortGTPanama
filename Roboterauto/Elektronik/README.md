@@ -22,7 +22,7 @@ Wir benutzen einen L298N-Driver der zwei Motoren kontrollieren kann. Ebenfalls h
 ## Arduino
 Wir benutzen einen Arduino MEGA 2560 (Rev3) für eine erhöhte Rechenleistung. Zusätzlich zum Arduino benutzen wir einen Arduino Uno Prototype Proto Shield V5, um mehr Pins auf einen kleinen Platz zu haben. Wir haben Erdungspins und Spannungspins auf dem weißen board angeschlossen. Die Pins von 2-7 sind mit entweder mit Trig oder Echo für das Ultraschallsensor besetzt. Die Pins 11 bzw. 13 sind ENA bzw. ENB und Pin 9 Kontrollpin für den Servomotor. Das 3V orangene Kabel geht zum Gyro, weil es maximal 3.3V aushält. Das Gyro wird deshalb auch gleich über den arduino geerdet.
 
-![Arduino](https://github.com/SchroedingersBit/PfortGT-WRO/assets/93491768/1ac03311-9406-42e7-9743-2a5356507fdc)
+![Arduino](https://github.com/SchroedingersBit/PfortGT-WRO/assets/93491768/d9f0fbc2-7ac8-450e-85b8-eed33ab25070)
 
 ## Batterie
 Wir benutzen eine URGENEX 7.4V Li-ion Akku für die Versorgung von unserem Roboter. Der Akku liefert 7.4V mit 2000mAh was genügemd ist laut unseren Berechnungen. Denn der DC-Motor arbeitet sehr gut mit 7.4V und unsere Stromstärke kann maximal für eine kurze Zeit 2A betragen, wodurch wir eine Stunde arbeiten könnten. Die Erdung ist mit dem Schalter verbunden, welche anschließend mit den Erdungspins verbunden ist.  
