@@ -12,16 +12,13 @@ Unser Repository ist in mehrere Untergruppen aufgeteilt, in welchem die einzelne
 In [Entwicklung](/Entwicklung) beschreiben wir unseren Entwicklungsweg. Dabei gehen wir auf unsere Ideen ein, die wir währendessen hatten, Probleme welche uns beschäftigten und wie wir sie gelöst haben. Zum Schluss beleuchten wir kurz neue Probleme mit welchem wir uns noch auseinandersetzten und unsere zukünftigen Verbesserungen und Ideen für dieses Projekt.
 ### Programme
 In [Programme](/Programme) erläutern wir das Herzstück dieses Wettbewerbs, das Coding. Wir beschreiben und erklären dabei unsere Struktur, die Entscheidung für C++ und die zwei Schwerpunkte [Eröffnunggsrennen](Programme/Eröffnungsrennen) und [Hindernisrennen](Programme/Hindernisrennen).
-### Quellen
-In [Quellen](/Quellen) dokumentieren wir unsere Informationsquellen von Youtube und dem Internet. Daneben sind alle von uns getätigten Käufe für die zusätzlichen Bauteile hinterlegt und die Installationspfade und dazugehörigen Einrichtungshinweise für die von uns genutzte Software hinterlegt.
 ### Roboterauto
 In [Roboterauto](/Roboterauto/) wird ausführlich gezeigt, wie unser Auto aufgebaut ist. Es werden die [Bauteile](/Roboterauto/Bauteile) des Autos gezeigt, wie diese zusammengesetzt sind und welche davon gekauft oder 3D-gedruckt wurden. Daneben besprechen wir die [Hardware](/Roboterauto/Hardware) mit welcher das Auto ausgestattet ist und was uns zu dieser Entscheidung bewegt hatte. In [Elektronik](/Roboterauto/Elektronik) wird unsere elektronische Verkabelung erläutert und darauf eingegangen, wie die Stromversorgung für die Motoren und Sensoren geregelt ist. Weiterhin werden unsere verwendeten [Sensoren](/Roboterauto/Sensoren) 
 erklärt, was die Besonderheiten sind und weshalb wir uns für diese entschieden haben. Zusätzlich sind in [3D-Druck]{/Roboterauto/3D-Druck} unsere Dateien und Arbeit für unsere gedruckten Bauteile aufgelistet.
 ### Videos und Fotos
 Bei [Videos und Fotos](/Videos_und_Fotos) können sowohl der Aufbau und die einzelnen Komponenten, als auch die Leistungen unseres Autos in Teststrecken eingesehen werden. 
-
-
-
+### Quellen
+In [Quellen](/Quellen) dokumentieren wir unsere Informationsquellen von Youtube und dem Internet. Daneben sind alle von uns getätigten Käufe für die zusätzlichen Bauteile hinterlegt und die Installationspfade und dazugehörigen Einrichtungshinweise für die von uns genutzte Software hinterlegt.
 
 <p align="center">
 <img src="Videos_und_Fotos/Fotos/Logo2.png" alt="description of image" width="30%" height="30%" style="display:block; margin:auto">
