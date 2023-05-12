@@ -5,11 +5,12 @@ Für das Eröffnungsrennen wird kein Kamera Script benötigt. Dies liegt daran, 
 ## RC_Control.ino
 Gestartet wird das Programm über das RC_Control.ino, welches alle weiteren Klassen öffnet und managed.
 ```c++
+//Inkludieren der erforderlichen Bibliotheken und Verwendung der Header Datein
 #include "variables.h"  // all the vars, actuators, and sensors are defined and initialized here.
-#include "ControlRC.h"  // all functions for control, read sensor and update variables are located here
+#include "ControlRC.h"  // all functions for control, read sonsor and update variables are located here
 
 
-
+//serielle Verbindung erstellen und die Ports des Arduino aus dem Variable Header initialisieren
 void setup() {
   Serial.begin(9600);
   while (!Serial) delay(10);
@@ -18,8 +19,8 @@ void setup() {
 }
 
 
-unsigned long stopTime = 0;  // keep track of when to stop
-// looping over all important classes
+unsigned long stopTime = 0;  // um zu wisen, wann gestoppt werden muss
+//  Anweisungen für das Auto
 void loop() {
   //drive();
   updateControlData();
@@ -32,9 +33,10 @@ void loop() {
 
 
 
+
   //Abbruchbedingung nachdem 3 Runden gefahren wurden
   if (stop && stopTime == 0) {
-    stopTime = millis() + 2000;  // keep driving for 3 more seconds
+    stopTime = millis() + 2000;  // weiterfahren für 3 weitere Sekunden
   }
 
   if (stopTime > 0 && millis() >= stopTime) {
@@ -47,7 +49,7 @@ void loop() {
 }
 
 
-// important informations for bugfixing
+// verschiedenen Sensordaten im Seriellen Monitor für Bugfixing und Verständnis von dem, was der Roboter tut
 void print() {
   //manager.printDistances();
   Serial.print("referenceAngle ");
@@ -77,7 +79,7 @@ Es werden Überprüfungen für die Sicherheitswinkel, Kurven und zur Aktualisier
 #import <math.h>
 #include "variables.h"
 
-// Überprüfung, ob der Referenzwinkel in einem sicheren Berreich liegt, sodass keine Änderung im Lenken getroffen wird
+// Überprüfung, ob der Referenzwinkel in einem sicheren Berreich liegt, sodass dabei die Ultraschall-Sensoren sichere Werte verwenden
 void checkSafeAngle() {
   if (referenceAngle - 10 <= roll && roll <= referenceAngle + 10) {
     safeAngle = true;
@@ -85,7 +87,8 @@ void checkSafeAngle() {
     safeAngle = false;
   }
 }
-// bestimmt, ob eine Kurve detektiert wurde anhand der Right 
+
+//  Untersuchung durch die Ultraschall-Sensoren, ob eine Kurve detektiert wird
 void checkCurve() {
   if (abs(rightShift) >= MAX_DISTANCE - 340) {
     if (distances[0] < 90)
@@ -95,11 +98,13 @@ void checkCurve() {
         else referenceAngle += 90;
   }
 }
+// Anpassung des Referenz Winkels, um ein gerades Fahren zu garantieren
 void updateReference() {
   if (safeAngle)
     if ((abs(rightShift) - abs(lastShift)) >= 0)
       referenceAngle = roll;
 }
+// Untersuchung durch die Gyrosensoren, ob der Auto sich bereits 3*360° gedreht hat, dann Auto stoppen
 void stopCheck() {
   int numberOfRounds = 3;
   if (abs(referenceAngle) >= numberOfRounds * 360-20)
@@ -107,18 +112,18 @@ void stopCheck() {
   else
     stop = false;
 }
-
+// neue Sensordaten
 void updateSensorData() {
   manager.readDistances(distances);
   roll = orientation.getTotalRoll();
 }
-
+// Führt vorherige Funktionen aus
 void updateChecks() {
   checkSafeAngle();
   checkCurve();
   stopCheck();
 }
-
+// wird durch RC_Control.ino gestartet und startet andere Funktionen, berechnet die verschiedenen WInkel und Anpassungen
 void updateControlData() {
   updateSensorData();
   updateChecks();
@@ -126,13 +131,13 @@ void updateControlData() {
   int rightDistance = distances[1];
   int leftDistance = distances[2];
 
-  //compute Target Velocity
+  //berechnet Richtgeschwindigkeit
 
   const float FACTOR = 1.0f;     // 2
   const float FACTOR2 = 0.005f;  //0.01
   float target_velocity = frontDistance * FACTOR * tanh(frontDistance * FACTOR2);
 
-  //compute Steering Angle
+  //berechnet Steuerwinkel 
 
   const float FACTOR_Steering = 5.0f;  //5
   // Calcualte relative lateral position on the road
@@ -148,18 +153,18 @@ void updateControlData() {
   controlDataArr[1] = target_velocity;
   lastShift = rightShift;
 }
-
+// Weiterleiten der berechneten Daten zum Servo, passt damit die Lenkung an
 void control_servo() {
   float target_car_angle = controlDataArr[0];
   float err = target_car_angle - roll;
   steeringServo.drive(err * 0.1);
 }
-
+// passt den DC`s und damit die Geschwindigkeit an
 void control_DC() {
   float target_velocity = controlDataArr[1];
   drivingDC.drive(target_velocity);
 }
-
+// führt vorherige Funktionen aus
 void drive() {
   updateControlData();
   control_servo();
