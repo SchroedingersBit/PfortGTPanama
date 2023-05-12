@@ -41,5 +41,34 @@ Die Abstandshalter werden benötigt, um verschiedene Kontakte zu isolieren bzw. 
 ![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/706013ab-588e-4522-b754-a6072ea3c4ae)
 ![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/3339c621-4b77-49e8-9c8f-8b8f87df40b4)
 
+## Befestigungspins
 
+Die Befestigungspins bestehen aus kleinen Plastik-Stäben und einem Kopf. Die Stäbe schiebt man durch Befestigungslöcher, bis der Kopf auf Anschlag an der Befestigung befindet.
+Danach kann man das andere Ende kurz erwärmen und dann umbiegen. So hat man eine statische, präzise Lösung, um die Sensoren an den Halterungen zu befestigen. Für Testfahrten wurden jedoch noch Kabel statt den Pins benutzt, weil diese nicht so schnell kaputt gehen. Der Nachteil von Kabeln bzw Drähten besteht darin, dass man diese nicht so eng befestigen kann, weshalb mehr Spielraum entsteht.
+
+![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/1840c780-e0f0-46ae-92cb-bfacb7737746)
+![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/8cb851f1-fbc1-49db-9ed4-e9e78871d5a0)
+
+## Kameraturm
+
+Die Kamera sollte sich möglichst hoch auf dem Auto befinden (siehe Quellen: p04-cv.md), des Weiteren möglichst weit hinten, um eine große Übersicht zu gewährleiste, Hindernisse möglichst lange detektieren und Hindernisse hintereinander in Bezug auf die Nähe unterscheiden zu können. Daher hat sich ein Kameraturm entwickelt, auf welchen später die Kamera mit den Kamera-Winkelhaltern geschraubt wird:
+
+![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/c90109df-be5c-4b59-a350-b282f2f6e751)
+ ![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/97419905-2b49-478c-ba52-a381e009ba3b)
+
+Die Dreiecke in dem Turm wurden eingefügt, um Material zu sparen und möglicherweise in der Zukunft jegliche Bauteile grob zu befestigen.
+
+## Kamerawinkelhalter
+
+Der Winkelhalter befestigt die Halterung der Kamera an dem Kameraturm. Benötigt wurde dieser, weil die mit der Kamera gelieferten Winkel ein Gewinde hatten und dadurch nicht mit unseren Schrauben kompatibel waren. Da aber die Kamera kippbar sein soll, was mit dem gelieferten 	Set-Up nicht möglich ist, hilft der gedruckte Winkelhalter, um die Kamera auf ein Podest mit den Abstandhaltern zu bringen und diese drehbar zu machen.
+
+![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/167f8610-e2bf-464e-b64f-2441e8a8a8b2)
+![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/47792d3a-98a6-4b98-be97-1235ac51ee6a)
+
+## Zahnradschutz
+
+Der Zahnradschutz ist ein Bauteil, welches verhindert, dass jegliche Kabel in die Nähe von den Zahnrädern kommen:
+
+![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/a2a0a6d3-8255-4c50-88c8-af9d3d2167fa)
+![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/4c2b8b5c-709c-4c04-b5cf-10b5cbfd8903)
 
