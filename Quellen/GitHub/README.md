@@ -3,4 +3,4 @@
 * https://jojozhuang.github.io/tutorial/mermaid-cheat-sheet/
 * https://mermaid.js.org/syntax/flowchart.html?id=flowcharts-basic-syntax
 * https://www.youtube.com/watch?v=u-_uGO95xco
-* https://smashinglogo.com/de
+
