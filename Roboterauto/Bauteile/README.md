@@ -46,8 +46,10 @@ Die Abstandshalter werden benötigt, um verschiedene Kontakte zu isolieren bzw. 
 Die Befestigungspins bestehen aus kleinen Plastik-Stäben und einem Kopf. Die Stäbe schiebt man durch Befestigungslöcher, bis der Kopf auf Anschlag an der Befestigung befindet.
 Danach kann man das andere Ende kurz erwärmen und dann umbiegen. So hat man eine statische, präzise Lösung, um die Sensoren an den Halterungen zu befestigen. Für Testfahrten wurden jedoch noch Kabel statt den Pins benutzt, weil diese nicht so schnell kaputt gehen. Der Nachteil von Kabeln bzw Drähten besteht darin, dass man diese nicht so eng befestigen kann, weshalb mehr Spielraum entsteht.
 
+<p align="center">
 ![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/1840c780-e0f0-46ae-92cb-bfacb7737746)
 ![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/8cb851f1-fbc1-49db-9ed4-e9e78871d5a0)
+</p>
 
 ## Kameraturm
 
