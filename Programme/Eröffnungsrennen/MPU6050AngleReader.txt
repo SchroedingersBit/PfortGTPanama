@@ -1,0 +1,68 @@
+#include <Wire.h>
+#include <Adafruit_MPU6050.h>
+#include <Adafruit_Sensor.h>
+
+class MPU6050AngleReader {
+private:
+  Adafruit_MPU6050 mpu;
+  float initialAngle;
+  unsigned long prevTime;
+  float gyroXOffset, gyroYOffset, gyroZOffset;
+  float gyroX, gyroY, gyroZ;
+
+public:
+  MPU6050AngleReader() {
+  }
+  void init() {
+
+    if (!mpu.begin()) {
+      Serial.println("Failed to find MPU6050 chip");
+      while (1) {
+        delay(10);
+      }
+    }
+    mpu.setAccelerometerRange(MPU6050_RANGE_2_G);
+    mpu.setGyroRange(MPU6050_RANGE_250_DEG);
+    mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
+    delay(100);
+  }
+  void calibrateGyro() {
+    gyroXOffset = 0;
+    gyroYOffset = 0;
+    gyroZOffset = 0;
+    for (int i = 0; i < 1000; i++) {
+      sensors_event_t a, g, temp;
+      mpu.getEvent(&a, &g, &temp);
+      gyroXOffset += g.gyro.x;
+      gyroYOffset += g.gyro.y;
+      gyroZOffset += g.gyro.z;
+      delay(1);
+    }
+    gyroXOffset /= 1000;
+    gyroYOffset /= 1000;
+    gyroZOffset /= 1000;
+  }
+
+  void initializeAngle() {
+    initialAngle = 0;
+    prevTime = millis();
+  }
+
+  float readRotationAngle() {
+    sensors_event_t a, g, temp;
+    mpu.getEvent(&a, &g, &temp);
+
+    gyroX = g.gyro.x - gyroXOffset;
+    gyroY = g.gyro.y - gyroYOffset;
+    gyroZ = g.gyro.z - gyroZOffset;
+
+    unsigned long currentTime = millis();
+    float elapsedTime = (currentTime - prevTime) / 1000.0;
+    prevTime = currentTime;
+
+    float angleChange = gyroZ * elapsedTime;
+    initialAngle += angleChange;
+
+    return initialAngle;
+  }
+};
