@@ -27,7 +27,7 @@ Wir benutzen einen Arduino MEGA 2560 (Rev3) für eine erhöhte Rechenleistung. Z
 ## Batterie
 Wir benutzen eine URGENEX 7.4V Li-ion Akku für die Versorgung von unserem Roboter. Der Akku liefert 7.4V mit 2000mAh was genügemd ist laut unseren Berechnungen. Denn der DC-Motor arbeitet sehr gut mit 7.4V und unsere Stromstärke kann maximal für eine kurze Zeit 2A betragen, wodurch wir eine Stunde arbeiten könnten. Die Erdung ist mit dem Schalter verbunden, welche anschließend mit den Erdungspins verbunden ist.  
 
-![Batterie + Knopf](https://github.com/SchroedingersBit/PfortGT-WRO/assets/93491 768/e1a1a315-4fa6-4dfe-9000-c42643ecce16)
+![Batterie + Knopf](https://github.com/SchroedingersBit/PfortGT-WRO/assets/93491768/2f4fe213-dc1e-48c4-af92-1f101684ee40)
 
 ## Ultraschallsensoren
 Der Servomotor ist hinter den Ultraschallsensoren angeschlossen und wir benutzen die HC-SR04 Ultraschallsensoren.
