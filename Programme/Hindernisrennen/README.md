@@ -1,6 +1,7 @@
 # Hindernisrennen
 
 ## RC_Control.ino
+Für das RC_Control.ino Programm ändert sich nicht viel. Allein, die Bugfixing Angaben werden mehr um auch für die Kamera Informationen zu erhalten.
 ```c++
 #include "variables.h"  // all the vars, actuators, and sensors are defined and initialized here.
 #include "ControlRC.h"  // all functions for control, read sonsor and update variables are located here
