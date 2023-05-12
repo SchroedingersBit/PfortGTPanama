@@ -19,6 +19,12 @@ Wir benutzen einen L298N-Driver der zwei Motoren kontrollieren kann. Ebenfalls h
 ![driver](https://github.com/SchroedingersBit/PfortGT-WRO/assets/93491768/011ca2d6-0b49-4f2f-8c29-943fe6d20fa5)
 
 ## Arduino
-Wir benutzen einen Arduino MEGA 2560 (Rev3) für eine erhöhte Rechenleistung. Zusätzlich zum Arduino benutzen wir einen Arduino Uno Prototype Proto Shield V5, um mehr Pins auf einen kleinen Platz zu haben. Wir haben Erdungspins und Spannungspins auf dem weißen board angeschlossen. Die Pins von 2-7 sind mit entweder mit Trig oder Echo für das Ultraschallsensor besetzt. Die Pins 11 bzw. 13 sind ENA bzw. ENB und Pin 
-![Arduino](https://github.com/SchroedingersBit/PfortGT-WRO/assets/93491768/8c7a1695-93b6-4a1a-ac94-76b5b4b5c7c3)
+Wir benutzen einen Arduino MEGA 2560 (Rev3) für eine erhöhte Rechenleistung. Zusätzlich zum Arduino benutzen wir einen Arduino Uno Prototype Proto Shield V5, um mehr Pins auf einen kleinen Platz zu haben. Wir haben Erdungspins und Spannungspins auf dem weißen board angeschlossen. Die Pins von 2-7 sind mit entweder mit Trig oder Echo für das Ultraschallsensor besetzt. Die Pins 11 bzw. 13 sind ENA bzw. ENB und Pin 9 Kontrollpin für den Servomotor. Das 3V orangene Kabel geht zum Gyro, weil es maximal 3.3V aushält. Das Gyro wird deshalb auch gleich über den arduino geerdet.
+![Arduino](https://github.com/SchroedingersBit/PfortGT-WRO/assets/93491768/1ac03311-9406-42e7-9743-2a5356507fdc)
+
+## Batterie
+
+![Batterie + Knopf](https://github.com/SchroedingersBit/PfortGT-WRO/assets/93491768/e1a1a315-4fa6-4dfe-9000-c42643ecce16)
+
+
 
