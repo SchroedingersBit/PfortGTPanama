@@ -1,5 +1,7 @@
 # Sensoren
 Hier werden die Sensoren beschrieben und ihre Eigenschaften erklärt.
 ## PixyCam
-Für die Kamera wure die PixyCam 2 gewählt. Diese verfügt bereits über 
-Dabei wird auch kurz auf das PixyCam Training eingegangen.
+Für die Kamera wure die PixyCam 2 gewählt. Diese ist eine beliebte Wahl für Robotikprojekte mit autonom fahrenden Autos aus mehreren Gründen. Erstens bietet sie eine zuverlässige und präzise Bildverarbeitungsfunktion, die speziell für die Erkennung und Verfolgung von Objekten entwickelt wurde. Dies ermöglicht dem autonomen Fahrzeug, visuelle Informationen in Echtzeit zu erfassen und Entscheidungen basierend auf den erkannten Objekten zu treffen.
+Ein weiterer Vorteil der PixyCam 2 ist ihre Benutzerfreundlichkeit. Sie verfügt über eine einfache Schnittstelle und eine gut dokumentierte API, die die Integration in verschiedene Plattformen und Programmiersprachen erleichtert. Dies ist für uns sehr praktisch, da sich die Bibliothek für Arduino sehr leicht einrichten lässt und viele QUellen im Internet dazu zur Verfügung stehen. Darüber hinaus zeichnet sich die PixyCam 2 durch ihre kompakte Größe und geringen Stromverbrauch aus, was sie ideal für den Einsatz in autonomen Fahrzeugen macht, bei denen Platz und Energieeffizienz wichtige Faktoren sind.
+
+Um die PixyCam 2 auf die Farbcodes bestimmter Objekte zu trainieren, wird die PixyMon Software verwendet. Dabei wird für ein Objekt der gewünschten Farbe in diesem Programm der arbcode gespeichert, indem man es vor die Kamera hält. Danach werden weitere ANpassungen getroffen um die Erkennung möglichst präzise zu gestalten.
