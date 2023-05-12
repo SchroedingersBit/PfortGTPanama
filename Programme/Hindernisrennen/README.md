@@ -275,7 +275,7 @@ void drive() {
 ```
 
 ## camera.h
-
+In camera.h wird wie beim Ultrasonic Manager die Kamera und ihre Verbindung zum Arduino aufgebaut und initialisiert. Es werden insgesammt die Farbe, Breite und Position der detektierten Farbcodes bestimmt.
 ```c++
 #include <Pixy2.h>
 
