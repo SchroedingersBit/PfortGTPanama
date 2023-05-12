@@ -242,3 +242,348 @@ void initializeHardware() {
 
 #endif
 ```
+
+## UltrasonicManager.h
+
+```c++
+//Inkludieren der erforderlichen Bibliotheken.
+#ifndef UltraSonic_h
+#define UltraSonic_h
+#include <NewPing.h>
+#include <RunningMedian.h>
+
+
+#define MAX_DISTANCE 400  // Maximum distance in centimeters
+#define BUFFER_SIZE 1    // Number of measurements to store for median calculation
+
+// Vermittlung zwischen Pins und Arduino, Median für die Wichtigkeit der Sensordaten um Messfehler zu minimieren
+class UltrasonicManager {
+public:
+  UltrasonicManager(uint8_t frontTrigPin, uint8_t frontEchoPin, uint8_t rightTrigPin, uint8_t rightEchoPin, uint8_t leftTrigPin, uint8_t leftEchoPin)
+    : frontSensor(frontTrigPin, frontEchoPin, MAX_DISTANCE),
+      rightSensor(rightTrigPin, rightEchoPin, MAX_DISTANCE),
+      leftSensor(leftTrigPin, leftEchoPin, MAX_DISTANCE),
+      median_front(BUFFER_SIZE),
+      median_right(BUFFER_SIZE),
+      median_left(BUFFER_SIZE) {}
+
+
+
+  void readDistances(float distances[3]) {
+    int frontMess = frontSensor.ping_cm();
+    int rightMess = rightSensor.ping_cm();
+    int leftMess = leftSensor.ping_cm();
+    if (frontMess != 0)
+      median_front.add(frontMess);
+    if (rightMess != 0)
+      median_right.add(rightMess);
+    if (leftMess != 0)
+      median_left.add(leftMess);
+
+    frontDistance = median_front.getMedian();
+    //frontDistance = (frontDistance != 0) ? frontDistance : MAX_DISTANCE;
+    rightDistance = median_right.getMedian();
+    //rightDistance = (rightDistance != 0) ? rightDistance : MAX_DISTANCE;
+    leftDistance = median_left.getMedian();
+    //leftDistance = (leftDistance != 0) ? leftDistance : MAX_DISTANCE;
+
+    distances[0] = frontDistance;
+    distances[1] = rightDistance;
+    distances[2] = leftDistance;
+
+
+    /*frontDistance = frontSensor.ping_cm();
+    frontDistance = (frontDistance != 0) ? frontDistance : MAX_DISTANCE;
+    distances[0] = frontDistance;
+    rightDistance = rightSensor.ping_cm();
+    rightDistance = (rightDistance != 0) ? rightDistance : MAX_DISTANCE;
+    distances[1] = rightDistance;
+    leftDistance = leftSensor.ping_cm();
+    leftDistance = (leftDistance != 0) ? leftDistance : MAX_DISTANCE;
+    distances[2] = leftDistance;*/
+
+    //printDistances();
+  }
+// Sensordaten für Bugfixing und Verständnis
+  void printDistances() {
+    Serial.print("front: ");
+    Serial.print(frontDistance);
+    Serial.print(" cm\ right: ");
+    Serial.print(rightDistance);
+    Serial.print(" cm\ left: ");
+    Serial.print(leftDistance);
+    Serial.println(" cm");
+  }
+
+private:
+  NewPing frontSensor;  // Front Sensor
+  NewPing rightSensor;  // Right Sensor
+  NewPing leftSensor;   // Left  Sensor
+  unsigned int frontDistance;
+  unsigned int rightDistance;
+  unsigned int leftDistance;
+  RunningMedian median_front;
+  RunningMedian median_right;
+  RunningMedian median_left;
+};
+
+
+#endif
+```
+
+## SeriallO.h
+
+```c++
+//Inkludieren der erforderlichen Bibliotheken.
+#ifndef SerialIO_h
+#define SerialIO_h
+#include <Arduino.h>
+#include "variables.h"
+
+class SerialIO {
+private:
+  int baud = 9600;
+public:
+  SerialIO() {}  //Default constructor
+  void init() {
+    Serial.begin(baud);
+    Serial.flush();
+  }
+
+  bool available() {
+    return Serial.available();
+  }
+  double getDouble() {
+    double value;
+    String line = Serial.readStringUntil('\n');
+    line.trim();
+    value = line.toDouble();
+    return value;
+  }
+  String getLine() {
+    String line;
+    line = Serial.readStringUntil('\n');
+    line.trim();
+    return line;
+  }
+
+  void getMoveData(float moveDataArr[]) {
+    String line;
+    float setAngle, setSpeed;
+    line = Serial.readStringUntil('\n');
+    int angleIndex = line.indexOf("Angle=") + 6;
+    int speedIndex = line.indexOf("Speed=") + 6;
+    setAngle = line.substring(angleIndex, line.indexOf(';', angleIndex)).toFloat();
+    setSpeed = line.substring(speedIndex, line.indexOf(';', speedIndex)).toFloat();
+    moveDataArr[0] = setAngle;
+    moveDataArr[1] = setSpeed;
+  }
+};
+
+#endif
+
+```
+## MyServo.h
+
+```c++
+//Inkludieren der erforderlichen Bibliotheken.
+#ifndef MyServo_h
+#define MyServo_h
+
+#include <Arduino.h>
+#include <Servo.h>
+// Vermittlung zwischen Pins des Servos und Arduino, Berechnen der passenden Servospannung durch Servo Bibliothek
+class MyServo {
+private:
+  byte pin;
+  byte limitR = 120;  //Winkel muss < 120
+  byte limitL = 40;   //Winkel muss >35
+  byte straightAngle = 90;
+  Servo steeringServo;
+public:
+  MyServo() {}  //Default constructor  // do not use
+
+  MyServo(byte pin) {
+    this->pin = pin;
+  }
+
+  void init() {
+    steeringServo.attach(pin);
+    reset();
+  }
+  void reset() {
+    steeringServo.write(straightAngle);
+  }
+  //Rotate with in the limits
+  double rotatAngle(byte angle) {
+    if (angle > limitR) {
+      angle = limitR;
+    }
+    if (angle < limitL) {
+      angle = limitL;
+    }
+    steeringServo.write(angle);
+    return angle;
+  }
+
+  // value =0 ==> straightAngle / value =1 ==> limitR / value =-1 ==> limitL
+  double drive(float value) {
+    if (value >= 0) {
+      if (value > 1) {
+        value = 1;
+      }
+      value = (limitR - straightAngle) * value + straightAngle;
+    } else {
+      if (value < -1) {
+        value = -1;
+      }
+      value = (-limitL + straightAngle) * value + straightAngle;
+    }
+    steeringServo.write(value);
+    return value;
+  }
+};
+
+
+#endif
+
+```
+
+## MyDC.h
+
+```c++
+//Inkludieren der erforderlichen Bibliotheken.
+#ifndef MyDC_h
+#define MyDC_h
+
+#include <Arduino.h>
+// Vermittlung zwischen Pins des DC`s, Berechenen  der DC Spannung
+class MyDC {
+private:
+  byte pin;
+public:
+  MyDC() {}  //Default constructor  // do not use
+
+  MyDC(byte pin) {
+    this->pin = pin;
+  }
+
+  void init() {
+    pinMode(pin, OUTPUT);
+  }
+  //Geschwindigkeit muss zwischen 0 und 100 sein
+  void drive(float speed) {
+    speed= (speed>100)? 100:speed;
+    speed= (speed>0)?max(40,speed):speed;
+    speed = map(speed, 0, 100, 0, 255);
+    analogWrite(pin, speed);
+  }
+};
+#endif
+
+```
+
+## ControlRC.h
+
+```c++
+//Inkludieren der erforderlichen Bibliotheken.
+#ifndef Control_h
+#define Control_h
+#import <math.h>
+#include "variables.h"
+
+// Überprüfung, ob der Referenzwinkel in einem sicheren Berreich liegt, sodass dabei die Ultraschall-Sensoren sichere Werte verwenden
+void checkSafeAngle() {
+  if (referenceAngle - 10 <= roll && roll <= referenceAngle + 10) {
+    safeAngle = true;
+  } else {
+    safeAngle = false;
+  }
+}
+
+//  Untersuchung durch die Ultraschall-Sensoren, ob eine Kurve detektiert wird
+void checkCurve() {
+  if (abs(rightShift) >= MAX_DISTANCE - 340) {
+    if (distances[0] < 90)
+      if (safeAngle)
+        if (rightShift > 0)
+          referenceAngle -= 90;
+        else referenceAngle += 90;
+  }
+}
+// Anpassung des Referenz Winkels, um ein gerades Fahren zu garantieren
+void updateReference() {
+  if (safeAngle)
+    if ((abs(rightShift) - abs(lastShift)) >= 0)
+      referenceAngle = roll;
+}
+// Untersuchung durch die Gyrosensoren, ob der Auto sich bereits 3*360° gedreht hat, dann Auto stoppen
+void stopCheck() {
+  int numberOfRounds = 3;
+  if (abs(referenceAngle) >= numberOfRounds * 360-20)
+    stop = true;
+  else
+    stop = false;
+}
+// neue Sensordaten
+void updateSensorData() {
+  manager.readDistances(distances);
+  roll = orientation.getTotalRoll();
+}
+// Führt vorherige Funktionen aus
+void updateChecks() {
+  checkSafeAngle();
+  checkCurve();
+  stopCheck();
+}
+// wird durch RC_Control.ino gestartet und startet andere Funktionen, berechnet die verschiedenen WInkel und Anpassungen
+void updateControlData() {
+  updateSensorData();
+  updateChecks();
+  int frontDistance = distances[0];
+  int rightDistance = distances[1];
+  int leftDistance = distances[2];
+
+  //berechnet Richtgeschwindigkeit
+
+  const float FACTOR = 1.0f;     // 2
+  const float FACTOR2 = 0.005f;  //0.01
+  float target_velocity = frontDistance * FACTOR * tanh(frontDistance * FACTOR2);
+
+  //berechnet Steuerwinkel 
+
+  const float FACTOR_Steering = 5.0f;  //5
+  // Calcualte relative lateral position on the road
+  // (how far towards right border is the cart located)
+  rightShift = leftDistance - rightDistance;
+  // The closer the cart is to the right border, the more it should steer to the left (and vice versa).
+  // (Steering to the right = positive steering angle)
+  // To achieve this in a smooth way, a parameter-tuned tanh function can be used.
+  float target_car_angle = -1 * (FACTOR_Steering / min(frontDistance, 40)) * rightShift * tanh(abs(rightShift)) + referenceAngle;
+  updateReference();
+
+  controlDataArr[0] = target_car_angle;
+  controlDataArr[1] = target_velocity;
+  lastShift = rightShift;
+}
+// Weiterleiten der berechneten Daten zum Servo, passt damit die Lenkung an
+void control_servo() {
+  float target_car_angle = controlDataArr[0];
+  float err = target_car_angle - roll;
+  steeringServo.drive(err * 0.1);
+}
+// passt den DC`s und damit die Geschwindigkeit an
+void control_DC() {
+  float target_velocity = controlDataArr[1];
+  drivingDC.drive(target_velocity);
+}
+// führt vorherige Funktionen aus
+void drive() {
+  updateControlData();
+  control_servo();
+  control_DC();
+}
+
+#endif
+
+```
