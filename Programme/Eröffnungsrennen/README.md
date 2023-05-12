@@ -64,18 +64,4 @@ void print() {
 
 Zuerst werden in `#include` alle wichtigen Header Dateien abgefragt um diese später zu verwenden. Danach wird in `void setup()` die serielle Verbindung erstellt und 
 
-Dabei wird
-```c++
-void print() {
-  //manager.printDistances();
-  Serial.print("referenceAngle ");
-  Serial.print(referenceAngle);
-  Serial.print("       rightShift ");
-  Serial.print(rightShift);
-  Serial.print("       roll ");
-  Serial.print(roll);
-  Serial.print("       targetAngle ");
-  Serial.println(controlDataArr[0]);
-}
-```
-verwendet um die verschiedenen Sensordaten im Seriellen Monitor auszugeben und somit das Bugfixing und Verständnis von dem, was der Roboter tut, zu verbessern.
+Dabei wird `void print()` verwendet um die verschiedenen Sensordaten im Seriellen Monitor auszugeben und somit das Bugfixing und Verständnis von dem, was der Roboter tut, zu verbessern.
