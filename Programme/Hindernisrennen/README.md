@@ -70,6 +70,7 @@ void print() {
 ```
 
 ## variables.h
+Zu den alten variables.h Programm kommen nun zusätzliche Variablen für die Kamera hinzu.
 ```c++
 #ifndef variables_H
 #define variables_H
@@ -83,9 +84,9 @@ void print() {
 #include "camera.h"
 
 
-//2) Declare your variables, sensors, and actuators
+//Declare your variables, sensors, and actuators
 
-//2.a) UltrasonicManager
+//UltrasonicManager
 const uint8_t frontTrigPin = 2;
 const uint8_t frontEchoPin = 3;
 const uint8_t rightTrigPin = 4;
@@ -95,25 +96,25 @@ const uint8_t leftEchoPin = 7;
 UltrasonicManager manager(frontTrigPin, frontEchoPin, rightTrigPin, rightEchoPin, leftTrigPin, leftEchoPin);
 
 
-//2.b) ServoMotor
+//ServoMotor
 byte servoPin = 9;
 MyServo steeringServo(servoPin);
 
-//2.c) DC motor
+//DC motor
 byte DC_PWMpin = 11;
 MyDC drivingDC(DC_PWMpin);
 
 
-//2.d) Serial IO
+//Serial IO
 //SerialIO IO;
 
-//2.e) CarOrientation
+//CarOrientation
 CarOrientation orientation;
 
-//2.f) Camera
+//Camera
 camera cam;
 
-//2.f) Vars
+//Vars
 float controlDataArr[] = { 0, 0 };  //[desired Car Angle, Speed]
 float distances[] = { 0, 0, 0 };
 float roll;
