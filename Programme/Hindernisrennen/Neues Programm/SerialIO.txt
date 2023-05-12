@@ -1,0 +1,37 @@
+#include "SerialIO.h"
+
+void SerialIO::init() {
+  Serial.begin(baud);
+  Serial.flush();
+}
+
+bool SerialIO::available() {
+  return Serial.available();
+}
+double SerialIO::getDouble() {
+  double value;
+  String line = Serial.readStringUntil('\n');
+  line.trim();
+  value = line.toDouble();
+  return value;
+}
+
+String SerialIO::getLine() {
+  String line;
+  line = Serial.readStringUntil('\n');
+  line.trim();
+  return line;
+}
+
+void SerialIO::getMoveData(float moveDataArr[]) {
+  String line;
+  float setAngle, setSpeed;
+  line = Serial.readStringUntil('\n');
+  int angleIndex = line.indexOf("Angle=") + 6;
+  int speedIndex = line.indexOf("Speed=") + 6;
+  setAngle = line.substring(angleIndex, line.indexOf(';', angleIndex)).toFloat();
+  setSpeed = line.substring(speedIndex, line.indexOf(';', speedIndex)).toFloat();
+  moveDataArr[0]=setAngle;
+  moveDataArr[1]=setSpeed;
+}
+
