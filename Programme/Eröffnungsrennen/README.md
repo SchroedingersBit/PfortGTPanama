@@ -174,3 +174,71 @@ void drive() {
 #endif
 ```
 Zuerst werden in der include section, alle weiteren Bibliotheken und Header Datein importiert, die weiterhin benötigt werden. In `void checkSafeAngle()` wird überprüft, ob die Abweichungen der Ultraschall-Sensoren in einem sicheren Bereich liegen, sodass es zu keiner Änderung im Lenkverhalten kommt. Durch `void checkCurve()` wird der Referenzwinkel anhand der vorliegenden Sensordaten aktualisiert.
+## variables.h
+
+```c++
+//Inkludieren der erforderlichen Bibliotheken für die Sensoren 
+#ifndef variables_H
+#define variables_H
+#include <Arduino.h>
+#include "CarOrientation.h"
+
+#include "UltrasonicManager.h"
+#include "MyServo.h"
+#include "MyDC.h"
+#include "SerialIO.h"
+
+
+// Deklarieren der Variablen, Sensoren
+
+// UltrasonicManager für die Arduino Ports?
+const uint8_t frontTrigPin = 2;
+const uint8_t frontEchoPin = 3;
+const uint8_t rightTrigPin = 4;
+const uint8_t rightEchoPin = 5;
+const uint8_t leftTrigPin = 6;
+const uint8_t leftEchoPin = 7;
+UltrasonicManager manager(frontTrigPin, frontEchoPin, rightTrigPin, rightEchoPin, leftTrigPin, leftEchoPin);
+
+
+//ServoMotor Ports
+byte servoPin = 9;
+MyServo steeringServo(servoPin);
+
+//DC motor Ports
+byte DC_PWMpin = 11;
+MyDC drivingDC(DC_PWMpin);
+
+
+//Serial IO
+//SerialIO IO;
+
+//CarOrientation
+CarOrientation orientation;
+
+//weitere Vars
+float controlDataArr[] = { 0, 0 };  //[desired Car Angle, Speed]
+float distances[] = { 0, 0, 0 };
+float roll;
+float referenceAngle = 0;
+float rightShift;
+bool stop;
+bool safeAngle;
+float lastShift=10000000;
+
+// Pins reservieren und initialisieren
+void initializeHardware() {
+  //IO.init();
+  steeringServo.init();
+  drivingDC.init();
+  if (!orientation.init()) {
+    Serial.println("Failed to initialize CarOrientation");
+    while (1) {
+      delay(10);
+    }
+  }
+}
+
+
+#endif
+```
