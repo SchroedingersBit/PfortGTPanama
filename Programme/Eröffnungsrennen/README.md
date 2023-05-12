@@ -85,7 +85,7 @@ void checkSafeAngle() {
     safeAngle = false;
   }
 }
-// Aktualisiert Referenz Winkel durch Sensordaten
+// bestimmt, ob eine Kurve detektiert wurde anhand der Right 
 void checkCurve() {
   if (abs(rightShift) >= MAX_DISTANCE - 340) {
     if (distances[0] < 90)
