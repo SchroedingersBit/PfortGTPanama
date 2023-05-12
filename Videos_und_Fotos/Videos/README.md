@@ -2,5 +2,6 @@
 Die Videos wurden auf Youtube als 'nicht gelistet' hochgeladen. Die links sind hier zu finden.
 
 ## Eröffnungsrennen
-[![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/Sg48LilvS4c)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Sg48LilvS4c/0.jpg)](https://www.youtube.com/watch?v=Sg48LilvS4c)
+
 
