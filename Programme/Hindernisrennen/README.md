@@ -1,8 +1,9 @@
 # Hindernisrennen
 
-
+Flowchart 
 ```mermaid
-Hindernis --> P{PixyCam Farbcode} --> R{rot} & G{grün}
+flowchart TB;
+Hindernis --> P{PixyCam Farbcode} --> R{rot} & G{grün};
 
 ```
 ## RC_Control.ino
