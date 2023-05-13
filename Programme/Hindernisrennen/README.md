@@ -6,7 +6,7 @@ flowchart TB;
 Hindernis --> P{PixyCam Farbcode} --> R{rot 2 rechts} & G{grün 1 links};
 R -->|links und front USS ausschalten| RU{Rechts USS Mittelabstand zur Wand};
 G -->|rechts und front USS ausschalten| LU{Links USS Mittelabstand zur Wand};
-RU & LU --x A;
+RU & LU --x |keine Farbcode mehr erkannt und kleiner Front USS | B{Beendet Hinderniscode};
 ```
 ## RC_Control.ino
 Für das RC_Control.ino Programm ändert sich nicht viel. Allein, die Bugfixing Angaben werden mehr um auch für die Kamera Informationen zu erhalten.
