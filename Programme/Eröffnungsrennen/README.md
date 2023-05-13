@@ -6,7 +6,7 @@ Für das Eröffnungsrennen wird kein Kamera Script benötigt. Dies liegt daran, 
 flowchart TB;
 USS-Code --> D{Distanz < 400} --> M{5 Messungen};
 subgraph Median
-M-->ME{Median berechen} -->N{Neue Messung} -->|Erneuert ältesten Wert| M;
+M-->ME{Median berechen} -->N{Neue Messung} -->|Update ältester Messwert| M;
 end
 
 ```
