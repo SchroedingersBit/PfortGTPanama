@@ -8,10 +8,15 @@ USS-Code --> D{Distanz < 400} --> M{5 Messungen};
 subgraph Median
 M-->ME{Median berechen} -->N{Neue Messung} -->|Update ältester Messwert| M;
 end
-ME --> Rightshift
+ME --> Rightshift;
 
 subgraph Rightshift
-Formelverarbeitung
+LR{Links USS -Rechts USS} --> Formelverarbeitung --> W{Winkel, welches Auto lenken muss};
+end
+Rightshift --> Lenkung;
+
+subgraph Lenkung
+Berrechnung --> S{Servowinkel der dann eingestellt wird}
 end
 ```
 
