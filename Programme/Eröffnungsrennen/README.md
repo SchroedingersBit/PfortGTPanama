@@ -4,7 +4,8 @@ Für das Eröffnungsrennen wird kein Kamera Script benötigt. Dies liegt daran, 
 ## Flowchart 
 ```mermaid
 flowchart TB;
-USS-Code --> P{PixyCam Farbcode} --> R{rot 2 rechts} & G{grün 1 links};
+USS-Code --> D{Distanz < 400} --> M{5 Messungen};
+M-->ME{Median berechen};
 R -->|links und front USS ausschalten| RU{Rechts USS Mittelabstand zur Wand};
 G -->|rechts und front USS ausschalten| LU{Links USS Mittelabstand zur Wand};
 RU & LU --x |keine Farbcode mehr erkannt und kleiner Front USS | B{Beendet Hinderniscode};
