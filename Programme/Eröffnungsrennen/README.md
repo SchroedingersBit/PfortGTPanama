@@ -1,6 +1,15 @@
 # Eröffnungsrennen
 Für das Eröffnungsrennen wird kein Kamera Script benötigt. Dies liegt daran, dass allein die Spielfeldgröße im Mittelbereich angepasst wird. Daher werden nur die Ultraschall-Sensoren-Daten verarbeitet.
 
+## Flowchart 
+```mermaid
+flowchart TB;
+USS-Code --> P{PixyCam Farbcode} --> R{rot 2 rechts} & G{grün 1 links};
+R -->|links und front USS ausschalten| RU{Rechts USS Mittelabstand zur Wand};
+G -->|rechts und front USS ausschalten| LU{Links USS Mittelabstand zur Wand};
+RU & LU --x |keine Farbcode mehr erkannt und kleiner Front USS | B{Beendet Hinderniscode};
+```
+
 ## RC_Control.ino
 Gestartet wird das Programm über das RC_Control.ino, welches alle weiteren Klassen öffnet und managed.
 ```c++
