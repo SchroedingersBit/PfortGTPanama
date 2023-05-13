@@ -8,7 +8,7 @@ USS-Code --> D{Distanz < 400} --> M{5 Messungen};
 subgraph Median
 M-->ME{Median berechen} -->N{Neue Messung} -->|Update ältester Messwert| M;
 end
-M --> Rightshift
+ME --> Rightshift
 
 subgraph Rightshift
 Formelverarbeitung
