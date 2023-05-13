@@ -11,7 +11,7 @@ end
 ME --> Rightshift;
 
 subgraph Rightshift
-LR{Links USS -Rechts USS} --> Formelverarbeitung --> W{Winkel, welches Auto lenken muss};
+LR{Differenz Links Rechts USS} --> Formelverarbeitung --> W{Winkel, welches Auto lenken muss};
 end
 Rightshift --> Lenkung;
 
