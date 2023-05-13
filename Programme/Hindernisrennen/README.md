@@ -1,5 +1,10 @@
 # Hindernisrennen
 
+
+```mermaid
+Hindernis --> P{PixyCam Farbcode} --> R{rot} & G{grün}
+
+```
 ## RC_Control.ino
 Für das RC_Control.ino Programm ändert sich nicht viel. Allein, die Bugfixing Angaben werden mehr um auch für die Kamera Informationen zu erhalten.
 ```c++
