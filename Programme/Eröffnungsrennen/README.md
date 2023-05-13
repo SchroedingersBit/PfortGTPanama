@@ -16,8 +16,9 @@ end
 Rightshift --> Lenkung;
 
 subgraph Lenkung
-Berrechnung --> S{Servowinkel der dann eingestellt wird}
+Berrechnung --> S{Servowinkel der eingestellt wird}
 end
+Lenkung --> Z{Auto passt Lenkeinstellungen an}
 ```
 
 ## RC_Control.ino
