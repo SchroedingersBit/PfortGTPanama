@@ -3,8 +3,9 @@
 Flowchart 
 ```mermaid
 flowchart TB;
-Hindernis --> P{PixyCam Farbcode} --> R{rot} & G{grün};
-
+Hindernis --> P{PixyCam Farbcode} --> R{rot(2) rechts} & G{grün(1) links};
+R -->|links USS ausschalten| RU{Rechts USS Mittelabstand zur Wand}
+G -->|rechts USS ausschalten| LU{Links USS Mittelabstand zur Wand}
 ```
 ## RC_Control.ino
 Für das RC_Control.ino Programm ändert sich nicht viel. Allein, die Bugfixing Angaben werden mehr um auch für die Kamera Informationen zu erhalten.
