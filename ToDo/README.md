@@ -1,7 +1,11 @@
 # ToDo Liste
-* Kamera Age und Objektanzahl
-* Hindernis
+## GitHub
 * Bilder und Videos
+* Readme für Akku Aufladen
+* Getriebe wurde geändert
+## Programm
 * bessere Code Dokumentation
 * ein einziges Script
-* Readme für Akku Aufladen
+* Geschwindigkeitsabhängige Kurve
+## Auto
+* Kamera Age und Objektanzahl
