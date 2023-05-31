@@ -1,4 +1,4 @@
-## Einkaufsliste:
+## Käufe:
 
 
 Schrittmotor:  https://www.amazon.de/-/en/gp/aw/d/B08M8R35MQ?psc=1&ref=ppx_pop_mob_b_asin_image
