@@ -63,8 +63,8 @@ Danach kann man das andere Ende kurz erwärmen und dann umbiegen. So hat man ein
 Die Kamera sollte sich möglichst hoch auf dem Auto befinden (siehe [Kameramontage Future Engineers Docs](https://github.com/World-Robot-Olympiad-Association/future-engineers-gs/blob/main/docs/p04-cv.md)), des Weiteren möglichst weit hinten, um eine große Übersicht zu gewährleiste, Hindernisse möglichst lange detektieren und Hindernisse hintereinander in Bezug auf die Nähe unterscheiden zu können. Daher hat sich ein Kameraturm entwickelt, auf welchen später die Kamera mit den Kamera-Winkelhaltern geschraubt wird:
 
 <p align="center">
-  <img src="Bild12.png" alt="Bild 12" width="500" />
-  <img src="Bild13.png" alt="Bild 13" width="300" />
+  <img src="Bild12.png" alt="Bild 12" width="400" />
+  <img src="Bild13.png" alt="Bild 13" width="200" />
 </p>
 
 Die Dreiecke in dem Turm wurden eingefügt, um Material zu sparen und möglicherweise in der Zukunft jegliche Bauteile grob zu befestigen.
