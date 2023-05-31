@@ -60,7 +60,7 @@ Danach kann man das andere Ende kurz erwärmen und dann umbiegen. So hat man ein
 
 ## Kameraturm
 
-Die Kamera sollte sich möglichst hoch auf dem Auto befinden (siehe Quellen: p04-cv.md), des Weiteren möglichst weit hinten, um eine große Übersicht zu gewährleiste, Hindernisse möglichst lange detektieren und Hindernisse hintereinander in Bezug auf die Nähe unterscheiden zu können. Daher hat sich ein Kameraturm entwickelt, auf welchen später die Kamera mit den Kamera-Winkelhaltern geschraubt wird:
+Die Kamera sollte sich möglichst hoch auf dem Auto befinden (siehe [Kameramontage Future Engineers Docs](https://github.com/World-Robot-Olympiad-Association/future-engineers-gs/blob/main/docs/p04-cv.md)), des Weiteren möglichst weit hinten, um eine große Übersicht zu gewährleiste, Hindernisse möglichst lange detektieren und Hindernisse hintereinander in Bezug auf die Nähe unterscheiden zu können. Daher hat sich ein Kameraturm entwickelt, auf welchen später die Kamera mit den Kamera-Winkelhaltern geschraubt wird:
 
 
 ![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/c90109df-be5c-4b59-a350-b282f2f6e751)
