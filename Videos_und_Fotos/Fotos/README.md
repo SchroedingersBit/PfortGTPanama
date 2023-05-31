@@ -6,7 +6,7 @@ Hier sind die Fotos des vollständigen Roboters aus verschiedenen Ansichten zu s
 </p>
 ## Hintenansicht
 <p align="center">
-  <img src="Hinternansicht.jpeg" alt="Hinten" width="400" />
+  <img src="Hinteransicht.jpeg" alt="Hinten" width="400" />
 </p>
 ## Obenansicht
 <p align="center">
