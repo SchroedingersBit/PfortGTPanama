@@ -12,25 +12,22 @@ Um die PixyCam 2 auf die Farbcodes bestimmter Objekte zu trainieren, wird die Pi
 </p>
 
 ## Ultraschall-Sensoren
-
 Die Verwendung von Ultraschallsensoren erlaubt es uns, vorallem für das Eröffnungsrennen, präzise, einfach und schnell Entfernungen zu Wändenn in der Umgebung des Fahrzeugs zu erfassen. Sie senden Ultraschallwellen aus und messen die Zeit, die benötigt wird, um das reflektierte Signal zurückzuerhalten. Dadurch können sie die Abstände zu Hindernissen oder anderen Fahrzeugen genau bestimmen. Dies ist entscheidend, um Kollisionen zu vermeiden und sicher, gerade und schnell die Kurven zu fahren.
 
 Ein weiterer Vorteil von Ultraschallsensoren ist ihre Vielseitigkeit. Sie können in verschiedenen Richtungen montiert werden, um ein breites Sichtfeld abzudecken und Hindernisse aus verschiedenen Blickwinkeln zu erfassen. Dies ermöglicht es uns eine umfassende und zuverlässige Umgebungswahrnehmung für das Auto zu garantieren.
 Für das Hindernisrennen erleichtern sie zudem die Unterscheidung zwischen den Blöcken und Problemfälle bei Kurven zu umgehen.
 Darüber hinaus arbeiten Ultraschallsensoren unabhängig von Lichtverhältnissen, was sie zuverlässig in verschiedenen Umgebungen, sowohl bei Tageslicht als auch bei Dunkelheit, macht. Sie sind unempfindlich gegenüber äußeren Einflüssen wie Blendung oder Reflexionen, die bei anderen Sensoren wie Kameras auftreten können. Allerdings hatten wir auch mit einem großen Problem zu kämpfen, was die Reflexion an schiefen Wänden betrifft, da eine nur geringfügig geneigte Wand, den Abstand zu dieser sehr stark beeinflussen konnte. Dies haben wir versucht in unserem Programm durch Fehlertoleranzen und Sensordatenbedingungen so weit wie möglich zu beheben.
+
 <p align="center">
   <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/676ffe3f-2a61-47e1-96a9-5eed88ad20de" alt="Bild" width="400" />
    <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/181f1490-14f6-43e2-95a2-e8d1b493da5a" alt="Bild" width="400" />
 </p>
 
-
-
-
-
 ## Gyroskop
-
 Um das Auto nach drei Runden zum Stoppen zu bringen wurde zusätzlich ein Gyroskop installiert, welches die gedrehten Winkel bei Kurven misst und nach 1080° den Motor zum stoppen bringt. Außerdem hilft es bei der Lenkkorrektur.
 
+<p align="center">
+  <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/86dd095a-c874-4c95-8dc8-72763162c80c" alt="Bild" width="400" />
+</p>
 
-![IMG_4445](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/86dd095a-c874-4c95-8dc8-72763162c80c)
 
