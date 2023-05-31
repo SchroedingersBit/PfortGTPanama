@@ -6,8 +6,10 @@ Ein weiterer Vorteil der PixyCam 2 ist ihre Benutzerfreundlichkeit. Sie verfügt
 
 Um die PixyCam 2 auf die Farbcodes bestimmter Objekte zu trainieren, wird die PixyMon Software verwendet. Dabei wird für ein Objekt der gewünschten Farbe in diesem Programm der Farbcode gespeichert, indem man es vor die Kamera hält. Danach werden weitere Aapassungen getroffen um die Erkennung möglichst präzise zu gestalten. Die PixyCam kann eine enorm hohe Anzahl an Objekten gleichzeitig detektieren. Allerdings benötigen wir immer nur gleichzeitig zwei Objekte mit insgesamt zwei verschiedenen Farbcodes. Die PixyCam sortiert dann das Objekt mit dem gesuchten Farbcode, welches die meisten Frames auf dem Bilfschirm einnimt, automatisch als ersten Block.
 
-![IMG_4444](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/eb3a5cff-a5a3-4a08-8798-f2fcd5b6ecfd)
 
+<p align="center">
+  <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/eb3a5cff-a5a3-4a08-8798-f2fcd5b6ecfd" alt="Bild" width="400" />
+</p>
 
 ## Ultraschall-Sensoren
 
