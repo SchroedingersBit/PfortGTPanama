@@ -7,9 +7,9 @@ Zuerst wurde mit der Planung des Chassis begonnen (siehe Entwicklung). Das momen
 ## Sensorengrundplatte
 Die Ultraschallsensoren sollten möglichst weit vorne am Roboter befestigt werden, um möglichst früh auf die kommenden Hindernisse oder Bahnänderungen reagieren zu können. Um dieses dementsprechend zu befestigen, wurde eine Sensorengrundplatte designed, welche den Anforderungen gerecht wird:
 
-
-![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/33d35203-5d7d-423f-b0f0-16bca4fa95d8)
-
+<p align="center">
+  <img src="Bild1.png" alt="Bild 1" width="600" />
+</p>
 
 Die Löcher sind so angeordnet, dass drei Sensorenhalterungen mit je zwei Löchern, vier Löcher für den Kameraturm und vier für den Anbau an das Chassis zur Verfügung stehen. 
 Im Folgenden ist noch ein Bild des Bauteils am Roboter zu sehen:
