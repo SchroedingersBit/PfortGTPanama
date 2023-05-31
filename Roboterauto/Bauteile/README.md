@@ -67,7 +67,7 @@ Der Winkelhalter befestigt die Halterung der Kamera an dem Kameraturm. Benötigt
 
 
 
-![Bild 14](Bild14.png)  ![Bild 15](Bild15.png)
+![Bild 14](Bild14.png)    ![Bild 15](Bild15.png)
 
 ## Zahnradschutz
 
