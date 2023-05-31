@@ -9,6 +9,7 @@
 * 🟢 grün: Kontrollkabel für ENA, ENB und Servo
 * 🟡 gelb: Kontrollkabel Gyro (SCL)
 
+
 * 🔵 blau: Gyro (SDA)
 * 🟣 violett: Ultraschallsensor (Trig)
 * 🔘 grau: Ultraschallsenso (Echo)
