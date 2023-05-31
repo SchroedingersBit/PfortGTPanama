@@ -75,6 +75,6 @@ Der Winkelhalter befestigt die Halterung der Kamera an dem Kameraturm. Benötigt
 Der Zahnradschutz ist ein Bauteil, welches verhindert, dass jegliche Kabel in die Nähe von den Zahnrädern kommen:
 
 <p align="center">
-<img scr="https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/a2a0a6d3-8255-4c50-88c8-af9d3d2167fa" alt="image">
-<img scr="https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/4c2b8b5c-709c-4c04-b5cf-10b5cbfd8903" alt="image">
+<img scr="Roboterauto/Bauteile/Bild16.png" alt="image">
+<img scr="Roboterauto/Bauteile/Bild17.png" alt="image">
 </p>
