@@ -33,7 +33,7 @@ Durch diese werden kleine Pins oder Drähte geschoben, welche auf der anderen Se
   
 <p align="center">
   <img src="Bild5.png" alt="Bild 5" width="300" />
-  <img src="Bild6.png" alt="Bild 6" width="500" />
+  <img src="Bild6.png" alt="Bild 6" width="300" />
 </p>
 
   
