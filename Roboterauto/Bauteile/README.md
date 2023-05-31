@@ -14,8 +14,10 @@ Die Ultraschallsensoren sollten möglichst weit vorne am Roboter befestigt werde
 Die Löcher sind so angeordnet, dass drei Sensorenhalterungen mit je zwei Löchern, vier Löcher für den Kameraturm und vier für den Anbau an das Chassis zur Verfügung stehen. 
 Im Folgenden ist noch ein Bild des Bauteils am Roboter zu sehen:
 
-![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/9a25899c-d260-49f3-881b-2dc6c01752c9)
-![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/9c118cdf-3bb3-4816-af39-2a46221e0a5f)
+<p align="center">
+  <img src="Bild2.png" alt="Bild 2" width="400" />
+  <img src="Bild3.png" alt="Bild 3" width="400" />
+</p>
 
   
 Der Kameraturm wurde später noch weiter nach hinten auf das Auto gebaut. -> siehe Entwicklung und Kameraturm.
