@@ -1,7 +1,4 @@
 # 3D-Druck
-Hier werden die 3D-Druck Datein hochgeladen und erklärt.
-
-
 Die Modelle wurden mit Autodesk's Fusion360 erstellt und mit dem Slicer Cura in den Code für den 3D Drucker umgewandelt. Der Drucker ist der Ultimaker 2+ mit einer 0.4mm Nozzle. Gedruckt wurde mit PLA (rot, grün, schwarz, pink). Die entsprechenden .stl Dateien sind hochgeladen. 
 
 
