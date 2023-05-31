@@ -1,6 +1,6 @@
 # Elektronik
 ## Farbcodierung der Kabel
-* rot (5V-Driver, Motoren, Gyro)
+* (&#x1F534;) rot (5V-Driver, Motoren, Gyro)
 * orange (Motor IN)
 * gelb (Ultraschallsensoren): Spannungskabel
 * schwarz: Erdungskabel
