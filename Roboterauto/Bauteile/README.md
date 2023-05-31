@@ -54,7 +54,7 @@ Die Befestigungspins bestehen aus kleinen Plastik-Stäben und einem Kopf. Die St
 Danach kann man das andere Ende kurz erwärmen und dann umbiegen. So hat man eine statische, präzise Lösung, um die Sensoren an den Halterungen zu befestigen. Für Testfahrten wurden jedoch noch Kabel statt den Pins benutzt, weil diese nicht so schnell kaputt gehen. Der Nachteil von Kabeln bzw Drähten besteht darin, dass man diese nicht so eng befestigen kann, weshalb mehr Spielraum entsteht.
 
 <p align="center">
-  <img src="Bild10.png" alt="Bild 10" width="300" />
+  <img src="Bild10.png" alt="Bild 10" width="500" />
   <img src="Bild11.png" alt="Bild 11" width="300" />
 </p>
 
