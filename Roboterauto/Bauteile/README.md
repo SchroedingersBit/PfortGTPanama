@@ -32,8 +32,8 @@ Die Sensorenhalterung musste die Ultraschall-Sensoren statisch und gegenüber bz
 Durch diese werden kleine Pins oder Drähte geschoben, welche auf der anderen Seite eingeschmolzen oder umgebogen werden können. Zwischen Halterung und Sensor werden noch die Abstandshalter eingebaut, um eine möglichst feste Verbindung zu schaffen, damit kein Spielraum entsteht und die Sensoren unnötig wackeln. Über die zwei Löcher auf der Bodenseite ist die Halterung an der Grundplatte verschraubt (siehe Sensorengrundplatte).
   
 <p align="center">
-  <img src="Bild5.png" alt="Bild 5" width="500" />
-  <img src="Bild6.png" alt="Bild 6" width="300" />
+  <img src="Bild5.png" alt="Bild 5" width="300" />
+  <img src="Bild6.png" alt="Bild 6" width="500" />
 </p>
 
   
