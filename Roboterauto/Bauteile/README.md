@@ -25,10 +25,10 @@ Der Kameraturm wurde später noch weiter nach hinten auf das Auto gebaut. -> sie
 # Ultraschall-Sensorenhalterung
 Die Sensorenhalterung musste die Ultraschall-Sensoren statisch und gegenüber bzw. rechtwinklig zueinander befestigen, um vertrauenswürdige, reproduzierbar signifikante Messwerte zu erhalten. Daher ist die Genauigkeit der Befestigung entscheidend. Zwei große Löcher dienen als Halterung für den Sender und Empfänger des Ultraschall-Sensors, die vier Löcher drum herum dienen der Befestigung des Sensors an der Halterung.
 
+<p align="center">
+  <img src="Bild4.png" alt="Bild 4" width="300" />
+</p>
 
-![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/32a82d1e-696c-449c-a8d0-f7d60d0cf8aa)
-
-  
 Durch diese werden kleine Pins oder Drähte geschoben, welche auf der anderen Seite eingeschmolzen oder umgebogen werden können. Zwischen Halterung und Sensor werden noch die Abstandshalter eingebaut, um eine möglichst feste Verbindung zu schaffen, damit kein Spielraum entsteht und die Sensoren unnötig wackeln. Über die zwei Löcher auf der Bodenseite ist die Halterung an der Grundplatte verschraubt (siehe Sensorengrundplatte).
   
 
