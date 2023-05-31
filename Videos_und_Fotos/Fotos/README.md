@@ -5,13 +5,13 @@ Hier sind die Fotos des vollständigen Roboters aus verschiedenen Ansichten zu s
 <p align="center">
   <img src="Frontansicht.jpeg" alt="Front" width="400" />
 </p>
-## Hintenansicht
+## Hinteransicht
 
 <p align="center">
   <img src="Hinteransicht.jpeg" alt="Hinten" width="400" />
 </p>
 
-## Obenansicht
+## Oberansicht
 
 <p align="center">
   <img src="Oberansicht.jpeg" alt="Seite1" width="400" />
