@@ -64,7 +64,7 @@ Die Kamera sollte sich möglichst hoch auf dem Auto befinden (siehe [Kameramonta
 
 <p align="center">
   <img src="Bild12.png" alt="Bild 12" width="400" />
-  <img src="Bild13.png" alt="Bild 13" width="200" />
+  <img src="Bild13.png" alt="Bild 13" width="400" />
 </p>
 
 Die Dreiecke in dem Turm wurden eingefügt, um Material zu sparen und möglicherweise in der Zukunft jegliche Bauteile grob zu befestigen.
