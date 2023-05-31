@@ -18,9 +18,11 @@ Die Verwendung von Ultraschallsensoren erlaubt es uns, vorallem für das Eröffn
 Ein weiterer Vorteil von Ultraschallsensoren ist ihre Vielseitigkeit. Sie können in verschiedenen Richtungen montiert werden, um ein breites Sichtfeld abzudecken und Hindernisse aus verschiedenen Blickwinkeln zu erfassen. Dies ermöglicht es uns eine umfassende und zuverlässige Umgebungswahrnehmung für das Auto zu garantieren.
 Für das Hindernisrennen erleichtern sie zudem die Unterscheidung zwischen den Blöcken und Problemfälle bei Kurven zu umgehen.
 Darüber hinaus arbeiten Ultraschallsensoren unabhängig von Lichtverhältnissen, was sie zuverlässig in verschiedenen Umgebungen, sowohl bei Tageslicht als auch bei Dunkelheit, macht. Sie sind unempfindlich gegenüber äußeren Einflüssen wie Blendung oder Reflexionen, die bei anderen Sensoren wie Kameras auftreten können. Allerdings hatten wir auch mit einem großen Problem zu kämpfen, was die Reflexion an schiefen Wänden betrifft, da eine nur geringfügig geneigte Wand, den Abstand zu dieser sehr stark beeinflussen konnte. Dies haben wir versucht in unserem Programm durch Fehlertoleranzen und Sensordatenbedingungen so weit wie möglich zu beheben.
+<p align="center">
+  <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/676ffe3f-2a61-47e1-96a9-5eed88ad20de" alt="Bild" width="400" />
+   <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/181f1490-14f6-43e2-95a2-e8d1b493da5a" alt="Bild" width="400" />
+</p>
 
-![5c7eafda-9405-4aaf-88a4-fdd4acd6300d](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/676ffe3f-2a61-47e1-96a9-5eed88ad20de)
-![IMG_4425](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/181f1490-14f6-43e2-95a2-e8d1b493da5a)
 
 
 
