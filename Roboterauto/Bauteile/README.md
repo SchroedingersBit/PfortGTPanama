@@ -15,8 +15,8 @@ Die Löcher sind so angeordnet, dass drei Sensorenhalterungen mit je zwei Löche
 Im Folgenden ist noch ein Bild des Bauteils am Roboter zu sehen:
 
 <p align="center">
-  <img src="Bild2.png" alt="Bild 2" width="400" />
-  <img src="Bild3.png" alt="Bild 3" width="400" />
+  <img src="Bild2.png" alt="Bild 2" width="500" />
+  <img src="Bild3.png" alt="Bild 3" width="300" />
 </p>
 
   
