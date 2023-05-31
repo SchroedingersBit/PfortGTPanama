@@ -39,11 +39,14 @@ Durch diese werden kleine Pins oder Drähte geschoben, welche auf der anderen Se
   
 ## Abstandshalter
 Die Abstandshalter werden benötigt, um verschiedene Kontakte zu isolieren bzw. eine Erdung zu verhindern und um Abstände zwischen verschiedenen Bauteilen auf eine länge zu beschränken. Die Template, welche gedruckt wurde, enthält Abstandshalter mit einer Höhe von 2.5mm und 5.0 mm, um verschiedene Abstände zu erstellen. Der Innenradius beträgt 3.5mm, sodass die Schrauben, welche hauptsächlich verwendet wurden, genau so passen, dass Widerstand besteht, man die schrauben aber durchschauen kann. Die Abstandshalter sind also auch als Muttern verwendbar.
-  
 
-![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/04ba8fd1-716d-4afc-b88d-1533bb0633a8)
-![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/706013ab-588e-4522-b754-a6072ea3c4ae)
-![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/3339c621-4b77-49e8-9c8f-8b8f87df40b4)
+<p align="center">
+  <img src="Bild7.png" alt="Bild 7" width="300" />
+</p>
+<p align="center">
+  <img src="Bild8.png" alt="Bild 8" width="300" />
+  <img src="Bild9.png" alt="Bild 9" width="300" />
+</p>
 
 ## Befestigungspins
 
