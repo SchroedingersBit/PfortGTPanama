@@ -65,6 +65,8 @@ Die Dreiecke in dem Turm wurden eingefügt, um Material zu sparen und möglicher
 
 Der Winkelhalter befestigt die Halterung der Kamera an dem Kameraturm. Benötigt wurde dieser, weil die mit der Kamera gelieferten Winkel ein Gewinde hatten und dadurch nicht mit unseren Schrauben kompatibel waren. Da aber die Kamera kippbar sein soll, was mit dem gelieferten 	Set-Up nicht möglich ist, hilft der gedruckte Winkelhalter, um die Kamera auf ein Podest mit den Abstandhaltern zu bringen und diese drehbar zu machen.
 
+Bild 1             | Bild 2
+:-----------------:|:-----------------:
 ![Bild 14](Bild14.png) | ![Bild 15](Bild15.png)
 
 ## Zahnradschutz
