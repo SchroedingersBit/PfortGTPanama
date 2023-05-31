@@ -64,7 +64,7 @@ Die Dreiecke in dem Turm wurden eingefügt, um Material zu sparen und möglicher
 ## Kamerawinkelhalter
 
 Der Winkelhalter befestigt die Halterung der Kamera an dem Kameraturm. Benötigt wurde dieser, weil die mit der Kamera gelieferten Winkel ein Gewinde hatten und dadurch nicht mit unseren Schrauben kompatibel waren. Da aber die Kamera kippbar sein soll, was mit dem gelieferten 	Set-Up nicht möglich ist, hilft der gedruckte Winkelhalter, um die Kamera auf ein Podest mit den Abstandhaltern zu bringen und diese drehbar zu machen.
-
+![Bildbeschreibung](Bild16.png)
 <p align="center">
 <img scr="https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/167f8610-e2bf-464e-b64f-2441e8a8a8b2" alt="image">
 <img scr="https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/47792d3a-98a6-4b98-be97-1235ac51ee6a" alt="image">
