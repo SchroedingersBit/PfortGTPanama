@@ -5,6 +5,7 @@ Hier sind die Fotos des vollständigen Roboters aus verschiedenen Ansichten zu s
 <p align="center">
   <img src="Frontansicht.jpeg" alt="Front" width="400" />
 </p>
+
 ## Hinteransicht
 
 <p align="center">
