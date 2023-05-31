@@ -1,14 +1,9 @@
 # Elektronik
 ## Farbcodierung der Kabel
-<span style="color:red">rot</span> (5V-Driver, Motoren, Gyro)
-<span style="color:orange">orange</span> (Motor IN)
-<span style="color:yellow">gelb</span> (Ultraschallsensoren): Spannungskabel
-<span style="color:black">schwarz</span>: Erdungskabel
-<span style="color:green">grün</span>: Kontrollkabel für ENA, ENB und Servo
-<span style="color:yellow">gelb</span>: Kontrollkabel Gyro (SCL)
-<span style="color:blue">blau</span>: Gyro (SDA)
-<span style="color:purple">violett</span>: Ultraschallsensor (Trig)
-<span style="color:gray">grau</span>: Ultraschallsensor (Echo)
+```diff
++ this text is highlighted in green
+- this text is highlighted in red
+```
 
 ## Driver
 Wir benutzen einen L298N-Driver der zwei Motoren kontrollieren kann.Er hat die Möglichkeit, 5V auszugeben. Wie im unteren Bild ersichtlich, geben wir dem Driver einen Input über den 12V-Eingang. Über den 5V-Ausgang versorgen wir unsere Sensoren sowie unsere IN1 bzw. IN3 für die Motor Aktivierung und Bestimmung der Spannungsrichtung. Über OUT1 und OUT2 regeln wir unseren DC-Motor und über OUT3 und OUT4 kontrollieren wir unseren Servo-Motor. Über eine Verbindung von ENA und ENB zu unserem Arduino wird die Spannung reguliert. Die Spannung des Servomotors wird konstant auf 6.4V gehalten. Wir nutzen den MG996R Servomotor und einen 3-9V DC-Motor vom Funduino Set.
