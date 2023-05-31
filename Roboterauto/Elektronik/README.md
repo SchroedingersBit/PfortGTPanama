@@ -1,7 +1,7 @@
 # Elektronik
 ## Farbcodierung der Kabel
 * &#x1F534; rot (5V-Driver, Motoren, Gyro)
-* orange (Motor IN)
+* U+1F7E0 orange (Motor IN)
 * gelb (Ultraschallsensoren): Spannungskabel
 * schwarz: Erdungskabel
 * grün: Kontrollkabel für ENA, ENB und Servo
