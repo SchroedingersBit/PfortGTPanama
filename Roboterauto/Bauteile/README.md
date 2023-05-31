@@ -75,6 +75,7 @@ Der Winkelhalter befestigt die Halterung der Kamera an dem Kameraturm. Benötigt
 
 Der Zahnradschutz ist ein Bauteil, welches verhindert, dass jegliche Kabel in die Nähe von den Zahnrädern kommen:
 
-<center>
-![Bild 16](Bild16.png) ![Bild 17](Bild17.png)
-</center>
+<p align="center">
+  <img src="Bild16.png" alt="Bild 16" width="400" />
+  <img src="Bild17.png" alt="Bild 17" width="400" />
+</p>
