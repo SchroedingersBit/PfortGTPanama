@@ -10,7 +10,7 @@ Hier sind die Fotos des vollständigen Roboters aus verschiedenen Ansichten zu s
 </p>
 ## Obenansicht
 <p align="center">
-  <img src="Obenansicht.jpeg" alt="Seite1" width="400" />
+  <img src="Oberansicht.jpeg" alt="Seite1" width="400" />
 </p>
 ## Seitenansichten
 <p align="center">
