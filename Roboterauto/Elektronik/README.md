@@ -1,21 +1,13 @@
 # Elektronik
 ## Farbcodierung der Kabel
-<span style="color:red">rot</span> (<span style="color:red">5V-Driver, Motoren, Gyro</span>), 
-
-<span style="color:orange">orange</span> (<span style="color:orange">Motor IN</span>) 
-
-und <span style="color:yellow">gelb</span> (<span style="color:yellow">Ultraschallsensoren</span>): Spannungskabel
-
+<span style="color:red">rot</span> (5V-Driver, Motoren, Gyro)
+<span style="color:orange">orange</span> (Motor IN)
+<span style="color:yellow">gelb</span> (Ultraschallsensoren): Spannungskabel
 <span style="color:black">schwarz</span>: Erdungskabel
-
 <span style="color:green">grün</span>: Kontrollkabel für ENA, ENB und Servo
-
 <span style="color:yellow">gelb</span>: Kontrollkabel Gyro (SCL)
-
 <span style="color:blue">blau</span>: Gyro (SDA)
-
 <span style="color:purple">violett</span>: Ultraschallsensor (Trig)
-
 <span style="color:gray">grau</span>: Ultraschallsensor (Echo)
 
 ## Driver
