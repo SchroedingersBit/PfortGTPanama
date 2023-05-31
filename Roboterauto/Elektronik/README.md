@@ -4,6 +4,7 @@
 * 🔴 rot (5V-Driver, Motoren, Gyro)
 * 🟠 orange (Motor IN)
 * 🟡 gelb (Ultraschallsensoren)
+
 **Kontrollkabel:**
 * 🟢 grün: Kontrollkabel für ENA, ENB und Servo
 * 🟡 gelb: Kontrollkabel Gyro (SCL)
