@@ -62,9 +62,10 @@ Danach kann man das andere Ende kurz erwärmen und dann umbiegen. So hat man ein
 
 Die Kamera sollte sich möglichst hoch auf dem Auto befinden (siehe [Kameramontage Future Engineers Docs](https://github.com/World-Robot-Olympiad-Association/future-engineers-gs/blob/main/docs/p04-cv.md)), des Weiteren möglichst weit hinten, um eine große Übersicht zu gewährleiste, Hindernisse möglichst lange detektieren und Hindernisse hintereinander in Bezug auf die Nähe unterscheiden zu können. Daher hat sich ein Kameraturm entwickelt, auf welchen später die Kamera mit den Kamera-Winkelhaltern geschraubt wird:
 
-
-![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/c90109df-be5c-4b59-a350-b282f2f6e751)
- ![image](https://github.com/SchroedingersBit/PfortGT-WRO/assets/112577730/97419905-2b49-478c-ba52-a381e009ba3b)
+<p align="center">
+  <img src="Bild12.png" alt="Bild 12" width="500" />
+  <img src="Bild13.png" alt="Bild 13" width="300" />
+</p>
 
 Die Dreiecke in dem Turm wurden eingefügt, um Material zu sparen und möglicherweise in der Zukunft jegliche Bauteile grob zu befestigen.
 
@@ -73,8 +74,8 @@ Die Dreiecke in dem Turm wurden eingefügt, um Material zu sparen und möglicher
 Der Winkelhalter befestigt die Halterung der Kamera an dem Kameraturm. Benötigt wurde dieser, weil die mit der Kamera gelieferten Winkel ein Gewinde hatten und dadurch nicht mit unseren Schrauben kompatibel waren. Da aber die Kamera kippbar sein soll, was mit dem gelieferten 	Set-Up nicht möglich ist, hilft der gedruckte Winkelhalter, um die Kamera auf ein Podest mit den Abstandhaltern zu bringen und diese drehbar zu machen.
 
 <p align="center">
-  <img src="Bild14.png" alt="Bild 14" width="600" />
-  <img src="Bild15.png" alt="Bild 15" width="400" />
+  <img src="Bild14.png" alt="Bild 14" width="500" />
+  <img src="Bild15.png" alt="Bild 15" width="300" />
 </p>
 
 ## Zahnradschutz
