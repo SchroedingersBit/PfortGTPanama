@@ -8,5 +8,5 @@ Erstes Video:
 
 ## Hindernisrennen
 
-[![Alt text](https://img.youtube.com/watch?v=qHP3XNPUiOw/0.jpg)](https://www.youtube.com/watch?v=qHP3XNPUiOw)
+[![Alt text](https://img.youtube.com/vi/qHP3XNPUiOw/0.jpg)](https://www.youtube.com/watch?v=qHP3XNPUiOw)
 
