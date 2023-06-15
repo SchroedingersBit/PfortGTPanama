@@ -99,7 +99,7 @@ Serial.print(controlDataArr[0] - referenceAngle);
 ```
 
 ## ControlRC.h
-
+Diese Header Datei enthält sämtliche Logik für das Auto und sorgt dafür dass die Messwerte zum richtigen Zeitpunkt aktualisiert und berechnet werden. Durch diese Logik werden dann die neuen Geschwindigkeiten und Anpassungen der Lenkungen weitergegeben.
 
 ```c++
 //Inkludieren der erforderlichen Bibliotheken.
@@ -235,7 +235,7 @@ void drive() {
 ```
 
 ## variables.h
-
+Hier sind alle wichtigen Variabeln sowie Pins für den Arduino hinterlegt, die für das Programm benötigt werden.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken für die Sensoren 
 #ifndef variables_H
