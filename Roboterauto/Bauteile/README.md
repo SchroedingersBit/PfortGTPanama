@@ -104,6 +104,7 @@ Umstellung zu klein auf Groß.
   <img src="g.jpg" alt="Getriebe" width="500" />
  
 </p>
+
 ## Akkuhalterung
 
 Die eleganteste Lösung schien es zu sein, den Akku hinten am Auto zu befestigen. Dafür haben wir eine Akkubox entwurfen, in welche man den Akku legen kann. Er besteht aus zwei Teilen (siehe 3D-Modelle), dem A und B Teil, welche als Einzelteile gedruckt und dann verklebt werden. Dadurch erhält man einen genaueren Druck, weil dadurch keine Druckstützen benötigt wurden. Im folgenden sind Bilder von den Einzelnen Designs zu sehen und von dem fertigen Bauteil:
