@@ -310,7 +310,7 @@ void initializeHardware() {
 ```
 
 ## UltrasonicManager.h
-
+Hier werden die Ultraschallsensordaten ausgelesen und dann für jeweils fünf Werte der Median berechnet.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken.
 #ifndef UltraSonic_h
