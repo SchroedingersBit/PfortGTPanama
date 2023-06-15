@@ -2,7 +2,12 @@
 Hier wird der Aufbau des Autos und die 3D gedruckten Halterungen besprochen
 
 ## Chassis
-Zuerst wurde mit der Planung des Chassis begonnen (siehe Entwicklung). Das momentane Chassis besteht aus einer großen metallischen Grundplatte, an welcher die Lenkung, der Motor mit dem Getriebe, die Achsen und die restliche Hardware befestigt sind. Da uns dieses fertige Chassis zusammen mit vier Rädern zugeschickt wurde und die Zeit bis zum Wettkampf knapp war, musste mit dem Einbau der Sensoren, der Kamera und der restlichen Technik begonnen werden.
+Zuerst wurde mit der Planung des Chassis begonnen (siehe Entwicklung). Das momentane Chassis besteht aus einer großen 3D-gedruckten Grundplatte, an welcher die Lenkung, der Motor mit dem Getriebe, die Achsen und die restliche Hardware befestigt sind. Die wichtigsten Ansprüche an die Grundplatte sind, dieses im Vergleich zur vorherigen Grundplatte zu verkürzen (Δl= -5cm) und genug Befestigungsmöglichkeiten für die restliche Hardware bereit zu stellen. Dabei kam das folgende Design zustande:
+<img width="1040" alt="Bildschirmfoto 2023-05-31 um 15 49 12" src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/39ea1220-8d36-4189-aabf-6ac741cf9721">
+
+Gedruckt sieht das ganze so aus:
+
+
 
 ## Sensorengrundplatte
 Die Ultraschallsensoren sollten möglichst weit vorne am Roboter befestigt werden, um möglichst früh auf die kommenden Hindernisse oder Bahnänderungen reagieren zu können. Um dieses dementsprechend zu befestigen, wurde eine Sensorengrundplatte designed, welche den Anforderungen gerecht wird:
