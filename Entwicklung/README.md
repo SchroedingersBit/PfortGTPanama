@@ -6,3 +6,5 @@ Zuerst wurde das Chassis geplant. Wichtig dabei war, den Wenderadius möglichst 
 
 Nun musste die Lenkung betrachtet werden. Die Standard Lösung ist eine Ackermann-Lenkung, welche bei falschen Maßen aber schnell dazu führt, dass die hintere Achse des Autos ausbricht. Hingegen ist die Rack and Pinion Lenkung schwerer zu bauen.
 Im Endeffekt haben wir aus Zeitproblemen zunächst das fertige Chassis mit der gegebenen Elektronik und der fertigen Lenkung verändert. Später wurden noch viele weitere Veränderungen vorgenommen, bis wir auf dem Stand des jetzigen Modells sind (siehe Bau).
+
+Eine entscheidende Veränderungen ist auch der Tausch der beiden Zahnräder, sodass anstatt einer groß- auf klein-Übertragung, eine klein auf groß-Übertragung vorliegt. Daher fährt das Auto zwar langsamer, hat aber ein größeres Drehmoment und bleibt bei niedrigen Geschwindigkeiten nicht stehen, überwindet also größere Haftreibungskräft/ Rollreibungskräfte.
