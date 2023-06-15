@@ -156,14 +156,11 @@ void updateControlData() {
   const float wandAbstand = 7.0f;
   //const float FACTOR_Camera = 10.0f; ?
 
-  // Calcualte relative lateral position on the road
-  // (how far towards right border is the cart located)
-  // + Kamera erklären
+  // berechnet relativen ABstand zu Wänden, wie weit es zur rechten Wand relativ entfernt ist
   rightShift = (leftDistance - wandAbstand) * abs(max(-1, color - 2)) - (rightDistance - wandAbstand) * abs(color - 1);
 
-  // The closer the cart is to the right border, the more it should steer to the left (and vice versa).
-  // (Steering to the right = positive steering angle)
-  // To achieve this in a smooth way, a parameter-tuned tanh function can be used.
+  // je näher es den Wänden kommt, ummso stärker soll es zur Seite lenken, rechtes Lenken entspricht positiven steering Winkel
+  // um die Lenkung nicht zu ruckartig zu gestalten, wird eine parameter tanh Funktion verwendet
 
  float target_car_angle = -1 * (FACTOR_Steering / (abs(min(0, color - 1)) * min(frontDistance, 40) + min(1, color) * 5)) * rightShift * tanh(abs(rightShift)) + referenceAngle;
    
