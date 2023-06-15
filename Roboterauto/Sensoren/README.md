@@ -12,7 +12,7 @@ Um die PixyCam 2 auf die Farbcodes bestimmter Objekte zu trainieren, wird die Pi
 </p>
 
 ## Ultraschall-Sensoren
-Die Verwendung von Ultraschallsensoren erlaubt es uns, vorallem für das Eröffnungsrennen, präzise, einfach und schnell Entfernungen zu Wändenn in der Umgebung des Fahrzeugs zu erfassen. Sie senden Ultraschallwellen aus und messen die Zeit, die benötigt wird, um das reflektierte Signal zurückzuerhalten. Dadurch können sie die Abstände zu Hindernissen oder anderen Fahrzeugen genau bestimmen. Dies ist entscheidend, um Kollisionen zu vermeiden und sicher, gerade und schnell die Kurven zu fahren.
+Die Verwendung von den Ultraschallsensoren  HC-SR04 erlaubt es uns, vorallem für das Eröffnungsrennen, präzise, einfach und schnell Entfernungen zu Wändenn in der Umgebung des Fahrzeugs zu erfassen. Sie senden Ultraschallwellen aus und messen die Zeit, die benötigt wird, um das reflektierte Signal zurückzuerhalten. Dadurch können sie die Abstände zu Hindernissen oder anderen Fahrzeugen genau bestimmen. Dies ist entscheidend, um Kollisionen zu vermeiden und sicher, gerade und schnell die Kurven zu fahren.
 
 Ein weiterer Vorteil von Ultraschallsensoren ist ihre Vielseitigkeit. Sie können in verschiedenen Richtungen montiert werden, um ein breites Sichtfeld abzudecken und Hindernisse aus verschiedenen Blickwinkeln zu erfassen. Dies ermöglicht es uns eine umfassende und zuverlässige Umgebungswahrnehmung für das Auto zu garantieren.
 Für das Hindernisrennen erleichtern sie zudem die Unterscheidung zwischen den Blöcken und Problemfälle bei Kurven zu umgehen.
