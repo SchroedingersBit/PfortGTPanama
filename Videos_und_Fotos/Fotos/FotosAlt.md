@@ -1,5 +1,5 @@
 # Roboterfotos
-Hier sind die Fotos des vollständigen Roboters aus verschiedenen Ansichten zu sehen:
+Hier sind die Fotos des alten Roboters aus verschiedenen Ansichten zu sehen:
 ## Frontansicht
 
 <p align="center">
