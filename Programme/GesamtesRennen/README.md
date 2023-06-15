@@ -1,35 +1,7 @@
 # Gesamtes Rennen
 Das Programm beinhaltet einen Parameter, der bestimmt, ob allein die Teile des Programms verwendet werden müssen, die für das Eröffnungsrennen wichtig sind, da dieses kein Kamera Script, sondern allein die Ultraschallsensoren benötigt, oder auch die Kameradaten verwendet werden müssen.
 
-## Flowchart für die Ultraschallsensoren
-```mermaid
-flowchart TB;
-USS-Code --> D{Distanz < 400} --> M{5 Messungen};
-subgraph Median
-M-->ME{Median berechen} -->N{Neue Messung} -->|Update ältester Messwert| M;
-end
-ME --> Rightshift;
 
-subgraph Rightshift
-LR{Differenz Links Rechts USS} --> |Formelverarbeitung| W{Winkel, welches Auto lenken muss};
-end
-Rightshift --> Lenkung;
-
-subgraph Lenkung
-Berrechnung --> S{Servowinkel der eingestellt wird}
-end
-Lenkung --> Z{Auto passt Lenkeinstellungen an}
-```
-Beim Eröffnungsrennen bezieht das Auto Ultraschall - und Gyrosensordaten um in der Mitte zwischen den aufgestellten banden fährt. Befindet es sich nicht mittig, z.B. wegen einer Kurve, wird ein neuer Winkel ausgerechnet, der angestrebt werden soll. Dieser wird dann langsam korrigiert um eine ruckartige bewegung zu verhindern und darf zudem eine maximale größe nicht überschreiten, welcher durch den Gyrosensor definiert wird. Dieser zählt zudem die zurückgelegten Kurven, um nach drei Runden zu stoppen. 
-
-## Flowchart für das Hindernisrennen
-```mermaid
-flowchart TB;
-Hindernis --> P{PixyCam Farbcode} --> R{rot 2 rechts} & G{grün 1 links};
-R -->|links und front USS ausschalten| RU{Rechts USS Mittelabstand zur Wand};
-G -->|rechts und front USS ausschalten| LU{Links USS Mittelabstand zur Wand};
-RU & LU --x |keine Farbcode mehr erkannt und kleiner Front USS | B{Beendet Hinderniscode};
-```
 
 ## Complete_V1.ino
 Gestartet wird das Programm über das Complete_V1.ino, welches alle weiteren Klassen öffnet und managed.
