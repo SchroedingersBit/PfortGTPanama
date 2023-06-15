@@ -1,5 +1,5 @@
 # Roboterfotos
-Hier sind die Fotos des vollständigen Roboters aus verschiedenen Ansichten zu sehen. In [AlteFotos.md](AlteFotos.md) sind die Fotos unseres vorherigen Roboters zu sehen.
+Hier sind die Fotos des vollständigen Roboters aus verschiedenen Ansichten zu sehen. In [FotosAlt.md](FotosAlt.md) sind die Fotos unseres vorherigen Roboters zu sehen.
 ## Frontansicht
 
 <p align="center">
