@@ -23,7 +23,7 @@ Lenkung --> Z{Auto passt Lenkeinstellungen an}
 ## Flowchart für die Kurvenlogik
 ```mermaid
 flowchart TB;
-Kurve --> |haben linker und rechter Ultraschallsensor zusammen einen Betrag > 130| F{Front USS};
+Kurve --> |Betrag linker + rechter USS > 130| F{Front USS};
 F --> |misst Wert < 100| G{Gyrosensor};
 G --> |Neigung des Autos < 20 Grad|Kurvenart;
 Kurvenart --> |rightshift < 0| R{Rechtskurve};
