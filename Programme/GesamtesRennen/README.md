@@ -22,7 +22,7 @@ Lenkung --> Z{Auto passt Lenkeinstellungen an}
 ```
 
 ## Complete_V1.ino
-Gestartet wird das Programm über das RC_Control.ino, welches alle weiteren Klassen öffnet und managed.
+Gestartet wird das Programm über das Complete_V1.ino, welches alle weiteren Klassen öffnet und managed.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken und Verwendung der Header Datein
 #include "variables.h"  // all the vars, actuators, and sensors are defined and initialized here.
@@ -102,7 +102,7 @@ Es werden Überprüfungen für die Sicherheitswinkel, Kurven und zur Aktualisier
 
 // Überprüfung, ob der Referenzwinkel in einem sicheren Berreich liegt, sodass dabei die Ultraschall-Sensoren sichere Werte verwenden
 void checkSafeAngle() {
-  if (referenceAngle - 10 <= roll && roll <= referenceAngle + 10) {
+  if (abs(referenceAngle - roll) <= 12) {
     safeAngle = true;
   } else {
     safeAngle = false;
@@ -111,43 +111,54 @@ void checkSafeAngle() {
 
 //  Untersuchung durch die Ultraschall-Sensoren, ob eine Kurve detektiert wird
 void checkCurve() {
-  if (abs(rightShift) >= MAX_DISTANCE - 340) {
-    if (distances[0] < 90)
-      if (safeAngle)
-        if (rightShift > 0)
+  if (distances[2] + distances[1] >= 130) {
+    if (distances[0] < 110 && cam.getX_pos() >=5) {
+      if (safeAngle) {
+        cam.set_color();
+        if (distances[2] - distances[1] > 20) {
           referenceAngle -= 90;
-        else referenceAngle += 90;
+        } else if (distances[2] - distances[1] < -20) {
+          referenceAngle += 90;
+        }
+      }
+    }
   }
-}
-// Anpassung des Referenz Winkels, um ein gerades Fahren zu garantieren
-void updateReference() {
-  if (safeAngle)
-    if ((abs(rightShift) - abs(lastShift)) >= 0)
-      referenceAngle = roll;
 }
 // Untersuchung durch die Gyrosensoren, ob der Auto sich bereits 3*360° gedreht hat, dann Auto stoppen
 void stopCheck() {
+  /*if (referenceAngle > 0)
+    secs = 2.7;
+  else
+    secs = 3.5;*/
   int numberOfRounds = 3;
-  if (abs(referenceAngle) >= numberOfRounds * 360-20)
+  if (abs(referenceAngle) >= numberOfRounds * 360 - 20)
     stop = true;
   else
     stop = false;
 }
-// neue Sensordaten
+// neue Gyro-Sensordaten
 void updateSensorData() {
   manager.readDistances(distances);
   roll = orientation.getTotalRoll();
 }
+
+// neue Kameradaten
+void updateCameraData() {
+  cam.firstBlockData();
+  color = cam.get_color() * Run;
+}
+
 // Führt vorherige Funktionen aus
 void updateChecks() {
   checkSafeAngle();
   checkCurve();
   stopCheck();
 }
-// wird durch RC_Control.ino gestartet und startet andere Funktionen, berechnet die verschiedenen WInkel und Anpassungen
+// wird durch RC_Control.ino gestartet und startet andere Funktionen, berechnet die verschiedenen Winkel und Anpassungen
 void updateControlData() {
-  updateSensorData();
   updateChecks();
+  updateSensorData();
+  updateCameraData();
   int frontDistance = distances[0];
   int rightDistance = distances[1];
   int leftDistance = distances[2];
@@ -158,33 +169,53 @@ void updateControlData() {
   const float FACTOR2 = 0.005f;  //0.01
   float target_velocity = frontDistance * FACTOR * tanh(frontDistance * FACTOR2);
 
-  //berechnet Steuerwinkel 
+  //berechnet Steuerwinkel
 
-  const float FACTOR_Steering = 5.0f;  //5
+  const float FACTOR_Steering = 5.0f * 0.8;//5
+  const float wandAbstand = 7.0f;
+  //const float FACTOR_Camera = 10.0f; ?
+
   // Calcualte relative lateral position on the road
   // (how far towards right border is the cart located)
-  rightShift = leftDistance - rightDistance;
+  // + Kamera erklären
+  rightShift = (leftDistance - wandAbstand) * abs(max(-1, color - 2)) - (rightDistance - wandAbstand) * abs(color - 1);
+
   // The closer the cart is to the right border, the more it should steer to the left (and vice versa).
   // (Steering to the right = positive steering angle)
   // To achieve this in a smooth way, a parameter-tuned tanh function can be used.
-  float target_car_angle = -1 * (FACTOR_Steering / min(frontDistance, 40)) * rightShift * tanh(abs(rightShift)) + referenceAngle;
-  updateReference();
 
+ float target_car_angle = -1 * (FACTOR_Steering / (abs(min(0, color - 1)) * min(frontDistance, 40) + min(1, color) * 5)) * rightShift * tanh(abs(rightShift)) + referenceAngle;
+   
+  if (cam.get_blocks() * Run) {
+    target_car_angle = (target_car_angle >= referenceAngle + 50 ? referenceAngle + 50 : target_car_angle);
+    target_car_angle = (target_car_angle <= referenceAngle - 50 ? referenceAngle - 50 : target_car_angle);
+  } else if (abs(roll - referenceAngle) > 30) {
+    target_car_angle = (target_car_angle <= referenceAngle - 35 ? referenceAngle - 35 : target_car_angle);
+    target_car_angle = (target_car_angle >= referenceAngle + 35 ? referenceAngle + 35 : target_car_angle);
+  } else {
+    target_car_angle = (target_car_angle <= referenceAngle - 5 ? referenceAngle - 5 : target_car_angle);
+    target_car_angle = (target_car_angle >= referenceAngle + 5 ? referenceAngle + 5 : target_car_angle);
+  }
   controlDataArr[0] = target_car_angle;
   controlDataArr[1] = target_velocity;
   lastShift = rightShift;
+  //if (abs(rightShift) < 5)
+  //velocity = 50;
 }
+
 // Weiterleiten der berechneten Daten zum Servo, passt damit die Lenkung an
 void control_servo() {
   float target_car_angle = controlDataArr[0];
   float err = target_car_angle - roll;
-  steeringServo.drive(err * 0.1);
+  steeringServo.drive(err * 0.1);  // 0.1 Eröffnungsrennen
 }
-// passt den DC`s und damit die Geschwindigkeit an
+
+// passt den DC Motor und damit die Geschwindigkeit an
 void control_DC() {
   float target_velocity = controlDataArr[1];
   drivingDC.drive(target_velocity);
 }
+
 // führt vorherige Funktionen aus
 void drive() {
   updateControlData();
@@ -203,16 +234,15 @@ void drive() {
 #define variables_H
 #include <Arduino.h>
 #include "CarOrientation.h"
-
 #include "UltrasonicManager.h"
 #include "MyServo.h"
 #include "MyDC.h"
-#include "SerialIO.h"
+#include "camera.h"
 
 
 // Deklarieren der Variablen, Sensoren
 
-// UltrasonicManager für die Arduino Ports?
+// UltrasonicManager für die Arduino Ports
 const uint8_t frontTrigPin = 2;
 const uint8_t frontEchoPin = 3;
 const uint8_t rightTrigPin = 4;
@@ -222,36 +252,43 @@ const uint8_t leftEchoPin = 7;
 UltrasonicManager manager(frontTrigPin, frontEchoPin, rightTrigPin, rightEchoPin, leftTrigPin, leftEchoPin);
 
 
-//ServoMotor Ports
+//ServoMotor Port Deklarierung
 byte servoPin = 9;
-MyServo steeringServo(servoPin);
+byte servo_PWMpin = 38;
 
-//DC motor Ports
+MyServo steeringServo(servoPin, servo_PWMpin);
+
+//DC Motor Port Deklarierung
 byte DC_PWMpin = 11;
 MyDC drivingDC(DC_PWMpin);
 
-
-//Serial IO
-//SerialIO IO;
-
-//CarOrientation
+//CarOrientation Deklarierung
 CarOrientation orientation;
 
-//weitere Vars
+//Camera Deklarierung
+camera cam;
+
+//weitere nützliche Variablen
 float controlDataArr[] = { 0, 0 };  //[desired Car Angle, Speed]
 float distances[] = { 0, 0, 0 };
 float roll;
 float referenceAngle = 0;
 float rightShift;
+float lastShift = 10000000;
 bool stop;
 bool safeAngle;
-float lastShift=10000000;
+uint8_t color = 0;
+int secs = 3.5;
+int velocity = 90;//Grundgeschwindigkeit
+int Run = 1;// Unterscheidung Hindernisrennen, Eröffnungsrennen
 
 // Pins reservieren und initialisieren
 void initializeHardware() {
-  //IO.init();
+
   steeringServo.init();
   drivingDC.init();
+  cam.init();
+
   if (!orientation.init()) {
     Serial.println("Failed to initialize CarOrientation");
     while (1) {
@@ -274,8 +311,8 @@ void initializeHardware() {
 #include <RunningMedian.h>
 
 
-#define MAX_DISTANCE 400  // Maximum distance in centimeters
-#define BUFFER_SIZE 1    // Number of measurements to store for median calculation
+#define MAX_DISTANCE 400  // maximale DIstanz in cm
+#define BUFFER_SIZE 7    // Anzahl der Messungen, welche für die Median Berechnung gespeichert werden
 
 // Vermittlung zwischen Pins und Arduino, Median für die Wichtigkeit der Sensordaten um Messfehler zu minimieren
 class UltrasonicManager {
@@ -352,61 +389,10 @@ private:
 #endif
 ```
 
-## SeriallO.h
-
-```c++
-//Inkludieren der erforderlichen Bibliotheken.
-#ifndef SerialIO_h
-#define SerialIO_h
-#include <Arduino.h>
-#include "variables.h"
-
-class SerialIO {
-private:
-  int baud = 9600;
-public:
-  SerialIO() {}  //Default constructor
-  void init() {
-    Serial.begin(baud);
-    Serial.flush();
-  }
-
-  bool available() {
-    return Serial.available();
-  }
-  double getDouble() {
-    double value;
-    String line = Serial.readStringUntil('\n');
-    line.trim();
-    value = line.toDouble();
-    return value;
-  }
-  String getLine() {
-    String line;
-    line = Serial.readStringUntil('\n');
-    line.trim();
-    return line;
-  }
-
-  void getMoveData(float moveDataArr[]) {
-    String line;
-    float setAngle, setSpeed;
-    line = Serial.readStringUntil('\n');
-    int angleIndex = line.indexOf("Angle=") + 6;
-    int speedIndex = line.indexOf("Speed=") + 6;
-    setAngle = line.substring(angleIndex, line.indexOf(';', angleIndex)).toFloat();
-    setSpeed = line.substring(speedIndex, line.indexOf(';', speedIndex)).toFloat();
-    moveDataArr[0] = setAngle;
-    moveDataArr[1] = setSpeed;
-  }
-};
-
-#endif
-
-```
 ## MyServo.h
 
 ```c++
+
 //Inkludieren der erforderlichen Bibliotheken.
 #ifndef MyServo_h
 #define MyServo_h
@@ -417,24 +403,32 @@ public:
 class MyServo {
 private:
   byte pin;
+  byte servo_PWMpin;
+
   byte limitR = 120;  //Winkel muss < 120
   byte limitL = 40;   //Winkel muss >35
   byte straightAngle = 90;
   Servo steeringServo;
 public:
-  MyServo() {}  //Default constructor  // do not use
+  MyServo() {}  //Default constructor  // nicht benutzen!
 
-  MyServo(byte pin) {
+  MyServo(byte pin,byte servo_PWMpin) {
     this->pin = pin;
+        this->servo_PWMpin = servo_PWMpin;
   }
 
   void init() {
     steeringServo.attach(pin);
+    pinMode(pin, OUTPUT);
+    int PWMSignal = 200;  //can vary betwwen 0 and 255
+    analogWrite(servo_PWMpin, PWMSignal);
     reset();
   }
+
   void reset() {
     steeringServo.write(straightAngle);
   }
+  
   //Rotate with in the limits
   double rotatAngle(byte angle) {
     if (angle > limitR) {
@@ -483,7 +477,7 @@ class MyDC {
 private:
   byte pin;
 public:
-  MyDC() {}  //Default constructor  // do not use
+  MyDC() {}  //Default constructor  // nicht benutzen!
 
   MyDC(byte pin) {
     this->pin = pin;
@@ -502,6 +496,7 @@ public:
 };
 #endif
 
+
 ```
 
 ## CarOrientation.h
@@ -510,6 +505,7 @@ public:
 //Inkludieren der erforderlichen Bibliotheken.
 #include <Wire.h>
 #include <Adafruit_BNO08x.h>
+
 //Erfassung und Berechnung der Fahrzeugausrichtung durch Daten des BNO08x-Sensors (Gyroskop)
 class CarOrientation {
 private:
@@ -661,6 +657,74 @@ public:
    
   void reset() {
     initialAngleSet = false;
+  }
+};
+
+
+```
+
+## camera
+
+```c++
+//Inkludieren der erforderlichen Bibliotheken.
+#include <Pixy2.h>
+
+// Doku!!!
+class camera {
+private:
+  Pixy2 pixy;
+  int blocks;
+  int frameWidth;
+  int frameHeight;
+  int Quader;
+  int age;
+  int y_pos;
+  int x_pos;
+  uint16_t signature;
+  int width;
+  int velocity;
+
+public:
+  camera() {}
+
+  void init() {
+    pixy.init();
+    frameWidth = pixy.frameWidth;  //316
+    frameHeight = pixy.frameHeight;
+  }
+
+  void firstBlockData() {
+    Quader = 0;
+    x_pos = 10;
+    blocks = pixy.ccc.getBlocks();
+    if (blocks) {
+      y_pos = pixy.ccc.blocks[0].m_y;
+      width = pixy.ccc.blocks[0].m_width;
+      if (width > 15 && y_pos > frameHeight / 2) {
+        age = pixy.ccc.blocks[0].m_age;
+        if (age > 10) {
+          x_pos = abs(pixy.ccc.blocks[0].m_x - frameWidth / 2);
+          signature = pixy.ccc.blocks[0].m_signature;
+          Quader = 1;
+        }
+      }
+    }
+  }
+
+  int getX_pos() {
+    return x_pos;
+  }
+  int get_color() {
+    return signature;
+  }
+  float get_width() {
+    return width;
+  }
+  float get_blocks() {
+    return Quader;
+  }
+   void set_color() {
+    signature=0;
   }
 };
 
