@@ -2,11 +2,17 @@
 Hier wird der Aufbau des Autos und die 3D gedruckten Halterungen besprochen
 
 ## Chassis
-Zuerst wurde mit der Planung des Chassis begonnen (siehe Entwicklung). Das momentane Chassis besteht aus einer großen 3D-gedruckten Grundplatte, an welcher die Lenkung, der Motor mit dem Getriebe, die Achsen und die restliche Hardware befestigt sind. Die wichtigsten Ansprüche an die Grundplatte sind, dieses im Vergleich zur vorherigen Grundplatte zu verkürzen (Δl= -5cm) und genug Befestigungsmöglichkeiten für die restliche Hardware bereit zu stellen. Dabei kam das folgende Design zustande:
+Zuerst wurde mit der Planung des Chassis begonnen (siehe Entwicklung). Das momentane Chassis besteht aus einer großen 3D-gedruckten Grundplatte, an welcher die Lenkung, der Motor mit dem Getriebe, die Achsen und die restliche Hardware befestigt sind. Die wichtigsten Ansprüche an die Grundplatte sind, dieses im Vergleich zur vorherigen Grundplatte zu verkürzen (Δl= -5cm) und genug Befestigungsmöglichkeiten für die restliche Hardware bereit zu stellen. Dabei kam das folgende Design zustande (es ist nur die Hälfte zu sehen, weil es dann später gespiegelt wurde, sodass eine vollständige Platte entsteht).
 <img width="1040" alt="Bildschirmfoto 2023-05-31 um 15 49 12" src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/39ea1220-8d36-4189-aabf-6ac741cf9721">
 
-Gedruckt sieht das ganze so aus:
+Gedruckt und verschraubt mit den ersten weiteren Bauteilen sieht es so aus:
 
+
+![IMG_4836](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/75c43213-0515-4701-9de5-d3b49cc06784)
+
+Auf diese Grundplatte wird die Deckplatte gesetzt, auf welcher sich der Arduino befindet. Dabei sind besonders die Löcher in der Mitte zu betrachten, welche das Kabelmanagement erleichtern:
+
+![IMG_4838](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/f46aae51-b388-4639-8cf1-9b15b68bc356)
 
 
 ## Sensorengrundplatte
