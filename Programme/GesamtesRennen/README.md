@@ -21,6 +21,15 @@ end
 Lenkung --> Z{Auto passt Lenkeinstellungen an}
 ```
 
+## Flowchart für das Hindernisrennen
+```mermaid
+flowchart TB;
+Hindernis --> P{PixyCam Farbcode} --> R{rot 2 rechts} & G{grün 1 links};
+R -->|links und front USS ausschalten| RU{Rechts USS Mittelabstand zur Wand};
+G -->|rechts und front USS ausschalten| LU{Links USS Mittelabstand zur Wand};
+RU & LU --x |keine Farbcode mehr erkannt und kleiner Front USS | B{Beendet Hinderniscode};
+```
+
 ## Complete_V1.ino
 Gestartet wird das Programm über das Complete_V1.ino, welches alle weiteren Klassen öffnet und managed.
 ```c++
