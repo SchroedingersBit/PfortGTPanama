@@ -644,13 +644,13 @@ public:
 
 ```
 
-## camera
-
+## camera.h
+In camera werden die Eigenschaften des größten detektierten Farbblocks, wie Farbwert Höhe und Breite ausgeben.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken.
 #include <Pixy2.h>
 
-// Doku!!!
+// Suche nach roten oder grünen Pixy Farbblöcken 
 class camera {
 private:
   Pixy2 pixy;
@@ -673,17 +673,17 @@ public:
     frameWidth = pixy.frameWidth;  //316
     frameHeight = pixy.frameHeight;
   }
-
+//bestimmt Eigenschaften der Farbblöcke wie Farbwert, Höhe und Breite
   void firstBlockData() {
     Quader = 0;
     x_pos = 10;
     blocks = pixy.ccc.getBlocks();
     if (blocks) {
-      y_pos = pixy.ccc.blocks[0].m_y;
+      y_pos = pixy.ccc.blocks[0].m_y;//gibt durch [0] immer den Block mit größter Pixelfläche auf dem Bildschirm aus
       width = pixy.ccc.blocks[0].m_width;
       if (width > 15 && y_pos > frameHeight / 2) {
         age = pixy.ccc.blocks[0].m_age;
-        if (age > 10) {
+        if (age > 10) {// wie lange ist der Block schon zu sehen (Frames)
           x_pos = abs(pixy.ccc.blocks[0].m_x - frameWidth / 2);
           signature = pixy.ccc.blocks[0].m_signature;
           Quader = 1;
