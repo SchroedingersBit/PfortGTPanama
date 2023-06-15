@@ -100,3 +100,13 @@ Der Zahnradschutz ist ein Bauteil, welches verhindert, dass jegliche Kabel in di
 
 ## Getriebe
 Umstellung zu klein auf Groß.
+
+## Akkuhalterung
+
+Die eleganteste Lösung schien es zu sein, den Akku hinten am Auto zu befestigen. Dafür haben wir eine Akkubox entwurfen, in welche man den Akku legen kann. Er besteht aus zwei Teilen (siehe 3D-Modelle), dem A und B Teil, welche als Einzelteile gedruckt und dann verklebt werden. Dadurch erhält man einen genaueren Druck, weil dadurch keine Druckstützen benötigt wurden. Im folgenden sind Bilder von den Einzelnen Designs zu sehen und von dem fertigen Bauteil:
+
+<img width="1003" alt="Bildschirmfoto 2023-06-15 um 20 21 15" src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/a395969a-1b5f-4e7b-ac37-7960cb3b19fd">
+<img width="896" alt="Bildschirmfoto 2023-06-15 um 20 21 27" src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/5c42064f-466b-4462-a41d-6b9ad68e0b5e">
+
+![IMG_4853](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/61f941a0-7ccd-498a-ae1c-ac3c1dc8f9e0)
+
