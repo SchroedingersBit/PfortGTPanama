@@ -21,7 +21,7 @@ end
 Lenkung --> Z{Auto passt Lenkeinstellungen an}
 ```
 
-## RC_Control.ino
+## Complete_V1.ino
 Gestartet wird das Programm über das RC_Control.ino, welches alle weiteren Klassen öffnet und managed.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken und Verwendung der Header Datein
@@ -39,28 +39,24 @@ void setup() {
 
 
 unsigned long stopTime = 0;  // um zu wisen, wann gestoppt werden muss
+
 //  Anweisungen für das Auto
 void loop() {
-  //drive();
+
   updateControlData();
-  drivingDC.drive(45);
-  //control_DC();
+  drivingDC.drive(velocity); // Grundgeschwindigkeit des DC Motors
   control_servo();
   
-  //print();
-
-
-
-
+  //print(); // Debugging
 
   //Abbruchbedingung nachdem 3 Runden gefahren wurden
   if (stop && stopTime == 0) {
-    stopTime = millis() + 2000;  // weiterfahren für 3 weitere Sekunden
+    stopTime = millis() + secs * 1000;  // weiterfahren für 3 weitere Sekunden
   }
 
   if (stopTime > 0 && millis() >= stopTime) {
     while (1) {
-      steeringServo.drive(0);
+      control_servo();//steeringservo.drive?
       drivingDC.drive(0);
       delay(100);
     }
@@ -75,10 +71,20 @@ void print() {
   Serial.print(referenceAngle);
   Serial.print("       rightShift ");
   Serial.print(rightShift);
+  Serial.print("       right ");
+  Serial.print(distances[1]);
+  Serial.print("       left ");
+  Serial.print(distances[2]);
+  Serial.print("       front ");
+  Serial.print(distances[0]);
   Serial.print("       roll ");
   Serial.print(roll);
   Serial.print("       targetAngle ");
-  Serial.println(controlDataArr[0]);
+Serial.print(controlDataArr[0] - referenceAngle);
+   Serial.print("       width ");
+  Serial.print(cam.get_width());
+    Serial.print("       color ");
+ Serial.println(cam.get_color());
 }
 
 ```
