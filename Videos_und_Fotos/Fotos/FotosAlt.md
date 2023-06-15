@@ -1,4 +1,4 @@
-# Roboterfotos
+# Roboterfotos für die erste Runde in Chemnitz
 Hier sind die Fotos des alten Roboters aus verschiedenen Ansichten zu sehen:
 ## Frontansicht
 
