@@ -1,5 +1,5 @@
 # Eröffnungsrennen
-Beim Eröffnungsrennen bezieht das Auto Ultraschall - und Gyrosensordaten um in der Mitte zwischen den aufgestellten banden fährt. Befindet es sich nicht mittig, z.B. wegen einer Kurve, wird ein neuer Winkel ausgerechnet, der angestrebt werden soll. Dieser wird dann langsam korrigiert um eine ruckartige bewegung zu verhindern und darf zudem eine maximale größe nicht überschreiten, welcher durch den Gyrosensor definiert wird. Dieser zählt zudem die zurückgelegten Kurven, um nach drei Runden zu stoppen.
+Beim Eröffnungsrennen bezieht das Auto Ultraschall - und Gyrosensordaten ein, um in der Mitte zwischen den aufgestellten Begrenzungen fahren zu können. Befindet es sich nicht mittig, z.B. wegen einer Kurve oder Ungenauigkeiten, wird ein neuer Winkel - target angle aus den unterschiedlichenAbständen zu den Wänden - rightshift ausgerechnet, der angestrebt werden soll. Dieser wird dann langsam korrigiert um eine ruckartige Bewegung zu verhindern und darf zudem eine maximale Größe nicht überschreiten, welcher durch den Gyrosensor definiert wird. Dieser zählt zudem die zurückgelegten Kurven, um nach drei Runden zu stoppen.
 ## Flowchart für die Ultraschallsensoren
 ```mermaid
 flowchart TB;
