@@ -86,3 +86,6 @@ Der Zahnradschutz ist ein Bauteil, welches verhindert, dass jegliche Kabel in di
   <img src="Bild16.png" alt="Bild 16" width="500" />
   <img src="Bild17.png" alt="Bild 17" width="300" />
 </p>
+
+## Getriebe
+Umstellung zu klein auf Groß.
