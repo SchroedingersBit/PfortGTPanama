@@ -26,7 +26,7 @@ Beim Eröffnungsrennen bezeiht das Auto Ultraschall - und Gyrosensordaten um in 
 flowchart TB;
 Kurve --> |haben linker und rechter Ultraschallsensor zusammen einen Betrag > 130| F{Front USS};
 F --> |misst Wert < 100| G{Gyrosensor};
-G --> |neigung des Autos < 20°|Kurvenart;
+G --> |neigung des Autos < 20 Grad|Kurvenart;
 Kurvenart --> |rightshift < 0| R{Rechtskurve};
 R --> |reference Winkel + 90 |K{Kurve beendet};
 Kurvenart --> |rightshift > 0| L{Linkskurve};
