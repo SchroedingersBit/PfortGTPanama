@@ -371,7 +371,7 @@ private:
 ```
 
 ## MyServo.h
-
+Hier wird der Servo angesprochen und die Lenkanweisungen aus ControlRC.h werden in die passenden Servospannungen umgerechnet.
 ```c++
 
 //Inkludieren der erforderlichen Bibliotheken.
@@ -401,7 +401,7 @@ public:
   void init() {
     steeringServo.attach(pin);
     pinMode(pin, OUTPUT);
-    int PWMSignal = 200;  //can vary betwwen 0 and 255
+    int PWMSignal = 200;  //kann zwischen 0 and 255 varrieren
     analogWrite(servo_PWMpin, PWMSignal);
     reset();
   }
@@ -446,7 +446,7 @@ public:
 ```
 
 ## MyDC.h
-
+Hier wird die erforderliche DC-Moter Spannung berechnet, welche erfordlich ist, um die geforderte Geschwindigkeit aus den anderen Programmen zu gewährleisten.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken.
 #ifndef MyDC_h
@@ -481,7 +481,7 @@ public:
 ```
 
 ## CarOrientation.h
-
+Hier wird mit den Gyrosensordaten umgegangen um die Fahrzeugausrichtung zu bestimmen und den zurückgelegten Drehwinkel zu ermitteln.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken.
 #include <Wire.h>
