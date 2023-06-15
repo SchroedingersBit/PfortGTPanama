@@ -24,10 +24,10 @@ Beim Eröffnungsrennen bezeiht das Auto Ultraschall - und Gyrosensordaten um in 
 ## Flowchart für die Kurvenlogik
 ```mermaid
 Kurve |haben linker und rechter Ultraschallsensor zusammen einen Betrag > 130|--> F{Front USS};
-F |misst Wert < 100|--> G{Gyrosensor};
-G |neigung des Autos < 20°|--> Kurvenart;
-Kurvenart |rightshift < 0|--> Rechtskurve --> |reference Winkel - 90 |{Kurve beendet};
-Kurvenart |rightshift > 0|--> Linkskurve --> |reference Winkel + 90 |{Kurve beendet};
+F --> |misst Wert < 100| G{Gyrosensor};
+G --> |neigung des Autos < 20°|Kurvenart;
+Kurvenart --> |rightshift < 0| Rechtskurve --> |reference Winkel - 90 |{Kurve beendet};
+Kurvenart --> |rightshift > 0| Linkskurve --> |reference Winkel + 90 |{Kurve beendet};
 
 ```
 ## Flowchart für das Hindernisrennen
