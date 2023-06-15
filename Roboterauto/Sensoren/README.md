@@ -24,7 +24,7 @@ Darüber hinaus arbeiten Ultraschallsensoren unabhängig von Lichtverhältnissen
 </p>
 
 ## Gyroskop
-Um das Auto nach drei Runden zum Stoppen zu bringen wurde zusätzlich ein Gyroskop installiert, welches die gedrehten Winkel bei Kurven misst und nach 1080° den Motor zum stoppen bringt. Außerdem hilft es bei der Lenkkorrektur.
+Um das Auto nach drei Runden zum Stoppen zu bringen wurde zusätzlich das Gyroskop Adafruit 9-DOF Orientation IMU Fusion Breakout - BNO085 (BNO080) installiert, welches die gedrehten Winkel bei Kurven misst und nach 1080° den Motor zum stoppen bringt. Außerdem hilft es bei der Lenkkorrektur.
 
 <p align="center">
   <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/86dd095a-c874-4c95-8dc8-72763162c80c" alt="Bild" width="400" />
