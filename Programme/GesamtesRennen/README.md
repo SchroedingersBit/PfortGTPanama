@@ -1,5 +1,5 @@
 # Gesamtes Rennen
-Das Programm beinhaltet einen Parameter, der bestimmt, ob allein die Teile des Programms verwendet werden müssen, die für das Eröffnungsrennenwichtig sind, da dieses kein Kamera Script, sondern allein die Ultraschallsensoren benötigt, oder auch die Kameradaten verwendet werden müssen.
+Das Programm beinhaltet einen Parameter, der bestimmt, ob allein die Teile des Programms verwendet werden müssen, die für das Eröffnungsrennen wichtig sind, da dieses kein Kamera Script, sondern allein die Ultraschallsensoren benötigt, oder auch die Kameradaten verwendet werden müssen.
 
 ## Flowchart für das Eröffnungsrennen
 ```mermaid
@@ -90,8 +90,7 @@ Serial.print(controlDataArr[0] - referenceAngle);
 ```
 
 ## ControlRC.h
-In dieser Header Datei sind alle Funktionen zur Steuerung des Fahrzeugs basierend auf den Sensordaten enthalten.
-Es werden Überprüfungen für die Sicherheitswinkel, Kurven und zur Aktualisierung der Referenzwinkeln initialisiert wodurch die Fahrzeugsteuerung garantiert wird.
+
 
 ```c++
 //Inkludieren der erforderlichen Bibliotheken.
