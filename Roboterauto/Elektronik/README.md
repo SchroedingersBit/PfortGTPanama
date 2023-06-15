@@ -37,10 +37,12 @@ Wir verwenden die HC-SR04 Ultraschallsensoren, welche vor den Servomoter angesch
 
 ## Gesamtbild
 Die gesamte Darstellung wurde mithilfe von Fritzing erstellt, wobei zusätzliche Bauteile, wie Driver, Gyro bzw. Proto Shield V5 implementiert werden mussten.
+Beim Aufbau des Schaltkreises wurde darauf geachtet, die Kabel so weit wie möglich zu verstecken. Dadurch sieht unser Auto schöner aus und die Kabel hindern die 
+Kamerasicht nicht.
 
 ![Gesamtbild](https://github.com/SchroedingersBit/PfortGT-WRO/assets/93491768/91a0c85f-1f8b-421b-811c-65d37a91613d)
 
-## Laden des Akkus
-
+## Aufladen des Akkus
+Wir benutzen das Ladegerät HTRC Lipo Ladegerät, um unsere Batterien zu laden. Dafür haben wir einen eigenen Ladeprogramm erstellt, der jede Zelle der Batterie auf eine Spannung von 3.7V mit der Stromstärke 1A lädt. Das Programm ist über die Betätigung des Knopfes Start zu erreichen.
 
 
