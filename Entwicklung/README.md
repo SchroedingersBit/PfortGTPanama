@@ -8,3 +8,5 @@ Nun musste die Lenkung betrachtet werden. Die Standard Lösung ist eine Ackerman
 Im Endeffekt haben wir aus Zeitproblemen zunächst das fertige Chassis mit der gegebenen Elektronik und der fertigen Lenkung verändert. Später wurden noch viele weitere Veränderungen vorgenommen, bis wir auf dem Stand des jetzigen Modells sind (siehe Bau).
 
 Eine entscheidende Veränderungen ist auch der Tausch der beiden Zahnräder, sodass anstatt einer groß- auf klein-Übertragung, eine klein auf groß-Übertragung vorliegt. Daher fährt das Auto zwar langsamer, hat aber ein größeres Drehmoment und bleibt bei niedrigen Geschwindigkeiten nicht stehen, überwindet also größere Haftreibungskräft/ Rollreibungskräfte.
+
+Anfangs befand sich auch der Kameraturm weiter vorne, später hinten, aber schlecht und schräg befestigt. Die neue Deckplatte bietet auch eine Halterung für diesen. 
