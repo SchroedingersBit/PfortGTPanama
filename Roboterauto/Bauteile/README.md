@@ -10,7 +10,7 @@ Gedruckt und verschraubt mit den ersten weiteren Bauteilen sieht es so aus:
 
 ![IMG_4836](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/75c43213-0515-4701-9de5-d3b49cc06784)
 
-Auf diese Grundplatte wird die Deckplatte gesetzt, auf welcher sich der Arduino befindet. Dabei sind besonders die Löcher in der Mitte zu betrachten, welche das Kabelmanagement erleichtern:
+Auf diese Grundplatte wird die Deckplatte gesetzt, auf welcher sich der Arduino, der Kameraturm und der Regler befindet. Dabei sind besonders die Löcher in der Mitte zu betrachten, welche das Kabelmanagement erleichtern:
 
 ![IMG_4838](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/f46aae51-b388-4639-8cf1-9b15b68bc356)
 
