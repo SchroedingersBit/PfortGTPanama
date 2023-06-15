@@ -28,9 +28,9 @@ Kurve --> |haben linker und rechter Ultraschallsensor zusammen einen Betrag > 13
 F --> |misst Wert < 100| G{Gyrosensor};
 G --> |neigung des Autos < 20°|Kurvenart;
 Kurvenart --> |rightshift < 0| R{Rechtskurve};
-R --> |reference Winkel + 90 |{Kurve beendet};
+R --> |reference Winkel + 90 |K{Kurve beendet};
 Kurvenart --> |rightshift > 0| L{Linkskurve};
-L --> |reference Winkel - 90 |{Kurve beendet};
+L --> |reference Winkel - 90 |K;
 
 ```
 ## Flowchart für das Hindernisrennen
