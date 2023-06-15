@@ -23,6 +23,7 @@ Lenkung --> Z{Auto passt Lenkeinstellungen an}
 Beim Eröffnungsrennen bezeiht das Auto Ultraschall - und Gyrosensordaten um in der Mitte zwischen den aufgestellten banden fährt. Befindet es sich nicht mittig, z.B. wegen einer Kurve, wird ein neuer Winkel ausgerechnet, der angestrebt werden soll. Dieser wird dann langsam korrigiert um eine ruckartige bewegung zu verhindern und darf zudem eine maximale größe nicht überschreiten, welcher durch den Gyrosensor definiert wird. Dieser zählt zudem die zurückgelegten Kurven, um nach drei Runden zu stoppen. 
 ## Flowchart für die Kurvenlogik
 ```mermaid
+flowchart TB;
 Kurve --> |haben linker und rechter Ultraschallsensor zusammen einen Betrag > 130| F{Front USS};
 F --> |misst Wert < 100| G{Gyrosensor};
 G --> |neigung des Autos < 20°|Kurvenart;
