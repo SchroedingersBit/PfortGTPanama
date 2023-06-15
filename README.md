@@ -18,7 +18,7 @@ erklärt, was die Besonderheiten sind und weshalb wir uns für diese entschieden
 ### Videos und Fotos
 Bei [Videos und Fotos](/Videos_und_Fotos) können sowohl der Aufbau und die einzelnen Komponenten, als auch die Leistungen unseres Autos in Teststrecken eingesehen werden. 
 ### Quellen
-In [Quellen](/Quellen) dokumentieren wir unsere Informationsquellen von Youtube und dem Internet. Daneben sind alle von uns getätigten Käufe für die zusätzlichen Bauteile und die Installationspfade mit den dazugehörigen Einrichtungshinweise für die von uns genutzte Software hinterlegt.
+In [Quellen](/Quellen) dokumentieren wir unsere Informationsquellen. Daneben sind alle von uns getätigten [Käufe](/Quellen/Käufe) für die zusätzlichen Bauteile und die Installationspfade mit den dazugehörigen Einrichtungshinweise für die von uns genutzte Software hinterlegt.
 
 <p align="center">
 <img src="Videos_und_Fotos/Fotos/Logo2.png" alt="description of image" width="30%" height="30%" style="display:block; margin:auto">
