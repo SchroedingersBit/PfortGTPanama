@@ -40,4 +40,7 @@ Die gesamte Darstellung wurde mithilfe von Fritzing erstellt, wobei zusätzliche
 
 ![Gesamtbild](https://github.com/SchroedingersBit/PfortGT-WRO/assets/93491768/91a0c85f-1f8b-421b-811c-65d37a91613d)
 
+## Laden des Akkus
+
+
 
