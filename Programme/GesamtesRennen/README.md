@@ -7,8 +7,8 @@ Das Programm beinhaltet einen Parameter, der bestimmt, ob allein die Teile des P
 Gestartet wird das Programm über das Complete_V1.ino, welches alle weiteren Klassen öffnet und managed.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken und Verwendung der Header Datein
-#include "variables.h"  // all the vars, actuators, and sensors are defined and initialized here.
-#include "ControlRC.h"  // all functions for control, read sonsor and update variables are located here
+#include "variables.h"  // alle Variabeln, Ports, Sensoren
+#include "ControlRC.h"  // alle Funktionen für Kontrolle, Sensoren und Updaten der Variabeln
 
 
 //serielle Verbindung erstellen und die Ports des Arduino aus dem Variable Header initialisieren
