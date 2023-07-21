@@ -1,7 +1,9 @@
 # ToDo Liste
 ## GitHub
-* Readme für Akku Aufladen
+* neues englisches Repo
 ## Programm
 * Geschwindigkeitsabhängige Kurve
+* OpenCV Kamera Programm
 ## Auto
-* Kamera Age und Objektanzahl
+* Kamera Age und Objektanzahl bei Pixy Cam
+* neue Weitwinkelkamera
