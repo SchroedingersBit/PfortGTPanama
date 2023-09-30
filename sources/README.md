@@ -1,2 +1,2 @@
-# Quellen
-Hier sind unsere Informationsquellen, getätigten Käufe und Installationspfade hinterlegt.
+# Sources
+Our sources of information, purchases made and installation paths are stored here.
