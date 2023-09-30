@@ -31,4 +31,10 @@ Here you can find the photos of the complete robot from different views and our 
   <img src="L.jpg" alt="Seite2" width="400" />
 </p>
 
+## Team photo
+
+<p align="center">
+  <img src="U.jpg" alt="Seite1" width="400" />
+</p>
+
 
