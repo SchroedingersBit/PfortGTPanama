@@ -1,30 +1,30 @@
 # Roboterfotos
-Hier sind die Fotos des vollständigen Roboters aus verschiedenen Ansichten zu sehen. In [FotosAlt.md](FotosAlt.md) sind die Fotos unseres vorherigen Roboters zu sehen.
-## Frontansicht
+Here you can find the photos of the complete robot from different views and our team photo. In [FotosAlt.md](PhotosAlt.md) you can see older photos of our robot.
+## Front view
 
 <p align="center">
   <img src="F.jpg" alt="Front" width="400" />
 </p>
 
-## Hinteransicht
+## Back view
 
 <p align="center">
   <img src="H.jpg" alt="Hinten" width="400" />
 </p>
 
-## Oberansicht
+## Top view
 
 <p align="center">
   <img src="O.jpg" alt="Seite1" width="400" />
 </p>
 
-## Unteransicht
+## Bottom view
 
 <p align="center">
   <img src="U.jpg" alt="Seite1" width="400" />
 </p>
 
-## Seitenansichten
+## Side view
 
 <p align="center">
   <img src="R.jpg" alt="Seite1" width="400" />
