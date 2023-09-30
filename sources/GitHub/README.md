@@ -6,5 +6,5 @@
 * https://github.com/World-Robot-Olympiad-Association/future-engineers-gs/tree/main
 
 ## Rulebook
-* https://www.worldrobotolympiad.de/website/docs/wro2023/WRO2023-FE-Regelwerk.pdf
+* https://wro-association.org/wp-content/uploads/WRO-2023-Future-Engineers-Self-Driving-Cars-General-Rules.pdf
 
