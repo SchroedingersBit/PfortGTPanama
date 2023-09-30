@@ -1,24 +1,24 @@
-# Roboterfotos für die erste Runde in Chemnitz
-Hier sind die Fotos des alten Roboters aus verschiedenen Ansichten zu sehen:
-## Frontansicht
+# Vehicle pictures for the first competition round in Chemnitz Germany
+Here are the photos of the old robot from different views:
+## Front view
 
 <p align="center">
   <img src="Frontansicht.jpeg" alt="Front" width="400" />
 </p>
 
-## Hinteransicht
+## Back view
 
 <p align="center">
   <img src="Hinteransicht.jpeg" alt="Hinten" width="400" />
 </p>
 
-## Oberansicht
+## Top view
 
 <p align="center">
   <img src="Oberansicht.jpeg" alt="Seite1" width="400" />
 </p>
 
-## Seitenansichten
+## Side view
 
 <p align="center">
   <img src="Seitenansicht 2.jpeg" alt="Seite1" width="400" />
