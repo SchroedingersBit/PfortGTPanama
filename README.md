@@ -22,5 +22,5 @@ In [videos](/videos) Youtube links are deposited, which demonstrate the performa
 In [sources](/sources) we document our sources of information. In addition, all [purchases](/sources/purchases) we have made for the additional components and the installation paths with the associated setup instructions for the software we use are stored.
 
 <p align="center">
-<img src="Videos_und_Fotos/Fotos/Logo2.png" alt="description of image" width="30%" height="30%" style="display:block; margin:auto">
+<img src="Pictures/Logo2.png" alt="description of image" width="30%" height="30%" style="display:block; margin:auto">
 </p>
