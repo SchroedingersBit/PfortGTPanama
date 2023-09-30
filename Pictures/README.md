@@ -1,5 +1,5 @@
 # Vehicle and team photos
-Here you can find the photos of the complete robot from different views and our team photo. In [FotosAlt.md](PhotosAlt.md) you can see older photos of our robot.
+Here you can find the photos of the complete robot from different views and our team photo. In [photosAlt.md](PhotosAlt.md) you can see older photos of our robot.
 ## Front view
 
 <p align="center">
