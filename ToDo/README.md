@@ -1,6 +1,5 @@
 # ToDo Liste
-## GitHub
-* neues englisches Repo
+
 ## Programm
 * Geschwindigkeitsabhängige Kurve
 * OpenCV Kamera Programm
