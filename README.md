@@ -1,24 +1,25 @@
-# PfortGT-WRO 🤖
+# PfortGT World Final Panama 2023 🤖
 
-## Einleitung
-Dies ist das GitHub-repository für das autonom fahrende Auto des **PfortGT Teams** der **Landesschule Pforta** für den **WRO Future Engineers** Wettbewerb.
-In diesem repository gehen wir auf unseren Planungs - und Bauprozess für unser Auto ein. Wir beschreiben unsere Probleme und  Ideen, welche wir auf dem Weg hatten und erläutern unser Baupläne und Programme.
-## Überblick
-Unser Auto wird durch einen Arduino betrieben. Es besteht aus einem fertigen Chassi welches mit individuell 3D-gedruckten Halterungen für die verschiedenen Sensoren und die Kamera ausgestattet ist (siehe [Bauteile](/Roboterauto/Bauteile)). Die Stromversorgung läuft über einen Akku (siehe [Elektronik](/Roboterauto/Elektronik)). Das Sensorenequipment besteht aus drei Ultraschall-Sensoren, einem Gyro-Sensor und einer Pixy Cam2 (siehe [Sensoren](/Roboterauto/Sensoren)). Für das Eröffnungsrennen verarbeitet ein Arduino Code den durch die Ultraschall-Sensoren gemessenen Abstand zu den Wänden, um kleine Lenkanpassugen des Autos zu treffen (siehe [Eröffnungsrennen](/Programme/Eröffnungsrennen)). Beim Hindernisrennen wird neben dem Ultraschall-Sensoren Code auch ein Kamera Script verwendet (siehe [Hindernisrennen](/Programme/Hindernisrennen)). Dieses sucht über die Pixy Cam nach roten und grünen Farbsignaturen und hält diese auf dem Bildschirmabschnitt (rechts oder links), welcher dem jeweiligen Abbiegen des Autos entspricht.
-## Aufbau
-
-Unser Repository ist in mehrere Untergruppen aufgeteilt, in welchem die einzelnen Schwerpunkte besprochen werden.
-### Entwicklung
-In [Entwicklung](/Entwicklung) beschreiben wir unseren Entwicklungsweg. Dabei gehen wir auf unsere Ideen ein, die wir währendessen hatten, Probleme welche uns beschäftigten und wie wir sie gelöst haben.
-### Programme
-In [Programme](/Programme) erläutern wir das Herzstück dieses Wettbewerbs, das Coding. Wir beschreiben und erklären dabei unsere Struktur, die Entscheidung für C++ und die zwei Schwerpunkte [Eröffnunggsrennen](Programme/Eröffnungsrennen) und [Hindernisrennen](Programme/Hindernisrennen), sowie unser eigentliches [Gesamtes Programm](Programme/GesamtesRennen).
-### Roboterauto
-In [Roboterauto](/Roboterauto/) wird ausführlich gezeigt, wie unser Auto aufgebaut ist. Es werden die [Bauteile](/Roboterauto/Bauteile) des Autos gezeigt, wie diese zusammengesetzt sind und welche davon gekauft oder 3D-gedruckt wurden. In [Elektronik](/Roboterauto/Elektronik) wird unsere elektronische Verkabelung erläutert und darauf eingegangen, wie die Stromversorgung für die Motoren und Sensoren geregelt ist. Daneben besprechen wir die Hardware, mit welcher das Auto ausgestattet ist und was uns zu dieser Entscheidung bewegt hatte. Weiterhin werden unsere verwendeten [Sensoren](/Roboterauto/Sensoren) 
-erklärt, was die Besonderheiten sind und weshalb wir uns für diese entschieden haben. Zusätzlich sind in [3D-Druck](/Roboterauto/3D-Druck) unsere Dateien und Arbeit für unsere gedruckten Bauteile aufgelistet.
-### Videos und Fotos
-Bei [Videos und Fotos](/Videos_und_Fotos) können sowohl der Aufbau und die einzelnen Komponenten, als auch die Leistungen unseres Autos in Teststrecken eingesehen werden. 
+## Introduction
+This is the GitHub repository for the autonomous driving car of the **PfortGT Team** of the **Landesschule Pforta from Germany** for the **WRO Future Engineers World Final 2023 in Panama**.
+In this repository we go into our planning - and building process for our car. We describe our problems and ideas we had along the way and explain our construction plans and programs.
+## Overview
+Our car is powered by an Arduino. It consists of a chassis which is equipped with individually 3D-printed mounts for the various sensors and the camera (see [components](/vehicle/components)). Power is supplied by a rechargeable battery (see [electronics](/vehicle/electronics)). The sensor equipment consists of three ultrasonic sensors, a gyro sensor and a Pixy Cam2 (see [sensors](/vehicle/sensors)). For the opening race, an Arduino code processes the distance to the walls measured by the ultrasonic sensors to make small steering adjustments to the car (see [Opening Race](/programming/Opening Race)). In the obstacle race, in addition to the ultrasonic sensor code, a camera script is also used (see [Obstacle Race](/programming/Addvance Race)). This looks for red and green color signatures via the Pixy Cam and keeps them on the screen section (right or left) corresponding to the respective turn of the car.
+## Structure
+Our repository is divided into several subgroups in which each topic of focus is discussed.
+### Development
+In [development](/development) we describe our development path. We describe the ideas we had during the process, the problems we faced and how we solved them.
+### Programming
+In [programming](/programming) we explain the heart of this competition, the coding. We describe and explain our structure, the decision for C++ and the two focal points [Opening Race](programming/Opening Race) and [Obstacle Race](programming/Obstacle Race), as well as our actual [Overall Program](Programming/Overall Race).
+### Vehicle
+In [vehicle](/vehicle/) it is shown in detail how our car is built. The [components](/vehicle/components) of the car are shown, how they are assembled and which of them were bought or 3D-printed. In [electronics](/vehicle/electronics), our electronic wiring is explained and how the power supply for the motors and sensors is regulated is discussed. Besides that we discuss the hardware the car is equipped with and what made us decide to do this. Furthermore, our used [sensors](/vehicle/sensors) 
+are explained, what the special features are and why we decided to use them. Additionally, [3D printing](/vehicle/3D printing) lists our files and work for our printed parts.
+### Pictures
+In [pictures](/pictures) there are photos of the car from different angles as well as our team photo. 
+### Performance videos
+In [videos](/videos) Youtube links are deposited, which demonstrate the performance of our car in test tracks for the various tasks.
 ### Quellen
-In [Quellen](/Quellen) dokumentieren wir unsere Informationsquellen. Daneben sind alle von uns getätigten [Käufe](/Quellen/Käufe) für die zusätzlichen Bauteile und die Installationspfade mit den dazugehörigen Einrichtungshinweise für die von uns genutzte Software hinterlegt.
+In [sources](/sources) we document our sources of information. In addition, all [purchases](/sources/purchases) we have made for the additional components and the installation paths with the associated setup instructions for the software we use are stored.
 
 <p align="center">
 <img src="Videos_und_Fotos/Fotos/Logo2.png" alt="description of image" width="30%" height="30%" style="display:block; margin:auto">
