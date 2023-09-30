@@ -1,5 +1,7 @@
 # PfortGT World Final Panama 2023 🤖
-
+<p align="center">
+<img src="Pictures/team1.jpg" alt="description of image" width="30%" height="30%" style="display:block; margin:auto">
+</p>
 ## Introduction
 This is the GitHub repository for the autonomous driving car of the **PfortGT Team** of the **Landesschule Pforta from Germany** for the **WRO Future Engineers World Final 2023 in Panama**.
 In this repository we go into our planning - and building process for our car. We describe our problems and ideas we had along the way and explain our construction plans and programs.
