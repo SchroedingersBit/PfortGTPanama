@@ -1,4 +1,4 @@
-# Sensoren
+# Sensors
 Hier werden die Sensoren beschrieben und ihre Eigenschaften erklärt.
 ## PixyCam
 Für die Kamera wure die PixyCam 2 gewählt. Diese ist eine beliebte Wahl für Robotikprojekte mit autonom fahrenden Autos aus mehreren Gründen. Erstens bietet sie eine zuverlässige und präzise Bildverarbeitungsfunktion, die speziell für die Erkennung und Verfolgung von Objekten entwickelt wurde. Dies ermöglicht dem autonomen Fahrzeug, visuelle Informationen in Echtzeit zu erfassen und Entscheidungen basierend auf den erkannten Objekten zu treffen.
