@@ -1,33 +1,33 @@
 # Sensors
-Hier werden die Sensoren beschrieben und ihre Eigenschaften erklärt.
+Here the sensors are described and their properties explained.
 ## PixyCam
-Für die Kamera wure die PixyCam 2 gewählt. Diese ist eine beliebte Wahl für Robotikprojekte mit autonom fahrenden Autos aus mehreren Gründen. Erstens bietet sie eine zuverlässige und präzise Bildverarbeitungsfunktion, die speziell für die Erkennung und Verfolgung von Objekten entwickelt wurde. Dies ermöglicht dem autonomen Fahrzeug, visuelle Informationen in Echtzeit zu erfassen und Entscheidungen basierend auf den erkannten Objekten zu treffen.
-Ein weiterer Vorteil der PixyCam 2 ist ihre Benutzerfreundlichkeit. Sie verfügt über eine einfache Schnittstelle und eine gut dokumentierte API, die die Integration in verschiedene Plattformen und Programmiersprachen erleichtert. Dies ist für uns sehr praktisch, da sich die Bibliothek für Arduino sehr leicht einrichten lässt und viele QUellen im Internet dazu zur Verfügung stehen. Darüber hinaus zeichnet sich die PixyCam 2 durch ihre kompakte Größe und geringen Stromverbrauch aus, was sie ideal für den Einsatz in autonomen Fahrzeugen macht, bei denen Platz und Energieeffizienz wichtige Faktoren sind.
+The PixyCam 2 was chosen for the camera. This is a popular choice for robotics projects involving autonomous driving cars for several reasons. First, it provides a reliable and accurate image processing function specifically designed for object detection and tracking. This enables the autonomous vehicle to acquire visual information in real time and make decisions based on the detected objects.
+Another advantage of the PixyCam 2 is its ease of use. It has a simple interface and a well-documented API that facilitates integration with different platforms and programming languages. This is very convenient for us, since the library for Arduino is very easy to set up and there are many SOURCES available on the Internet for this purpose. In addition, the PixyCam 2 is characterized by its compact size and low power consumption, which makes it ideal for use in autonomous vehicles, where space and energy efficiency are important factors.
 
-Um die PixyCam 2 auf die Farbcodes bestimmter Objekte zu trainieren, wird die PixyMon Software verwendet. Dabei wird für ein Objekt der gewünschten Farbe in diesem Programm der Farbcode gespeichert, indem man es vor die Kamera hält. Danach werden weitere Aapassungen getroffen um die Erkennung möglichst präzise zu gestalten. Die PixyCam kann eine enorm hohe Anzahl an Objekten gleichzeitig detektieren. Allerdings benötigen wir immer nur gleichzeitig zwei Objekte mit insgesamt zwei verschiedenen Farbcodes. Die PixyCam sortiert dann das Objekt mit dem gesuchten Farbcode, welches die meisten Frames auf dem Bilfschirm einnimt, automatisch als ersten Block.
+To train the PixyCam 2 to the color codes of certain objects, the PixyMon software is used. The color code for an object of the desired color is stored in this program by holding it in front of the camera. After that, further adjustments are made to make the recognition as precise as possible. The PixyCam can detect an enormously high number of objects simultaneously. However, we only need two objects with a total of two different color codes at a time. The PixyCam then automatically sorts the object with the searched color code, which takes up the most frames on the screen, as the first block.
 
 
 <p align="center">
-  <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/eb3a5cff-a5a3-4a08-8798-f2fcd5b6ecfd" alt="Bild" width="400" />
+  <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/eb3a5cff-a5a3-4a08-8798-f2fcd5b6ecfd" alt="PixyCam" width="400" />
 </p>
 
-## Ultraschall-Sensoren
-Die Verwendung von den Ultraschallsensoren  HC-SR04 erlaubt es uns, vorallem für das Eröffnungsrennen, präzise, einfach und schnell Entfernungen zu Wändenn in der Umgebung des Fahrzeugs zu erfassen. Sie senden Ultraschallwellen aus und messen die Zeit, die benötigt wird, um das reflektierte Signal zurückzuerhalten. Dadurch können sie die Abstände zu Hindernissen oder anderen Fahrzeugen genau bestimmen. Dies ist entscheidend, um Kollisionen zu vermeiden und sicher, gerade und schnell die Kurven zu fahren.
+## Ultrasonic sensors
+The use of the HC-SR04 ultrasonic sensors allows us, especially for the opening race, to accurately, easily and quickly detect distances to walls in the vicinity of the vehicle. They emit ultrasonic waves and measure the time it takes for the reflected signal to return. This allows them to accurately determine distances to obstacles or other vehicles. This is crucial to avoid collisions and drive the curves safely, straight and fast.
 
-Ein weiterer Vorteil von Ultraschallsensoren ist ihre Vielseitigkeit. Sie können in verschiedenen Richtungen montiert werden, um ein breites Sichtfeld abzudecken und Hindernisse aus verschiedenen Blickwinkeln zu erfassen. Dies ermöglicht es uns eine umfassende und zuverlässige Umgebungswahrnehmung für das Auto zu garantieren.
-Für das Hindernisrennen erleichtern sie zudem die Unterscheidung zwischen den Blöcken und Problemfälle bei Kurven zu umgehen.
-Darüber hinaus arbeiten Ultraschallsensoren unabhängig von Lichtverhältnissen, was sie zuverlässig in verschiedenen Umgebungen, sowohl bei Tageslicht als auch bei Dunkelheit, macht. Sie sind unempfindlich gegenüber äußeren Einflüssen wie Blendung oder Reflexionen, die bei anderen Sensoren wie Kameras auftreten können. Allerdings hatten wir auch mit einem großen Problem zu kämpfen, was die Reflexion an schiefen Wänden betrifft, da eine nur geringfügig geneigte Wand, den Abstand zu dieser sehr stark beeinflussen konnte. Dies haben wir versucht in unserem Programm durch Fehlertoleranzen und Sensordatenbedingungen so weit wie möglich zu beheben.
+Another advantage of ultrasonic sensors is their versatility. They can be mounted in different directions to cover a wide field of view and detect obstacles from different angles. This allows us to guarantee comprehensive and reliable environmental awareness for the car.
+For the obstacle challenge, they also make it easier to distinguish between blocks and avoid problematic turns.
+In addition, ultrasonic sensors operate independently of lighting conditions, making them reliable in a variety of environments, both daylight and dark. They are insensitive to external influences such as glare or reflections, which can occur with other sensors such as cameras. However, we also had to deal with a big problem regarding reflections from slanted walls, since a wall that was only slightly slanted, could affect the distance to it a lot. We tried to fix this as much as possible in our program through error tolerances and sensor data conditions.
 
 <p align="center">
-  <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/676ffe3f-2a61-47e1-96a9-5eed88ad20de" alt="Bild" width="400" />
-   <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/181f1490-14f6-43e2-95a2-e8d1b493da5a" alt="Bild" width="400" />
+  <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/676ffe3f-2a61-47e1-96a9-5eed88ad20de" alt="US sensor" width="400" />
+   <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/181f1490-14f6-43e2-95a2-e8d1b493da5a" alt="US sensor" width="400" />
 </p>
 
-## Gyroskop
-Um das Auto nach drei Runden zum Stoppen zu bringen wurde zusätzlich das Gyroskop Adafruit 9-DOF Orientation IMU Fusion Breakout - BNO085 (BNO080) installiert, welches die gedrehten Winkel bei Kurven misst und nach 1080° den Motor zum stoppen bringt. Außerdem hilft es bei der Lenkkorrektur.
+## Gyroscope
+To bring the car to a stop after three laps, the Adafruit 9-DOF Orientation IMU Fusion Breakout - BNO085 (BNO080) gyroscope was also installed, which measures the rotated angles during turns and brings the motor to a stop after 1080°. It also helps with steering correction.
 
 <p align="center">
-  <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/86dd095a-c874-4c95-8dc8-72763162c80c" alt="Bild" width="400" />
+  <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/86dd095a-c874-4c95-8dc8-72763162c80c" alt="Gyroscope" width="400" />
 </p>
 
 
