@@ -1,2 +1,2 @@
-# Programme
-Hier sind alle Codes für die Steuerung des Autos hinterlegt. Alle Programme sind vollständig in C++ geschrieben, da wir alle Sensordaten und Motorlenkungen über den Arduino ansprechen. Wir verwenden dabei die offizielle Arduino IDE. Das Programm setzt sich aus einigen Klassen zusammen, welche einzeln verarbeitet werden und auf welche dann bei Bedarf zugegriffen werden kann.
+# Programming
+All codes for the control of the car are stored here. All programs are written completely in C++, because we address all sensor data and motor steering via the Arduino. We use the official Arduino IDE. The program is composed of several classes, which are processed individually and can then be accessed as needed.
