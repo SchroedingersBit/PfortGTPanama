@@ -1,37 +1,36 @@
-# Bauteile
-Hier wird der Aufbau des Autos und die 3D gedruckten Halterungen besprochen
+# Components
+Here we discuss the construction of the car and the 3D printed brackets
 
 ## Chassis
-Zuerst wurde mit der Planung des Chassis begonnen (siehe Entwicklung). Das momentane Chassis besteht aus einer großen 3D-gedruckten Grundplatte, an welcher die Lenkung, der Motor mit dem Getriebe, die Achsen und die restliche Hardware befestigt sind. Die wichtigsten Ansprüche an die Grundplatte sind, dieses im Vergleich zur vorherigen Grundplatte zu verkürzen (Δl= -5cm) und genug Befestigungsmöglichkeiten für die restliche Hardware bereit zu stellen. Dabei kam das folgende Design zustande (es ist nur die Hälfte zu sehen, weil es dann später gespiegelt wurde, sodass eine vollständige Platte entsteht).
+First, the planning of the chassis was started (see development). The current chassis consists of a large 3D-printed base plate to which the steering, the motor with the gearbox, the axles and the rest of the hardware are attached. The main requirements for the base plate are to shorten it compared to the previous base plate (Δl= -5cm) and to provide enough mounting options for the rest of the hardware. This resulted in the following design (only half of it can be seen because it was then later mirrored so that a complete plate is created).
+
 <img width="1040" alt="Bildschirmfoto 2023-05-31 um 15 49 12" src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/39ea1220-8d36-4189-aabf-6ac741cf9721">
 
-Gedruckt und verschraubt mit den ersten weiteren Bauteilen sieht es so aus:
-
+Printed and screwed together with the first further components it looks like this:
 
 ![IMG_4836](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/75c43213-0515-4701-9de5-d3b49cc06784)
 
-Auf diese Grundplatte wird die Deckplatte gesetzt, auf welcher sich der Arduino, der Kameraturm und der Regler befindet. Dabei sind besonders die Löcher in der Mitte zu betrachten, welche das Kabelmanagement erleichtern:
+The cover plate is placed on this base plate, on which the Arduino, the camera tower and the controller are located. Particular attention should be paid to the holes in the middle, which facilitate cable management:
 
 ![IMG_4838](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/f46aae51-b388-4639-8cf1-9b15b68bc356)
 
 
-## Sensorengrundplatte
-Die Ultraschallsensoren sollten möglichst weit vorne am Roboter befestigt werden, um möglichst früh auf die kommenden Hindernisse oder Bahnänderungen reagieren zu können. Um dieses dementsprechend zu befestigen, wurde eine Sensorengrundplatte designed, welche den Anforderungen gerecht wird:
+## Sensor base plate
+The ultrasonic sensors should be mounted as far forward as possible on the robot in order to be able to react as early as possible to the coming obstacles or path changes. In order to mount this accordingly, a sensor base plate was designed that meets the requirements:
 
 <p align="center">
-  <img src="Bild1.png" alt="Bild 1" width="600" />
+  <img src="Bild1.png" alt="sensor base plate" width="600" />
 </p>
 
-Die Löcher sind so angeordnet, dass drei Sensorenhalterungen mit je zwei Löchern, vier Löcher für den Kameraturm und vier für den Anbau an das Chassis zur Verfügung stehen. 
-Im Folgenden ist noch ein Bild des Bauteils am Roboter zu sehen:
+The holes are arranged to provide three sensor mounts with two holes each, four holes for the camera tower, and four for mounting to the chassis. 
+Below is another picture of the component on the robot:
 
 <p align="center">
-  <img src="Bild2.png" alt="Bild 2" width="500" />
-  <img src="Bild3.png" alt="Bild 3" width="300" />
+  <img src="Bild2.png" alt="P2" width="500" />
+  <img src="Bild3.png" alt="P3" width="300" />
 </p>
 
-  
-Der Kameraturm wurde später noch weiter nach hinten auf das Auto gebaut. -> siehe Entwicklung und Kameraturm.
+The camera tower was later built even further back on the car. -> see development and camera tower.
 
 # Ultraschall-Sensorenhalterung
 Die Sensorenhalterung musste die Ultraschall-Sensoren statisch und gegenüber bzw. rechtwinklig zueinander befestigen, um vertrauenswürdige, reproduzierbar signifikante Messwerte zu erhalten. Daher ist die Genauigkeit der Befestigung entscheidend. Zwei große Löcher dienen als Halterung für den Sender und Empfänger des Ultraschall-Sensors, die vier Löcher drum herum dienen der Befestigung des Sensors an der Halterung.
