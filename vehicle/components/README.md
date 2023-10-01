@@ -105,7 +105,7 @@ Conversion to small to large.
 
 ## Battery holder
 
-Die eleganteste Lösung schien es zu sein, den Akku hinten am Auto zu befestigen. Dafür haben wir eine Akkubox entwurfen, in welche man den Akku legen kann. Er besteht aus zwei Teilen (siehe 3D-Modelle), dem A und B Teil, welche als Einzelteile gedruckt und dann verklebt werden. Dadurch erhält man einen genaueren Druck, weil dadurch keine Druckstützen benötigt wurden. Im folgenden sind Bilder von den Einzelnen Designs zu sehen und von dem fertigen Bauteil:
+The most elegant solution seemed to be to attach the battery to the back of the car. For this purpose, we designed a battery box in which the battery can be placed. It consists of two parts (see 3D models), the A and B part, which are printed as individual parts and then glued. This gives a more accurate print because it eliminated the need for pressure supports. Below are pictures of the individual designs and the finished part:
 
 <img width="1003" alt="Bildschirmfoto 2023-06-15 um 20 21 15" src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/a395969a-1b5f-4e7b-ac37-7960cb3b19fd">
 <img width="896" alt="Bildschirmfoto 2023-06-15 um 20 21 27" src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/5c42064f-466b-4462-a41d-6b9ad68e0b5e">
