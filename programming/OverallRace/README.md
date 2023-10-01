@@ -1,5 +1,5 @@
-# Gesamtes Rennen
-Das Programm beinhaltet einen Parameter, der bestimmt, ob allein die Teile des Programms verwendet werden müssen, die für das Eröffnungsrennen wichtig sind, da dieses kein Kamera Script, sondern allein die Ultraschallsensoren benötigt, oder auch die Kameradaten verwendet werden müssen.
+# Overall Race
+The program contains a parameter that determines whether only the parts of the program that are important for the opening race must be used, since this does not require a camera script but only the ultrasonic sensors, or whether the camera data must also be used.
 
 
 
