@@ -1,6 +1,6 @@
-# Eröffnungsrennen
-Beim Eröffnungsrennen bezieht das Auto Ultraschall - und Gyrosensordaten ein, um in der Mitte zwischen den aufgestellten Begrenzungen fahren zu können. Befindet es sich nicht mittig, z.B. wegen einer Kurve oder Ungenauigkeiten, wird ein neuer Winkel - target angle aus den unterschiedlichenAbständen zu den Wänden - rightshift ausgerechnet, der angestrebt werden soll. Dieser wird dann langsam korrigiert um eine ruckartige Bewegung zu verhindern und darf zudem eine maximale Größe nicht überschreiten, welcher durch den Gyrosensor definiert wird. Dieser zählt zudem die zurückgelegten Kurven, um nach drei Runden zu stoppen. Der Ultraschallsensorwert ergibt sich aus dem Median von 5 Messungen und wird die ganze Zeit über aktualisiert.
-## Flowchart für die Ultraschallsensoren
+# Open Challenge
+In the opening race, the car incorporates ultrasonic and gyroscope sensor data in order to be able to drive in the center between the set-up boundaries. If it is not in the center, e.g. because of a curve or inaccuracies, a new angle - target angle from the different distances to the walls - rightshift is calculated, which should be aimed at. This angle is then slowly corrected to prevent a jerky movement and must not exceed a maximum size, which is defined by the gyro sensor. The gyro sensor also counts the covered curves to stop after three rounds. The ultrasonic sensor value results from the median of 5 measurements and is updated all the time.
+## Flowchart for the ultrasonic sensors
 ```mermaid
 flowchart TB;
 USS-Code --> D{Distanz < 400} --> M{5 Messungen};
@@ -20,7 +20,7 @@ end
 Lenkung --> Z{Auto passt Lenkeinstellungen an}
 ```
 
-## Flowchart für die Kurvenlogik
+## Flowchart for curve logic
 ```mermaid
 flowchart TB;
 Kurve --> |Betrag linker + rechter USS > 130| F{Front USS};
