@@ -32,79 +32,78 @@ Below is another picture of the component on the robot:
 
 The camera tower was later built even further back on the car. -> see development and camera tower.
 
-# Ultraschall-Sensorenhalterung
-Die Sensorenhalterung musste die Ultraschall-Sensoren statisch und gegenüber bzw. rechtwinklig zueinander befestigen, um vertrauenswürdige, reproduzierbar signifikante Messwerte zu erhalten. Daher ist die Genauigkeit der Befestigung entscheidend. Zwei große Löcher dienen als Halterung für den Sender und Empfänger des Ultraschall-Sensors, die vier Löcher drum herum dienen der Befestigung des Sensors an der Halterung.
+# Ultrasonic sensor mount
+The sensor mounting had to mount the ultrasonic sensors statically and opposite or perpendicular to each other in order to obtain trustworthy, reproducibly significant measured values. Therefore, the accuracy of the mounting is critical. Two large holes are used to hold the ultrasonic sensor transmitter and receiver, and the four holes around them are used to attach the sensor to the mount.
 
 <p align="center">
-  <img src="Bild4.png" alt="Bild 4" width="400" />
+  <img src="Bild4.png" alt="P4" width="400" />
 </p>
 
-Durch diese werden kleine Pins oder Drähte geschoben, welche auf der anderen Seite eingeschmolzen oder umgebogen werden können. Zwischen Halterung und Sensor werden noch die Abstandshalter eingebaut, um eine möglichst feste Verbindung zu schaffen, damit kein Spielraum entsteht und die Sensoren unnötig wackeln. Über die zwei Löcher auf der Bodenseite ist die Halterung an der Grundplatte verschraubt (siehe Sensorengrundplatte).
+Small pins or wires are pushed through these, which can be melted or bent over on the other side. Between the holder and the sensor, the spacers are installed to create as tight a connection as possible, so that there is no play and the sensors wobble unnecessarily. The holder is screwed to the base plate via the two holes on the bottom side (see sensor base plate).
   
 <p align="center">
-  <img src="Bild5.png" alt="Bild 5" width="300" />
-  <img src="Bild6.png" alt="Bild 6" width="300" />
+  <img src="Bild5.png" alt="P5" width="300" />
+  <img src="Bild6.png" alt="P6" width="300" />
 </p>
 
   
-## Abstandshalter
-Die Abstandshalter werden benötigt, um verschiedene Kontakte zu isolieren bzw. eine Erdung zu verhindern und um Abstände zwischen verschiedenen Bauteilen auf eine länge zu beschränken. Die Template, welche gedruckt wurde, enthält Abstandshalter mit einer Höhe von 2.5mm und 5.0 mm, um verschiedene Abstände zu erstellen. Der Innenradius beträgt 3.5mm, sodass die Schrauben, welche hauptsächlich verwendet wurden, genau so passen, dass Widerstand besteht, man die schrauben aber durchschauen kann. Die Abstandshalter sind also auch als Muttern verwendbar.
+## Spacer
+The spacers are needed to isolate or prevent grounding of different contacts and to limit distances between different components to one length. The template that was printed contains spacers with a height of 2.5mm and 5.0 mm to create different distances. The inner radius is 3.5mm so that the screws, which were mainly used, fit exactly so that there is resistance but you can screw the screws through. So the spacers can also be used as nuts.
 
 <p align="center">
-  <img src="Bild7.png" alt="Bild 7" width="300" />
+  <img src="Bild7.png" alt="P7" width="300" />
 </p>
 <p align="center">
-  <img src="Bild8.png" alt="Bild 8" width="300" />
-  <img src="Bild9.png" alt="Bild 9" width="300" />
+  <img src="Bild8.png" alt="P8" width="300" />
+  <img src="Bild9.png" alt="P9" width="300" />
 </p>
 
-## Befestigungspins
+## Fixing pins
 
-Die Befestigungspins bestehen aus kleinen Plastik-Stäben und einem Kopf. Die Stäbe schiebt man durch Befestigungslöcher, bis der Kopf auf Anschlag an der Befestigung befindet.
-Danach kann man das andere Ende kurz erwärmen und dann umbiegen. So hat man eine statische, präzise Lösung, um die Sensoren an den Halterungen zu befestigen. Für Testfahrten wurden jedoch noch Kabel statt den Pins benutzt, weil diese nicht so schnell kaputt gehen. Der Nachteil von Kabeln bzw Drähten besteht darin, dass man diese nicht so eng befestigen kann, weshalb mehr Spielraum entsteht.
+The fixing pins consist of small plastic rods and a head. The rods are pushed through the mounting holes until the head is in contact with the mounting.
+Then you can heat the other end briefly and then bend it over. This gives you a static, precise solution for attaching the sensors to the mounts. For test drives, however, cables were still used instead of the pins because they don't break as quickly. The disadvantage of cables or wires is that you can't attach them as tightly, which is why there is more slack.
 
 <p align="center">
-  <img src="Bild10.png" alt="Bild 10" width="500" />
-  <img src="Bild11.png" alt="Bild 11" width="300" />
+  <img src="Bild10.png" alt="P10" width="500" />
+  <img src="Bild11.png" alt="P11" width="300" />
 </p>
 
-## Kameraturm
+## Camera tower
 
-Die Kamera sollte sich möglichst hoch auf dem Auto befinden (siehe [Kameramontage Future Engineers Docs](https://github.com/World-Robot-Olympiad-Association/future-engineers-gs/blob/main/docs/p04-cv.md)), des Weiteren möglichst weit hinten, um eine große Übersicht zu gewährleiste, Hindernisse möglichst lange detektieren und Hindernisse hintereinander in Bezug auf die Nähe unterscheiden zu können. Daher hat sich ein Kameraturm entwickelt, auf welchen später die Kamera mit den Kamera-Winkelhaltern geschraubt wird:
+The camera should be located as high as possible on the car (see [Camera Mounting Future Engineers Docs](https://github.com/World-Robot-Olympiad-Association/future-engineers-gs/blob/main/docs/p04-cv.md)), furthermore as far back as possible to ensure a large overview, to be able to detect obstacles as long as possible and to distinguish obstacles behind each other in terms of proximity. Therefore a camera tower was developed, on which later the camera with the camera angle holders is screwed:
 
 <p align="center">
-  <img src="Bild12.png" alt="Bild 12" width="400" />
-  <img src="Bild13.png" alt="Bild 13" width="300" />
+  <img src="Bild12.png" alt="P12" width="400" />
+  <img src="Bild13.png" alt="P13" width="300" />
 </p>
 
-Die Dreiecke in dem Turm wurden eingefügt, um Material zu sparen und möglicherweise in der Zukunft jegliche Bauteile grob zu befestigen.
+The triangles in the tower were inserted to save material and possibly roughly attach any components in the future.
 
-## Kamerawinkelhalter
+## Camera angle holders
 
-Der Winkelhalter befestigt die Halterung der Kamera an dem Kameraturm. Benötigt wurde dieser, weil die mit der Kamera gelieferten Winkel ein Gewinde hatten und dadurch nicht mit unseren Schrauben kompatibel waren. Da aber die Kamera kippbar sein soll, was mit dem gelieferten 	Set-Up nicht möglich ist, hilft der gedruckte Winkelhalter, um die Kamera auf ein Podest mit den Abstandhaltern zu bringen und diese drehbar zu machen.
+The angle holder attaches the mount of the camera to the camera tower. This was needed because the angles supplied with the camera had a thread and were therefore not compatible with our screws. But since the camera is supposed to be tiltable, which is not possible with the supplied setup, the printed angle holders helps to put the camera on a pedestal with the spacers and make them rotatable.
 
 <p align="center">
-  <img src="Bild14.png" alt="Bild 14" width="500" />
-  <img src="Bild15.png" alt="Bild 15" width="300" />
+  <img src="Bild14.png" alt="P14" width="500" />
+  <img src="Bild15.png" alt="P15" width="300" />
 </p>
 
-## Zahnradschutz
+## Gear protection
 
-Der Zahnradschutz ist ein Bauteil, welches verhindert, dass jegliche Kabel in die Nähe von den Zahnrädern kommen:
+The gear protection is a component that prevents any cables from getting near the gears:
 
 <p align="center">
-  <img src="Bild16.png" alt="Bild 16" width="500" />
-  <img src="Bild17.png" alt="Bild 17" width="300" />
+  <img src="Bild16.png" alt="P16" width="500" />
+  <img src="Bild17.png" alt="P17" width="300" />
 </p>
 
-## Getriebe
-Umstellung zu klein auf Groß.
+## Gearbox
+Conversion to small to large.
 <p align="center">
-  <img src="g.jpg" alt="Getriebe" width="500" />
- 
+  <img src="g.jpg" alt="Gearbox" width="500" />
 </p>
 
-## Akkuhalterung
+## Battery holder
 
 Die eleganteste Lösung schien es zu sein, den Akku hinten am Auto zu befestigen. Dafür haben wir eine Akkubox entwurfen, in welche man den Akku legen kann. Er besteht aus zwei Teilen (siehe 3D-Modelle), dem A und B Teil, welche als Einzelteile gedruckt und dann verklebt werden. Dadurch erhält man einen genaueren Druck, weil dadurch keine Druckstützen benötigt wurden. Im folgenden sind Bilder von den Einzelnen Designs zu sehen und von dem fertigen Bauteil:
 
