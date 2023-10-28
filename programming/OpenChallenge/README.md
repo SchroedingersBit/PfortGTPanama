@@ -27,8 +27,8 @@ curve --> |amount left + right USS > 130| F{Front USS};
 F --> |Measured value < 100| G{Gyrosensor};
 G --> |car tilt < 20 |C{curve type};
 C --> |rightshift < 0| R{right curve};
-R --> |reference Winkel + 90 |K{finished curve};
+R --> |reference angle + 90 |K{finished curve};
 C --> |rightshift > 0| L{left curve};
-L --> |reference Winkel - 90 |K;
+L --> |reference angle - 90 |K;
 
 ```
