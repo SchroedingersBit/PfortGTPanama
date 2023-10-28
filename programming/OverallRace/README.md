@@ -4,14 +4,14 @@ The program contains a parameter that determines whether only the parts of the p
 
 
 ## Complete_V1.ino
-Gestartet wird das Programm über das Complete_V1.ino, welches alle weiteren Klassen öffnet und managed.
+The program is started via the Complete_V1.ino, which opens and manages all further classes.
 ```c++
-//Inkludieren der erforderlichen Bibliotheken und Verwendung der Header Datein
+//Include the required libraries and use the header files.
 #include "variables.h"  // alle Variabeln, Ports, Sensoren
 #include "ControlRC.h"  // alle Funktionen für Kontrolle, Sensoren und Updaten der Variabeln
 
 
-//serielle Verbindung erstellen und die Ports des Arduino aus dem Variable Header initialisieren
+//Create a serial connection and initialize the ports of the Arduino from the variable header.
 void setup() {
   Serial.begin(9600);
   while (!Serial) delay(10);
@@ -22,7 +22,7 @@ void setup() {
 
 unsigned long stopTime = 0;  // um zu wisen, wann gestoppt werden muss
 
-//  Anweisungen für das Auto
+// Instructions for the car
 void loop() {
 
   updateControlData();
@@ -31,7 +31,7 @@ void loop() {
   
   //print(); // Debugging
 
-  //Abbruchbedingung nachdem 3 Runden gefahren wurden
+  // Termination condition after 3 laps have been run
   if (stop && stopTime == 0) {
     stopTime = millis() + secs * 1000;  // weiterfahren für 3 weitere Sekunden
   }
@@ -46,7 +46,7 @@ void loop() {
 }
 
 
-// verschiedenen Sensordaten im Seriellen Monitor für Bugfixing und Verständnis von dem, was der Roboter tut
+// different sensor data in the serial monitor for bugfixing and understanding what the robot is doing
 void print() {
   //manager.printDistances();
   Serial.print("referenceAngle ");
@@ -72,16 +72,16 @@ Serial.print(controlDataArr[0] - referenceAngle);
 ```
 
 ## ControlRC.h
-Diese Header Datei enthält sämtliche Logik für das Auto und sorgt dafür dass die Messwerte zum richtigen Zeitpunkt aktualisiert und berechnet werden. Durch diese Logik werden dann die neuen Geschwindigkeiten und Anpassungen der Lenkungen weitergegeben.
+This header file contains all the logic for the car and ensures that the measured values are updated and calculated at the right time. This logic then passes on the new speeds and adjustments to the steering.
 
 ```c++
-//Inkludieren der erforderlichen Bibliotheken.
+//Include the required libraries.
 #ifndef Control_h
 #define Control_h
 #import <math.h>
 #include "variables.h"
 
-// Überprüfung, ob der Referenzwinkel in einem sicheren Berreich liegt, sodass dabei die Ultraschall-Sensoren sichere Werte verwenden
+// Verification that the reference angle is in a safe range, so that the ultrasonic sensors use safe values.
 void checkSafeAngle() {
   if (abs(referenceAngle - roll) <= 12) {
     safeAngle = true;
@@ -90,7 +90,7 @@ void checkSafeAngle() {
   }
 }
 
-//  Untersuchung durch die Ultraschall-Sensoren, ob eine Kurve detektiert wird
+// Examination by the ultrasonic sensors whether a curve is detected.
 void checkCurve() {
   if (distances[2] + distances[1] >= 130) {
     if (distances[0] < 110 && cam.getX_pos() >=5) {
@@ -105,7 +105,7 @@ void checkCurve() {
     }
   }
 }
-// Untersuchung durch die Gyrosensoren, ob der Auto sich bereits 3*360° gedreht hat, dann Auto stoppen
+// Examination by the gyro sensors whether the car has already turned 3*360°, then stop car
 void stopCheck() {
   /*if (referenceAngle > 0)
     secs = 2.7;
@@ -117,25 +117,25 @@ void stopCheck() {
   else
     stop = false;
 }
-// neue Gyro-Sensordaten
+// new gyro sensor data
 void updateSensorData() {
   manager.readDistances(distances);
   roll = orientation.getTotalRoll();
 }
 
-// neue Kameradaten
+// new camera data
 void updateCameraData() {
   cam.firstBlockData();
   color = cam.get_color() * Run;
 }
 
-// Führt vorherige Funktionen aus
+// Performs previous functions
 void updateChecks() {
   checkSafeAngle();
   checkCurve();
   stopCheck();
 }
-// wird durch RC_Control.ino gestartet und startet andere Funktionen, berechnet die verschiedenen Winkel und Anpassungen
+// is started by RC_Control.ino and starts other functions, calculates the different angles and adjustments
 void updateControlData() {
   updateChecks();
   updateSensorData();
@@ -144,23 +144,23 @@ void updateControlData() {
   int rightDistance = distances[1];
   int leftDistance = distances[2];
 
-  //berechnet Richtgeschwindigkeit
+  //calculates reference speed
 
   const float FACTOR = 1.0f;     // 2
   const float FACTOR2 = 0.005f;  //0.01
   float target_velocity = frontDistance * FACTOR * tanh(frontDistance * FACTOR2);
 
-  //berechnet Steuerwinkel
+  //calculates steering angle
 
   const float FACTOR_Steering = 5.0f * 0.8;//5
   const float wandAbstand = 7.0f;
   //const float FACTOR_Camera = 10.0f; ?
 
-  // berechnet relativen ABstand zu Wänden, wie weit es zur rechten Wand relativ entfernt ist
+  // calculates relative distance to walls, how far it is relative to the right wall, wandAbstand = distance to wall
   rightShift = (leftDistance - wandAbstand) * abs(max(-1, color - 2)) - (rightDistance - wandAbstand) * abs(color - 1);
 
-  // je näher es den Wänden kommt, ummso stärker soll es zur Seite lenken, rechtes Lenken entspricht positiven steering Winkel
-  // um die Lenkung nicht zu ruckartig zu gestalten, wird eine parameter tanh Funktion verwendet
+  // the closer it gets to the walls, the more it should steer to the side, right steering corresponds to positive steering angle
+  // in order not to make the steering too jerky, a parameter tanh function is used
 
  float target_car_angle = -1 * (FACTOR_Steering / (abs(min(0, color - 1)) * min(frontDistance, 40) + min(1, color) * 5)) * rightShift * tanh(abs(rightShift)) + referenceAngle;
    
@@ -181,20 +181,20 @@ void updateControlData() {
   //velocity = 50;
 }
 
-// Weiterleiten der berechneten Daten zum Servo, passt damit die Lenkung an
+// Forward the calculated data to the servo, thus adjusts the steering.
 void control_servo() {
   float target_car_angle = controlDataArr[0];
   float err = target_car_angle - roll;
   steeringServo.drive(err * 0.1);  // 0.1 Eröffnungsrennen
 }
 
-// passt den DC Motor und damit die Geschwindigkeit an
+// adjusts the DC motor and thus the speed
 void control_DC() {
   float target_velocity = controlDataArr[1];
   drivingDC.drive(target_velocity);
 }
 
-// führt vorherige Funktionen aus
+// executes previous functions
 void drive() {
   updateControlData();
   control_servo();
@@ -205,7 +205,7 @@ void drive() {
 ```
 
 ## variables.h
-Hier sind alle wichtigen Variabeln sowie Pins für den Arduino hinterlegt, die für das Programm benötigt werden.
+Here all important variables as well as pins for the Arduino are stored, which are needed for the program.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken für die Sensoren 
 #ifndef variables_H
@@ -280,7 +280,7 @@ void initializeHardware() {
 ```
 
 ## UltrasonicManager.h
-Hier werden die Ultraschallsensordaten ausgelesen und dann für jeweils fünf Werte der Median berechnet.
+Here, the ultrasonic sensor data is read out and then the median is calculated for five values each.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken.
 #ifndef UltraSonic_h
@@ -368,7 +368,7 @@ private:
 ```
 
 ## MyServo.h
-Hier wird der Servo angesprochen und die Lenkanweisungen aus ControlRC.h werden in die passenden Servospannungen umgerechnet.
+Here the servo is addressed and the steering instructions from ControlRC.h are converted into the appropriate servo voltages.
 ```c++
 
 //Inkludieren der erforderlichen Bibliotheken.
@@ -443,7 +443,7 @@ public:
 ```
 
 ## MyDC.h
-Hier wird die erforderliche DC-Moter Spannung berechnet, welche erfordlich ist, um die geforderte Geschwindigkeit aus den anderen Programmen zu gewährleisten.
+Here the required DC-Moter voltage is calculated, which is necessary to guarantee the required speed from the other programs.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken.
 #ifndef MyDC_h
@@ -478,7 +478,7 @@ public:
 ```
 
 ## CarOrientation.h
-Hier wird mit den Gyrosensordaten umgegangen um die Fahrzeugausrichtung zu bestimmen und den zurückgelegten Drehwinkel zu ermitteln.
+Here, the gyro sensor data is handled to determine the vehicle orientation and the angle of rotation traveled.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken.
 #include <Wire.h>
@@ -642,7 +642,7 @@ public:
 ```
 
 ## camera.h
-In camera werden die Eigenschaften des größten detektierten Farbblocks, wie Farbwert Höhe und Breite ausgeben.
+In camera the properties of the largest detected color block, such as color value height and width are output.
 ```c++
 //Inkludieren der erforderlichen Bibliotheken.
 #include <Pixy2.h>
