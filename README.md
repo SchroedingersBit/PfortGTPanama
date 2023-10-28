@@ -8,7 +8,7 @@ Our car is powered by an Arduino. It consists of a chassis which is equipped wit
 ## Structure
 Our repository is divided into several subgroups in which each topic of focus is discussed.
 ### Development
-In [development](/development) we describe our development path. We describe the ideas we had during the process, the problems we faced and how we solved them.
+In [development](/development) we describe some short overviews of our development path with the ideas we had during the process, the problems we faced and how we solved them.
 ### Programming
 In [programming](/programming) we explain the heart of this competition, the coding. We describe and explain our structure, the decision for C++ and the two focal points [Open Challenge](/programming/OpenChallenge) and [Obstacle Challenge](/programming/ObstacleChallenge), as well as our actual [Overall Program](Programming/OverallRace).
 ### Vehicle
