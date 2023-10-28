@@ -3,21 +3,21 @@ In the opening race, the car incorporates ultrasonic and gyroscope sensor data i
 ## Flowchart for the ultrasonic sensors
 ```mermaid
 flowchart TB;
-USS-Code --> D{Distanz < 400} --> M{5 Messungen};
+USS-Code --> D{distance < 400} --> M{5 measurements};
 subgraph Median
-M-->ME{Median berechen} -->N{Neue Messung} -->|Update ältester Messwert| M;
+M-->ME{calculate median} -->N{new measurement} -->|update oldest measurement| M;
 end
 ME --> Rightshift;
 
 subgraph Rightshift
-LR{Differenz Links Rechts USS} --> |Formelverarbeitung| W{Winkel, welches Auto lenken muss};
+LR{difference left right USS} --> |formula calculations| W{angle for steering};
 end
-Rightshift --> Lenkung;
+Rightshift --> Steering;
 
-subgraph Lenkung
-Berrechnung --> S{Servowinkel der eingestellt wird}
+subgraph Steering
+Calculations --> S{servo angle to set}
 end
-Lenkung --> Z{Auto passt Lenkeinstellungen an}
+Steering --> Z{car adjusts steering}
 ```
 
 ## Flowchart for curve logic
