@@ -5,7 +5,7 @@ In the obstacle race, we use the property of the Pixy Cam to detect different co
 ## Flowchart 
 ```mermaid
 flowchart TB;
-Obstacle --> P{PixyCam color code} --> R{red 2 right} & G{green 1 left};
+Obstacle --> P{PixyCam color code} --> R{2 - red right} & G{1 - green left};
 R -->|turn off left and front USS| RU{right USS cenered distance wall};
 G -->|turn off right and front USS| LU{left USS centered distance wall};
 RU & LU --x |no more color code detected and smaller front USS | B{remains in position to walls};
