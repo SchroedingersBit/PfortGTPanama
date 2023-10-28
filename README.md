@@ -10,7 +10,7 @@ Our repository is divided into several subgroups in which each topic of focus is
 ### Development
 In [development](/development) we describe some short overviews of our development path with the ideas we had during the process, the problems we faced and how we solved them.
 ### Programming
-In [programming](/programming) we explain the heart of this competition, the coding. We describe and explain our structure, the decision for C++ and the two focal points [Open Challenge](/programming/OpenChallenge) and [Obstacle Challenge](/programming/ObstacleChallenge), as well as our actual [Overall Program](Programming/OverallRace).
+In [programming](/programming) we explain the important part of coding. We describe and explain our structure, the decision for C++ and the two focal points [Open Challenge](/programming/OpenChallenge) and [Obstacle Challenge](/programming/ObstacleChallenge), as well as our actual [Overall Program](Programming/OverallRace).
 ### Vehicle
 In [vehicle](/vehicle/) it is shown in detail how our car is built. The [components](/vehicle/components) of the car are shown, how they are assembled and which of them were bought or 3D-printed. In [electronics](/vehicle/electronics), our electronic wiring is explained and how the power supply for the motors and sensors is regulated is discussed. Besides that we discuss the [motors](/vehicle/motors) the car is equipped with and what made us decide to do this. Furthermore, our used [sensors](/vehicle/sensors) 
 are explained, what the special features are and why we decided to use them. Additionally, [3D printing](/vehicle/3Dprinting) lists our files and work for our printed parts.
