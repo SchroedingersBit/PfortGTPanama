@@ -23,12 +23,12 @@ Steering --> Z{car adjusts steering}
 ## Flowchart for curve logic
 ```mermaid
 flowchart TB;
-Kurve --> |Betrag linker + rechter USS > 130| F{Front USS};
-F --> |misst Wert < 100| G{Gyrosensor};
-G --> |Neigung des Autos < 20 Grad|Kurvenart;
-Kurvenart --> |rightshift < 0| R{Rechtskurve};
-R --> |reference Winkel + 90 |K{Kurve beendet};
-Kurvenart --> |rightshift > 0| L{Linkskurve};
+curve --> |amount left + right USS > 130| F{Front USS};
+F --> |Measured value < 100| G{Gyrosensor};
+G --> |car tilt < 20 |C{curve type};
+C --> |rightshift < 0| R{right curve};
+R --> |reference Winkel + 90 |K{finished curve};
+C --> |rightshift > 0| L{left curve};
 L --> |reference Winkel - 90 |K;
 
 ```
