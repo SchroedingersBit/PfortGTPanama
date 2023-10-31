@@ -18,3 +18,8 @@ https://1drv.ms/v/s!ArlfVHV2ERdOgsALv1Rfv7Yz_6fsXg?e=KO7QEp
 
 [![Alt text](https://img.youtube.com/vi/qHP3XNPUiOw/0.jpg)](https://www.youtube.com/watch?v=qHP3XNPUiOw)
 
+
+## Team Video
+
+https://1drv.ms/v/s!ArlfVHV2ERdOgsAM7rHnZSnCFeh11w?e=1gWL1Y
+
