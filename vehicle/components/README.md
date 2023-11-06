@@ -98,7 +98,7 @@ The gear protection is a component that prevents any cables from getting near th
 </p>
 
 ## Gearbox
-Conversion to small to large.
+Converting the conversion from large small to small large
 <p align="center">
   <img src="g.jpg" alt="Gearbox" width="500" />
 </p>
