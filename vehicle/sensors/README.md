@@ -15,7 +15,6 @@ To train the PixyCam 2 to the color codes of certain objects, the PixyMon softwa
 The use of the HC-SR04 ultrasonic sensors allows us, especially for the opening race, to accurately, easily and quickly detect distances to walls in the vicinity of the vehicle. They emit ultrasonic waves and measure the time it takes for the reflected signal to return. This allows them to accurately determine distances to obstacles or other vehicles. This is crucial to avoid collisions and drive the curves safely, straight and fast.
 
 Another advantage of ultrasonic sensors is their versatility. They can be mounted in different directions to cover a wide field of view and detect obstacles from different angles. This allows us to guarantee comprehensive and reliable environmental awareness for the car.
-For the obstacle challenge, they also make it easier to distinguish between blocks and avoid problematic turns.
 In addition, ultrasonic sensors operate independently of lighting conditions, making them reliable in a variety of environments, both daylight and dark. They are insensitive to external influences such as glare or reflections, which can occur with other sensors such as cameras. However, we also had to deal with a big problem regarding reflections from slanted walls, since a wall that was only slightly slanted, could affect the distance to it a lot. We tried to fix this as much as possible in our program through error tolerances and sensor data conditions.
 
 <p align="center">
