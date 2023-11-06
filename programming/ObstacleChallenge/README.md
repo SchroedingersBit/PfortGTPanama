@@ -18,9 +18,13 @@ class G greenFill;
 ## Old program Flowchart 
 ```mermaid
 flowchart TB;
+classDef redFill fill:#ff6666,stroke:#333,stroke-width:2px;
+classDef greenFill fill:#66ff66,stroke:#333,stroke-width:2px;
 Obstacle --> P{PixyCam color code} --> R{2 - red right} & G{1 - green left};
 R -->|turn off left and front USS| RU{right USS cenered distance wall};
 G -->|turn off right and front USS| LU{left USS centered distance wall};
 RU & LU --x |no more color code detected and smaller front USS | B{remains in position to walls};
+class R redFill;
+class G greenFill;
 ```
 
