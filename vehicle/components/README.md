@@ -10,7 +10,7 @@ After printing out the part and screwing together the first components, it looks
 
 ![IMG_4836](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/75c43213-0515-4701-9de5-d3b49cc06784)
 
-The cover plate is placed on this base plate, on which the Arduino, the camera tower and the controller are located. Particular attention should be paid to the holes in the middle, which facilitate cable management:
+The cover plate is placed on this base plate, on which the Arduino, the camera tower the driver and the battery are located. Particular attention should be paid to the holes in the middle, which facilitate cable management:
 
 ![IMG_4838](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/f46aae51-b388-4639-8cf1-9b15b68bc356)
 
