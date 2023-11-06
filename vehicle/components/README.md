@@ -2,7 +2,7 @@
 Here we discuss the construction of the car and the 3D printed brackets
 
 ## Chassis
-First, the planning of the chassis was started (see development). The current chassis consists of a large 3D-printed base plate to which the steering, the motor with the gearbox, the axles and the rest of the hardware are attached. The main requirements for the base plate are to shorten it compared to the previous base plate (Δl= -5cm) and to provide enough mounting options for the rest of the hardware. This resulted in the following design (only half of it can be seen because it was then later mirrored so that a complete plate is created).
+First, the planning of the chassis was started ([development](/development)). The current chassis consists of a large 3D-printed base plate to which the steering, the motor with the gearbox, the axles and the rest of the hardware are attached. The main requirements for the base plate are to shorten it compared to the previous base plate (Δl= -5cm) and to provide enough mounting options for the rest of the hardware. This resulted in the following design (only half of it can be seen because it was then later mirrored so that a complete plate is created).
 
 <img width="1040" alt="Bildschirmfoto 2023-05-31 um 15 49 12" src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/39ea1220-8d36-4189-aabf-6ac741cf9721">
 
@@ -30,7 +30,7 @@ Below is another picture of the component on the robot:
   <img src="Bild3.png" alt="P3" width="300" />
 </p>
 
-The camera tower was later built even further back on the car. -> see development and camera tower.
+The camera tower was later built even further back on the car ([development](/development)).
 
 # Ultrasonic sensor mount
 The sensor mounting had to mount the ultrasonic sensors statically and opposite or perpendicular to each other in order to obtain trustworthy, reproducibly significant measured values. Therefore, the accuracy of the mounting is critical. Two large holes are used to hold the ultrasonic sensor transmitter and receiver, and the four holes around them are used to attach the sensor to the mount.
