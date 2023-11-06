@@ -666,65 +666,85 @@ public:
 ## camera.h
 In camera the properties of the largest detected color block, such as color value height and width are output.
 ```c++
-//Inkludieren der erforderlichen Bibliotheken.
+//include the required libarry
 #include <Pixy2.h>
 
-// Suche nach roten oder grünen Pixy Farbblöcken 
+//search for red or green Block: green = 1 and red = 2
 class camera {
 private:
+// declare the variables
   Pixy2 pixy;
-  int blocks;
-  int frameWidth;
-  int frameHeight;
-  int Quader;
-  int age;
-  int y_pos;
-  int x_pos;
+  uint16_t Width;
+  uint16_t Height;
+  int8_t Blocks;
   uint16_t signature;
-  int width;
-  int velocity;
+  int m_x;
+  uint16_t m_y;
+  unsigned long time;
+  int last_signature = 0;
+  int new_signature;
+  bool Block_test;
+  bool timer = true;
+  int size;
 
 public:
   camera() {}
 
   void init() {
     pixy.init();
-    frameWidth = pixy.frameWidth;  //316
-    frameHeight = pixy.frameHeight;
-  }
-//bestimmt Eigenschaften der Farbblöcke wie Farbwert, Höhe und Breite
-  void firstBlockData() {
-    Quader = 0;
-    x_pos = 10;
-    blocks = pixy.ccc.getBlocks();
-    if (blocks) {
-      y_pos = pixy.ccc.blocks[0].m_y;//gibt durch [0] immer den Block mit größter Pixelfläche auf dem Bildschirm aus
-      width = pixy.ccc.blocks[0].m_width;
-      if (width > 15 && y_pos > frameHeight / 2) {
-        age = pixy.ccc.blocks[0].m_age;
-        if (age > 10) {// wie lange ist der Block schon zu sehen (Frames)
-          x_pos = abs(pixy.ccc.blocks[0].m_x - frameWidth / 2);
-          signature = pixy.ccc.blocks[0].m_signature;
-          Quader = 1;
-        }
-      }
-    }
+    Width = pixy.frameWidth / 2 ;  // Width = 158
+    Height = pixy.frameHeight; // Height = 208
   }
 
-  int getX_pos() {
+  // looking for a block
+  void BlockData(bool Adder) {
+    Block_test = true * timer;
+    Blocks = pixy.ccc.getBlocks();  // getting the data from the camera
+    if (Blocks && timer) {  // if any Block it detected and no change of Blocks were detected
+      for (int i = 0; i < Blocks; i++) { // look through the blocks from the biggest to the smallest
+        m_y = pixy.ccc.blocks[i].m_y;
+        if (m_y >= Height * 0.2 && m_y <= Height * 0.85) { // the Block shouldn't lie high or low in the frame
+          // get the Block Data
+          new_signature = pixy.ccc.blocks[i].m_signature;
+          m_x = pixy.ccc.blocks[i].m_x - Width;
+          Block_test = false;
+          size = pixy.ccc.blocks[i].m_width * pixy.ccc.blocks[i].m_height;
+          break; // stop if a block was detected
+        }
+      }
+  }
+  // to ensure the car doesn't hit the block immediatly when he stops seeing the Block we built a timer, to save the old data of the Block untill timer becomes true
+  if (Block_test && timer) { // reset the variables
+      new_signature = 0;
+      m_x = 0;
+      size = 0;
+    } // start timer when he switches from block seen to no block seen or their was a change of color
+    if (last_signature != 0 && (Block_test || (!Block_test && last_signature != new_signature))) {
+      signature = last_signature;
+      timer = false;
+      time = millis() + 100UL + 100UL * !Adder;
+    } else if (timer) {
+      signature = new_signature;
+    } // check whether the time has elapsed
+    if (time < millis() && !timer)
+      timer = true;
+
+    last_signature = new_signature;
+
+  int get_x_pos() {
     return x_pos;
   }
   int get_color() {
     return signature;
   }
-  float get_width() {
-    return width;
+  int get_frameWidth() {
+    return Width;
   }
-  float get_blocks() {
-    return Quader;
+  int get_Blockscheck() {
+    return Block_test;
   }
-   void set_color() {
-    signature=0;
+  int get_Blocksize() {
+    return size;
   }
 };
 
