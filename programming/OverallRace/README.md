@@ -47,25 +47,43 @@ void loop() {
 
 // different sensor data in the serial monitor for bugfixing and understanding what the robot is doing
 void print() {
-  //manager.printDistances();
+  float k = (distances[0] - (67578.1 / (cam.get_Blocksize() + 514.89) - 13.4431) - 80) * (0.5 * direction * (abs(cam.get_color() - 1) - min(1, 2 - cam.get_color())) + max(0.5, 1 - 0.5 * cam.get_color()));
   Serial.print("referenceAngle ");
   Serial.print(referenceAngle);
-  Serial.print("       rightShift ");
-  Serial.print(rightShift);
-  Serial.print("       right ");
-  Serial.print(distances[1]);
-  Serial.print("       left ");
-  Serial.print(distances[2]);
-  Serial.print("       front ");
-  Serial.print(distances[0]);
+  Serial.print("       targetAngle ");
+  Serial.print(controlDataArr[0]);
   Serial.print("       roll ");
   Serial.print(roll);
-  Serial.print("       targetAngle ");
-Serial.print(controlDataArr[0] - referenceAngle);
-   Serial.print("       width ");
-  Serial.print(cam.get_width());
-    Serial.print("       color ");
- Serial.println(cam.get_color());
+  Serial.print("       rightShift ");
+  Serial.print(rightShift);
+  Serial.print("       camShift ");
+  Serial.print(camShift);
+  Serial.print("       wallShift ");
+  Serial.print(wallShift);
+  Serial.print("       frontdistance ");
+  Serial.print(distances[0]);
+  Serial.print("       rightdistance ");
+  Serial.print(distances[1]);
+  Serial.print("       leftdistance ");
+  Serial.print(distances[2]);
+  Serial.print("       sumdistance ");
+  Serial.print(distances[2] + distances[1]);
+  Serial.print("       sumcheck ");
+  Serial.print(Sumcheck);
+  Serial.print("       size ");
+  Serial.print(cam.get_Blocksize());
+  Serial.print("       Blockdistance ");
+  Serial.print(k);
+  Serial.print("       function ");
+  Serial.print(k < 0 && k > -35 ? 0 : 1);
+  Serial.print("        x_pos  ");
+  Serial.print(cam.get_x_pos());
+  Serial.print("        frameWidth  ");
+  Serial.print(cam.get_frameWidth());
+  Serial.print("        correction ");
+  Serial.print(1 - 1 / cam.get_frameWidth() * abs(cam.get_x_pos()));
+  Serial.print("       color ");
+  Serial.println(cam.get_color());
 }
 
 ```
