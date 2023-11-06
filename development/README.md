@@ -8,6 +8,7 @@ At first, the chassis was planned. It was important to keep the turning radius a
   <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/cb79191b-18a5-4ba2-bb8b-e11140a80d6f" alt="sensor base plate" width="600" />
 </p>
 
+## Steering mechanism
 
 Now the type steering system had to be considered. The standard solution is an Ackermann steering mechanism, which works mechanically pretty well, but is hard to construct. In the following image, our first schematic scetch is seen, which helped us understandung the orinciples of the Ackermann steering mechanism.
 
