@@ -92,7 +92,7 @@ void print() {
 This header file contains all the logic for the car and ensures that the measured values are updated and calculated at the right time. This logic then passes on the new adjustments to the steering.
 
 ```c++
-//Include the required libraries.
+//Include the required libraries
 #ifndef Control_h
 #define Control_h
 #import <math.h>
@@ -229,7 +229,7 @@ void drive() {
 ## variables.h
 Here all important variables as well as pins for the Arduino are stored, which are needed for the program.
 ```c++
-//Inkludieren der erforderlichen Bibliotheken für die Sensoren 
+//include required libraries for sensors 
 #ifndef variables_H
 #define variables_H
 #include <Arduino.h>
@@ -240,7 +240,7 @@ Here all important variables as well as pins for the Arduino are stored, which a
 #include "camera.h"
 
 
-// Deklarieren der Variablen, Sensoren
+// declare variables, sensors
 
 // UltrasonicManager für die Arduino Ports
 const uint8_t frontTrigPin = 2;
@@ -304,7 +304,7 @@ void initializeHardware() {
 ## UltrasonicManager.h
 Here, the ultrasonic sensor data is read out and then the median is calculated for five values each.
 ```c++
-//Inkludieren der erforderlichen Bibliotheken.
+//include required libraries
 #ifndef UltraSonic_h
 #define UltraSonic_h
 #include <NewPing.h>
@@ -393,7 +393,7 @@ private:
 Here the servo is addressed and the steering instructions from ControlRC.h are converted into the appropriate servo voltages.
 ```c++
 
-//Inkludieren der erforderlichen Bibliotheken.
+// include required libraries
 #ifndef MyServo_h
 #define MyServo_h
 
@@ -467,12 +467,12 @@ public:
 ## MyDC.h
 Here the required DC-Moter voltage is calculated, which is necessary to guarantee the required speed from the other programs.
 ```c++
-//Inkludieren der erforderlichen Bibliotheken.
+//include required libraries
 #ifndef MyDC_h
 #define MyDC_h
 
 #include <Arduino.h>
-// Vermittlung zwischen Pins des DC`s, Berechenen  der DC Spannung
+// Communication between DC pins, calculation of the DC voltage
 class MyDC {
 private:
   byte pin;
@@ -486,7 +486,7 @@ public:
   void init() {
     pinMode(pin, OUTPUT);
   }
-  //Geschwindigkeit muss zwischen 0 und 100 sein
+  //velocity threshold value between 0 and 100
   void drive(float speed) {
     speed= (speed>100)? 100:speed;
     speed= (speed>0)?max(40,speed):speed;
