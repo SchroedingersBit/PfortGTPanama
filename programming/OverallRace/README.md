@@ -3,46 +3,45 @@ The program contains a parameter that determines whether only the parts of the p
 
 
 
-## Complete_V1.ino
-The program is started via the Complete_V1.ino, which opens and manages all further classes.
+## RC_Control.ino
+The program is started via the RC_Control.ino, which opens and manages all further classes.
 ```c++
 //Include the required libraries and use the header files.
-#include "variables.h"  // alle Variabeln, Ports, Sensoren
-#include "ControlRC.h"  // alle Funktionen für Kontrolle, Sensoren und Updaten der Variabeln
+#include "variables.h"  // all the vars, actuators, and sensors are defined and initialized here.
+#include "ControlRC.h"  // all functions for control, read sonsor and update variables are located here
 
 
-//Create a serial connection and initialize the ports of the Arduino from the variable header.
+//Create a serial connection, initialize the ports of the Arduino from the variable header and set th driving direction to forward.
 void setup() {
   Serial.begin(9600);
   while (!Serial) delay(10);
-
   initializeHardware();
+  drivingDC.setForward();
 }
 
-
-unsigned long stopTime = 0;  // um zu wisen, wann gestoppt werden muss
 
 // Instructions for the car
 void loop() {
 
   updateControlData();
-  drivingDC.drive(velocity); // Grundgeschwindigkeit des DC Motors
+  drivingDC.drive(velocity); // velocity is a constant
   control_servo();
   
-  //print(); // Debugging
+  //print(); // will be turned on for Debugging
 
   // Termination condition after 3 laps have been run
-  if (stop && stopTime == 0) {
-    stopTime = millis() + secs * 1000;  // weiterfahren für 3 weitere Sekunden
-  }
-
-  if (stopTime > 0 && millis() >= stopTime) {
+  if (turns == 4 * numRounds) { // 12 turns achieved
+    Stoptime = millis() + secs * 1000; // 
+    while (distances[0] > 120 || !Sumcheck || Stoptime > millis()) {  // drive for at least Stoptime and until frontDistance is less than 120 and SumDistance is less than 100
+      updateControlData();
+      drivingDC.drive(velocity);
+      control_servo();
+    } // turn everathing off
     while (1) {
-      control_servo();//steeringservo.drive?
+      control_servo();
       drivingDC.drive(0);
       delay(100);
     }
-  }
 }
 
 
