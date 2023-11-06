@@ -89,7 +89,7 @@ void print() {
 ```
 
 ## ControlRC.h
-This header file contains all the logic for the car and ensures that the measured values are updated and calculated at the right time. This logic then passes on the new speeds and adjustments to the steering.
+This header file contains all the logic for the car and ensures that the measured values are updated and calculated at the right time. This logic then passes on the new adjustments to the steering.
 
 ```c++
 //Include the required libraries.
@@ -97,6 +97,11 @@ This header file contains all the logic for the car and ensures that the measure
 #define Control_h
 #import <math.h>
 #include "variables.h"
+
+// returns the Sign of the number
+int getSign(int number) {  // returns 1 when its positive and returns -1 when its negative
+  return (number >= 0) ? 1 : -1;
+}
 
 // Verification that the reference angle is in a safe range, so that the ultrasonic sensors use safe values.
 void checkSafeAngle() {
