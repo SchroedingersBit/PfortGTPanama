@@ -4,7 +4,7 @@ The videos have been uploaded to Youtube as 'unlisted'. The links can be found h
 ## Open Challenge
 
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Sg48LilvS4c/0.jpg)](https://www.youtube.com/watch?v=Sg48LilvS4)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Sg48LilvS4/0.jpg)](https://www.youtube.com/watch?v=Sg48LilvS4c)
 
 
 
