@@ -1,2 +1,2 @@
 # Sources
-Our sources of information, purchases made and installation paths are stored here.
+Our sources of information, our purchases and installation paths are stored here.
