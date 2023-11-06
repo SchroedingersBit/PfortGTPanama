@@ -502,11 +502,11 @@ public:
 ## CarOrientation.h
 Here, the gyro sensor data is handled to determine the vehicle orientation and the angle of rotation traveled.
 ```c++
-//Inkludieren der erforderlichen Bibliotheken.
+//include the required libarries
 #include <Wire.h>
 #include <Adafruit_BNO08x.h>
 
-//Erfassung und Berechnung der Fahrzeugausrichtung durch Daten des BNO08x-Sensors (Gyroskop)
+//Detection and calculation of vehicle alignment using data from the BNO08x sensor (gyroscope)
 class CarOrientation {
 private:
   Adafruit_BNO08x bno;
@@ -517,9 +517,8 @@ private:
   bool initialAngleSet = false;
 
 public:
-  //Konstruktor für die CarOrientation-Klasse.
   CarOrientation() {}
-  //Initialisiert den BNO08x-Sensor und setzt die entsprechenden Berichte.
+  //Initializes the BNO08x sensor and sets the corresponding reports.
   bool init() {
     if (!bno.begin_I2C()) {
       Serial.println("Failed to find BNO08x chip");
@@ -529,29 +528,18 @@ public:
     delay(100);
     return true;
   }
-  // Aktiviert die erforderlichen Berichte für den BNO08x-Sensor
+  // Activates the required reports for the BNO08x sensor
   void setReports() {
     if (!bno.enableReport(SH2_GAME_ROTATION_VECTOR)) {
       Serial.println("Could not enable game vector");
     }
   }
-  /*
-    float quaternionToYaw(float qw, float qx, float qy, float qz) {
-      float yaw = atan2(2.0f * (qy * qz + qw * qx), qw * qw - qx * qx - qy * qy + qz * qz);
-      return yaw * (180.0 / M_PI);
-    }
-    */
-  /*
-    float quaternionToPitch(float qw, float qx, float qy, float qz) {
-      float pitch = asin(2.0f * (qw * qy - qz * qx));
-      return pitch * (180.0 / M_PI);
-    }
-*/
+
   float quaternionToRoll(float qw, float qx, float qy, float qz) {
     float roll = atan2(2.0f * (qw * qz + qx * qy), qw * qw + qx * qx - qy * qy - qz * qz);
     return roll * (180.0 / M_PI);
   }
-  //Aktualisiert die Sensorwerte und berechnet die Fahrzeugausrichtung basierend auf den Quaternionen
+  //Updates the sensor values and calculates the vehicle alignment based on the quaternions
   void update() {
     if (bno.wasReset()) {
       setReports();
@@ -566,95 +554,44 @@ public:
       float qx = sensorValue.un.gameRotationVector.i;
       float qy = sensorValue.un.gameRotationVector.j;
       float qz = sensorValue.un.gameRotationVector.k;
-
-      //float yaw = quaternionToYaw(qw, qx, qy, qz);
-      //float pitch = quaternionToPitch(qw, qx, qy, qz);
       float roll = quaternionToRoll(qw, qx, qy, qz);
 
       if (!initialAngleSet) {
-        //lastAngle[0] = yaw;
-        //lastAngle[1] = pitch;
         lastAngle[2] = roll;
-        //initialAngle[0] = yaw;
-        //initialAngle[1] = pitch;
         initialAngle[2] = roll;
-
         initialAngleSet = true;
       } else {
-        // float deltaYaw = yaw - lastAngle[0];
-        // float deltaPitch = pitch - lastAngle[1];
         float deltaRoll = roll - lastAngle[2];
-        /*
-        if (deltaYaw > 180.0) {
-          deltaYaw -= 360.0;
-        } else if (deltaYaw < -180.0) {
-          deltaYaw += 360.0;
-        }
 
-        if (deltaPitch > 180.0) {
-          deltaPitch -= 360.0;
-        } else if (deltaPitch < -180.0) {
-          deltaPitch += 360.0;
-        }
-*/
         if (deltaRoll > 180.0) {
           deltaRoll -= 360.0;
         } else if (deltaRoll < -180.0) {
           deltaRoll += 360.0;
         }
 
-        //        totalRotation[0] += deltaYaw;
-        //        totalRotation[1] += deltaPitch;
         totalRotation[2] += deltaRoll;
-
-        //        lastAngle[0] = yaw;
-        //        lastAngle[1] = pitch;
         lastAngle[2] = roll;
       }
     }
   }
-  /*
-    float getRelativeYaw() {
-      update();
-      return quaternionToYaw(sensorValue.un.gameRotationVector.real, sensorValue.un.gameRotationVector.i, sensorValue.un.gameRotationVector.j, sensorValue.un.gameRotationVector.k) - initialAngle[0];
-    }
-*/
-  /*
-    float getRelativePitch() {
-      update();
-      return quaternionToPitch(sensorValue.un.gameRotationVector.real, sensorValue.un.gameRotationVector.i, sensorValue.un.gameRotationVector.j, sensorValue.un.gameRotationVector.k) - initialAngle[1];
-    }
-*/
-  //Gibt die relative Rollwinkeländerung des Fahrzeugs zurück.
-  //Der relative Rollwinkel ist der Rollwinkel im Vergleich zur Initialposition des Fahrzeugs.
-  //Der Wert ist negiert, um den Rollwinkel in der richtigen Ausrichtung zu liefern.
-   
+
+  // Returns the relative roll angle change of the vehicle.
+  // The relative roll angle is the roll angle compared to the initial position of the vehicle.
+  // The value is negated to provide the roll angle in the correct orientation.
   float getRelativeRoll() {
     update();
     return (quaternionToRoll(sensorValue.un.gameRotationVector.real, sensorValue.un.gameRotationVector.i, sensorValue.un.gameRotationVector.j, sensorValue.un.gameRotationVector.k) - initialAngle[2]) * -1;
   }
-  /*
-  float getRelativeYaw() {
-    update();
-    return totalRotation[0];
-  }
 
-  float getRelativePitch() {
-    update();
-    return totalRotation[1];
-  }
-*/
-  //Gibt den Gesamtrollwinkel des Fahrzeugs zurück.
-  //Der Gesamtrollwinkel ist die Summe aller Rollwinkeländerungen seit der Initialposition des Fahrzeugs.
-  //Der Wert ist negiert, um den Rollwinkel in der richtigen Ausrichtung zu liefern.
-   
+  // Returns the total roll angle of the vehicle.
+  // The total roll angle is the sum of all roll angle changes since the initial position of the vehicle.
+  // The value is negated to provide the roll angle in the correct orientation.
   float getTotalRoll() {
     update();
     return totalRotation[2] * -1;
   }
-  //Setzt die Initialwinkel und den Status für die Fahrzeugausrichtung zurück
-  //Dies wird normalerweise aufgerufen, wenn das Fahrzeug neu ausgerichtet wird
-   
+
+  //Resets the initial angle and the status for the vehicle alignment
   void reset() {
     initialAngleSet = false;
   }
@@ -732,7 +669,7 @@ public:
     last_signature = new_signature;
 
   int get_x_pos() {
-    return x_pos;
+    return m_x;
   }
   int get_color() {
     return signature;
@@ -740,7 +677,7 @@ public:
   int get_frameWidth() {
     return Width;
   }
-  int get_Blockscheck() {
+  int get_Blockcheck() {
     return Block_test;
   }
   int get_Blocksize() {
