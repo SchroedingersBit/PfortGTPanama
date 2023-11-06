@@ -20,6 +20,7 @@ Now the type steering system had to be considered. The standard solution is an A
 The Rack and Pinion system is a more intuitive solution, which often does not work as good as the first one. Furthermore the lengths and dimensions of the steering knuckle and the tie-rod are important for preventing that the rear axle could break out. We developed a graphical calculation system using GeoGebra (which can be found in uploaded files/development) for determining fitting parameters. 
 
 ## Construction
+(For understanding how each components were designed and built, have a look at [components](https://github.com/SchroedingersBit/PfortGTPanama/tree/main/vehicle/components).
 At the same time, we received the Funduino set, whose steering system we immediately adopted because it met our requirements. We concentrated on minimizing the car dimensions and with that the turn radius and the chance of hitting obstacles.
 We then printed more and more parts and were able to replace most of the parts with ours and also add additional components, such as the camera tower, which later had to be moved to the rear to ensure a better view. This helped to have a longer correction time and a better evaluation of the obstacle's position. 
 
@@ -28,10 +29,6 @@ This is our first attempt of placing the camera tower:
 <p align="center">
   <img src="https://github.com/SchroedingersBit/PfortGTPanama/assets/109133963/41e67681-4d87-406a-a938-9dbbe58d593d" alt="camera tower" width="600" />
 </p>
-
-
-
-(For understanding how each components were designed and built, have a look at [components](https://github.com/SchroedingersBit/PfortGTPanama/tree/main/vehicle/components).
 
 A crucial change is also the exchange of the two gears, so that instead of a large to small transmission, there is a small to large transmission. Therefore, the car drives slower, but has a greater torque and does not stop at low speeds, thus overcoming greater static friction forces / rolling friction forces. This was needed since it often slowed down during steering to a minimum speed risking to stop and not being able to continue its drive. A greater torque and a lower speed also provides more time for calculating the new steering correction.
 Another important step for increasing the time and power of computing was replacing the Arduino Uno with the Arduino Mega.
