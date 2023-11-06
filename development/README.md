@@ -2,7 +2,11 @@
 
 First, the chassis was planned. It was important to keep the turning radius as small as possible and therefore the car short, while the steering, the motor and all other hardware components needed to fit on it. So the following first sketch (1:1) was made:
 
-![IMG_4418](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/cb79191b-18a5-4ba2-bb8b-e11140a80d6f)
+
+<p align="center">
+  <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/cb79191b-18a5-4ba2-bb8b-e11140a80d6f" alt="sensor base plate" width="600" />
+</p>
+
 
 Now the type steering system had to be considered. The standard solution is an Ackermann steering mechanism, which works mechanically pretty well, but is hard to construct. In the following image, our first schematic scetch is seen, which helped us understandung the orinciples of the Ackermann steering mechanism.
 
