@@ -12,7 +12,10 @@ At first, the chassis was planned. It was important to keep the turning radius a
 
 Now the type steering system had to be considered. The standard solution is an Ackermann steering mechanism, which works mechanically pretty well, but is hard to construct. In the following image, our first schematic scetch is seen, which helped us understandung the orinciples of the Ackermann steering mechanism.
 
-![IMG_4417 2](https://github.com/SchroedingersBit/PfortGTPanama/assets/109133963/4c843613-0503-4ce6-8eee-730dce2d11db)
+<p align="center">
+  <img src="https://github.com/SchroedingersBit/PfortGTPanama/assets/109133963/4c843613-0503-4ce6-8eee-730dce2d11db" alt="Ackerman steering" width="600" />
+</p>
+
 
 The Rack and Pinion system is a more intuitive solution, which often does not work as good as the first one. Furthermore the lengths and dimensions of the steering knuckle and the tie-rod are important for preventing that the rear axle could break out. We developed a graphical calculation system using GeoGebra (which can be found in uploaded files/development) for determining fitting parameters. 
 
