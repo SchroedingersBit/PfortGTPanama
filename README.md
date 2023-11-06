@@ -18,7 +18,7 @@ In [pictures](/pictures) there are photos of the car from different angles as we
 ### Performance videos
 In [videos](/videos) Youtube links are deposited, which demonstrate the performance of our car in test tracks for the various tasks.
 ### Sources
-In [sources](/sources) we document our sources of information. In addition, all [purchases](/sources/purchases) we have made for the additional components and the installation paths with the associated setup instructions for the software we use are stored.
+In [sources](/sources) we document our sources of information. In addition, all our [purchases](/sources/purchases) and the installation paths with the associated setup instructions for the used software are stored.
 
 <p align="center">
 <img src="pictures/team1.jpg" alt="team photo" width="50%" height="50%" style="display:block; margin:auto">
