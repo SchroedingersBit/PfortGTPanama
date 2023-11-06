@@ -6,10 +6,14 @@ In the obstacle race, we use the property of the Pixy Cam to detect different co
 ## New program Flowchart
 ```mermaid
 flowchart TB;
+classDef redFill fill:#ff6666,stroke:#333,stroke-width:2px;
+classDef greenFill fill:#66ff66,stroke:#333,stroke-width:2px;
 Obstacle --> P{PixyCam detects color} -->|reduce USS influences| R{2 - red right} & G{1 - green left};
 R --> |measueres distance block to left-corner in camera frame| S{calculate steering angle};
 G --> |measueres distance block to right-corner in camera frame| S;
 S --> |no more color detected or small distance to walls| B{center position to walls};
+class R redFill;
+class G greenFill;
 ```
 ## Old program Flowchart 
 ```mermaid
