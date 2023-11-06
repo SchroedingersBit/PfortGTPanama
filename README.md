@@ -17,7 +17,7 @@ In [vehicle](/vehicle/) it is shown in detail how our car is built. The [compone
 In [pictures](/pictures) there are photos of the car from different angles as well as our team photo. 
 ### Performance videos
 In [videos](/videos) Youtube links are deposited, which demonstrate the performance of our car in test tracks for the various tasks.
-### Quellen
+### Sources
 In [sources](/sources) we document our sources of information. In addition, all [purchases](/sources/purchases) we have made for the additional components and the installation paths with the associated setup instructions for the software we use are stored.
 
 <p align="center">
