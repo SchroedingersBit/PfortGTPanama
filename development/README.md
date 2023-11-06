@@ -1,6 +1,7 @@
 # Development
 
-First, the chassis was planned. It was important to keep the turning radius as small as possible and therefore the car short, while the steering, the motor and all other hardware components needed to fit on it. So the following first sketch (1:1) was made:
+## First ideas and planning
+At first, the chassis was planned. It was important to keep the turning radius as small as possible and therefore the car short, while the steering, the motor and all other hardware components needed to fit on it. So the following first sketch (1:1) was made:
 
 
 <p align="center">
