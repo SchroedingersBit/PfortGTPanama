@@ -6,7 +6,7 @@ First, the planning of the chassis was started (see development). The current ch
 
 <img width="1040" alt="Bildschirmfoto 2023-05-31 um 15 49 12" src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/39ea1220-8d36-4189-aabf-6ac741cf9721">
 
-Printed and screwed together with the first further components it looks like this:
+After printing out and screwing together the first components, it looks like this
 
 ![IMG_4836](https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/75c43213-0515-4701-9de5-d3b49cc06784)
 
