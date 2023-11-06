@@ -24,7 +24,7 @@ In addition, ultrasonic sensors operate independently of lighting conditions, ma
 </p>
 
 ## Gyroscope
-To bring the car to a stop after three laps, the Adafruit 9-DOF Orientation IMU Fusion Breakout - BNO085 (BNO080) gyroscope was also installed, which measures the rotated angles during turns and brings the motor to a stop after 1080°. It also helps with steering correction.
+To bring the car to a stop after three laps, the Adafruit 9-DOF Orientation IMU Fusion Breakout - BNO085 (BNO080) gyroscope was installed, which measures the rotated angles during turns and brings the motor to a stop after 1080°. It also helps with steering correction.
 
 <p align="center">
   <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/86dd095a-c874-4c95-8dc8-72763162c80c" alt="Gyroscope" width="400" />
