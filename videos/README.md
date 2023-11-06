@@ -35,5 +35,5 @@ The videos have been uploaded to Youtube as 'unlisted'. The links can be found h
 
 ## Team Video
 
-https://1drv.ms/v/s!ArlfVHV2ERdOgsAM7rHnZSnCFeh11w?e=1gWL1Y
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/2u4EMtChzYY/0.jpg)](https://www.youtube.com/watch?v=2u4EMtChzYY)
 
