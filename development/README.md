@@ -16,14 +16,14 @@ Now the type steering system had to be considered. The standard solution is an A
 
 The Rack and Pinion system is a more intuitive solution, which often does not work as good as the first one. Furthermore the lengths and dimensions of the steering knuckle and the tie-rod are important for preventing that the rear axle could break out. We developed a graphical calculation system using GeoGebra (which can be found in uploaded files/development) for determining fitting parameters. 
 
-At the same time, we received the Funduino set, whose steering system we immediately adopted because it met our requirements. Instead we concentrated on minimizing the car dimensions and with that the turn radius and the chance of hitting obstacles.
+## Construction
+At the same time, we received the Funduino set, whose steering system we immediately adopted because it met our requirements. We concentrated on minimizing the car dimensions and with that the turn radius and the chance of hitting obstacles.
 We then printed more and more parts and were able to replace most of the parts with ours and also add additional components, such as the camera tower, which later had to be moved to the rear to ensure a better view. This helped to have a longer correction time and a better evaluation of the obstacle's position. 
 
 This is our first attempt of placing the camera tower:
 
 
 ![344f1df3-7e8e-484f-adf2-9048e3558b69](https://github.com/SchroedingersBit/PfortGTPanama/assets/109133963/41e67681-4d87-406a-a938-9dbbe58d593d)
-
 
 
 (For understanding how each components were designed and built, have a look at [components](https://github.com/SchroedingersBit/PfortGTPanama/tree/main/vehicle/components).
