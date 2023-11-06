@@ -4,7 +4,7 @@ Here the sensors are described and their properties explained.
 The PixyCam 2 was chosen for the camera. This is a popular choice for robotics projects involving autonomous driving cars for several reasons. First, it provides a reliable and accurate image processing function specifically designed for object detection and tracking. This enables the autonomous vehicle to acquire visual information in real time and make decisions based on the detected objects.
 Another advantage of the PixyCam 2 is its ease of use. It has a simple interface and a well-documented API that facilitates integration with different platforms and programming languages. This is very convenient for us, since the library for Arduino is very easy to set up and there are many sources available. In addition, the PixyCam 2 is characterized by its compact size and low power consumption, which makes it ideal for use in autonomous vehicles, where space and energy efficiency are important factors.
 
-The PixyCam2 is connected to the Arduino via a ICSP SPI cable with three ports and communicates through the ICSP connector. To train the PixyCam 2 to the color codes of certain objects, the PixyMon software is used. The color code for an object of the desired color is stored by holding it in front of the camera and selecting the object. After that, further adjustments are made to make the recognition as precise as possible. The PixyCam can detect an enormously high number of objects simultaneously. However, we only need two objects with a total of two different color codes at a time. The PixyCam then automatically sorts the object with the searched color code, which takes up the most frames on the screen, as the first block.
+The PixyCam2 is connected to the Arduino via a ICSP SPI cable with three ports and communicates through the ICSP connector. To train the PixyCam 2 to the color codes of certain objects, the PixyMon software is used. The color code for an object of the desired color is stored by holding it in front of the camera and selecting the object. After that, further adjustments are made to make the recognition as precise as possible. The PixyCam can detect an enormously high number of objects simultaneously. However, we only need four objects with a total of two different color codes at a time. The PixyCam then automatically sorts the object with the searched color code, which takes up the most frames on the screen, as the first block.
 
 
 <p align="center">
@@ -23,7 +23,7 @@ In addition, ultrasonic sensors operate independently of lighting conditions, ma
 </p>
 
 ## Gyroscope
-To stop the car after three laps, the Adafruit 9-DOF Orientation IMU Fusion Breakout - BNO085 (BNO080) gyroscope was installed, which measures the rotated angles during turns and brings the motor to a stop after 1080°. It also helps with steering correction.
+To stop the car after three laps and know the spatial orientation, the Adafruit 9-DOF Orientation IMU Fusion Breakout - BNO085 (BNO080) gyroscope was installed, which measures the rotated angles during turns and brings the motor to a stop after 1080°. It also helps with steering correction.
 
 <p align="center">
   <img src="https://github.com/SchroedingersBit/PfortGT-WRO/assets/109133963/86dd095a-c874-4c95-8dc8-72763162c80c" alt="Gyroscope" width="400" />
