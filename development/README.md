@@ -11,7 +11,6 @@ We then printed more and more parts and were able to replace most of the parts w
 (For understanding how each components were designed and built, have a look at [components](https://github.com/SchroedingersBit/PfortGTPanama/tree/main/vehicle/components).
 
 A crucial change is also the exchange of the two gears, so that instead of a large to small transmission, there is a small to large transmission. Therefore, the car drives slower, but has a greater torque and does not stop at low speeds, thus overcoming greater static friction forces / rolling friction forces. This was needed since it often slowed down during steering to a minimum speed risking to stop and not being able to continue its drive. A greater torque and a lower speed also provides more time for calculating the new steering correction.
-
 Another important step for increasing the time and power of computing was replacing the Arduino Uno with the Arduino Mega.
 
  
