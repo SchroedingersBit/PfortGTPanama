@@ -92,9 +92,10 @@ void print() {
 This header file contains all the logic for the car and ensures that the measured values are updated and calculated at the right time. This logic then passes on the new adjustments to the steering.
 
 ```c++
-//Include the required libraries
 #ifndef Control_h
 #define Control_h
+
+//Include the required libraries.
 #import <math.h>
 #include "variables.h"
 
@@ -103,135 +104,149 @@ int getSign(int number) {  // returns 1 when its positive and returns -1 when it
   return (number >= 0) ? 1 : -1;
 }
 
-// Verification that the reference angle is in a safe range, so that the ultrasonic sensors use safe values.
+// Verification that roll ic close to reference angle
 void checkSafeAngle() {
-  if (abs(referenceAngle - roll) <= 12) {
+  if (abs(referenceAngle - roll) <= 12)
     safeAngle = true;
-  } else {
+  else
     safeAngle = false;
+}
+
+// check if he is near the wall when he sees a block and calculate a relative wallShift depending on the color seen and wallDistance
+void checkSafeDistance() {                                                                            if (distances[1] * max(0, color - 1) + distances[2] * (1 - abs(color - 1)) - wallDistance * min(1, color) < 0) {
+    wallcheck = 0;
+    wallShift = (wallDistance - distances[1]) * (color - 1) + (distances[2] - wallDistance) * (2 - color);
+  } else {
+    wallcheck = 1;
+    wallShift = 0;
   }
 }
 
-// Examination by the ultrasonic sensors whether a curve is detected.
+// checl if he is in a straight path
+void checkSafeSum() { 
+  if (distances[2] + distances[1] < 100 && safeAngle && distances[0] < 200) {
+    Sumcheck = true;
+  }
+}
+
+
+// Examination under various conditions as to whether a curve is recognized
 void checkCurve() {
-  if (distances[2] + distances[1] >= 130) {
-    if (distances[0] < 110 && cam.getX_pos() >=5) {
+  if (distances[2] + distances[1] >= 140 && Sumcheck) {
+    if (distances[0] < 100) {
       if (safeAngle) {
-        cam.set_color();
-        if (distances[2] - distances[1] > 20) {
-          referenceAngle -= 90;
-        } else if (distances[2] - distances[1] < -20) {
-          referenceAngle += 90;
+        if (Blockcheck || (!Blockcheck && abs(x_pos) - 45 > 0)) {
+          if (abs(distances[2] - distances[1]) > 20) {
+            sign = (1 - abs(direction)) * getSign(distances[1] - distances[2]) + direction;
+            referenceAngle = referenceAngle + sign * 90;
+            theoreticalAngle = theoreticalAngle + sign * 90;
+            direction = sign;
+            Sumcheck = false;
+            turns += 1; 
+          }
         }
       }
     }
   }
 }
-// Examination by the gyro sensors whether the car has already turned 3*360°, then stop car
-void stopCheck() {
-  /*if (referenceAngle > 0)
-    secs = 2.7;
-  else
-    secs = 3.5;*/
-  int numberOfRounds = 3;
-  if (abs(referenceAngle) >= numberOfRounds * 360 - 20)
-    stop = true;
-  else
-    stop = false;
+
+// when the robot isnt placed well he corrects that
+void updateReference() {
+  if (safeAngle)
+    if (abs(rightShift) - abs(lastShift) >= 0) 
+      referenceAngle = roll;
+  sign = getSign(referenceAngle - theoreticalAngle);                                                
+  referenceAngle = (abs(referenceAngle - theoreticalAngle) > 2 ? theoreticalAngle + sign * 2 : referenceAngle); 
 }
-// new gyro sensor data
+
+// getting new sensor data
 void updateSensorData() {
   manager.readDistances(distances);
   roll = orientation.getTotalRoll();
 }
 
-// new camera data
+// getting the data from the camera
 void updateCameraData() {
-  cam.firstBlockData();
-  color = cam.get_color() * Run;
+  cam.BlockData(Sumcheck);
+  color = cam.get_color();
+  x_pos = cam.get_x_pos();
+  frameWidth = cam.get_frameWidth();
+  Blockcheck = cam.get_Blockcheck();
+  area = cam.get_Blocksize();
 }
 
 // Performs previous functions
 void updateChecks() {
+  checkSafeSum();
   checkSafeAngle();
+  checkSafeDistance();
   checkCurve();
-  stopCheck();
 }
-// is started by RC_Control.ino and starts other functions, calculates the different angles and adjustments
+
+// it is started by RC_Control.ino and starts other functions, calculates the different angles and adjustments
 void updateControlData() {
-  updateChecks();
   updateSensorData();
   updateCameraData();
+  updateChecks();
+
   int frontDistance = distances[0];
   int rightDistance = distances[1];
   int leftDistance = distances[2];
 
-  //calculates reference speed
+  // the following code calculates the targe_car_angle from the sensor Data
 
-  const float FACTOR = 1.0f;     // 2
-  const float FACTOR2 = 0.005f;  //0.01
-  float target_velocity = frontDistance * FACTOR * tanh(frontDistance * FACTOR2);
+  // calculating rightShift
+  rightShift = (leftDistance - rightDistance) * max(0, 1 - color * Run);
 
-  //calculates steering angle
+  // calculating camShift 
+  float cam_Steering = (1.5 - 0.00635 * abs(x_pos)) * (abs(referenceAngle - roll) > 20 && (frontDistance < 20 || leftDistance * (2 -color) + rightDistance * (color - 1) < 30) ? 0 : 1)  + 2.5 * abs(Sumcheck - 1);
+  camShift = (frameWidth * (3 * min(1, color) - 2 * color) - x_pos) * cam_Steering * wallcheck * (min(1, Sumcheck + direction * (1.5 - color) + 0.5)) * Run + wallShift;
 
-  const float FACTOR_Steering = 5.0f * 0.8;//5
-  const float wandAbstand = 7.0f;
-  //const float FACTOR_Camera = 10.0f; ?
+  // calculating the target_car_angle
+  const float FACTOR_Steering = 1.25f;
+  float target_car_angle = -1 * FACTOR_Steering * (rightShift + camShift) + referenceAngle;
 
-  // calculates relative distance to walls, how far it is relative to the right wall, wandAbstand = distance to wall
-  rightShift = (leftDistance - wandAbstand) * abs(max(-1, color - 2)) - (rightDistance - wandAbstand) * abs(color - 1);
+  updateReference();
 
-  // the closer it gets to the walls, the more it should steer to the side, right steering corresponds to positive steering angle
-  // in order not to make the steering too jerky, a parameter tanh function is used
+  //looking if the target_car_angel is in the Bounds
 
- float target_car_angle = -1 * (FACTOR_Steering / (abs(min(0, color - 1)) * min(frontDistance, 40) + min(1, color) * 5)) * rightShift * tanh(abs(rightShift)) + referenceAngle;
-   
-  if (cam.get_blocks() * Run) {
-    target_car_angle = (target_car_angle >= referenceAngle + 50 ? referenceAngle + 50 : target_car_angle);
-    target_car_angle = (target_car_angle <= referenceAngle - 50 ? referenceAngle - 50 : target_car_angle);
-  } else if (abs(roll - referenceAngle) > 30) {
-    target_car_angle = (target_car_angle <= referenceAngle - 35 ? referenceAngle - 35 : target_car_angle);
-    target_car_angle = (target_car_angle >= referenceAngle + 35 ? referenceAngle + 35 : target_car_angle);
-  } else {
-    target_car_angle = (target_car_angle <= referenceAngle - 5 ? referenceAngle - 5 : target_car_angle);
-    target_car_angle = (target_car_angle >= referenceAngle + 5 ? referenceAngle + 5 : target_car_angle);
-  }
+  // lowerBound helps the robot to drive in the middle
+  float lowerBound = (Sumcheck ? min(30, max(0, 0.30 * frontDistance - 30)) : 0);
+  // upperBound makes sure that the car isn't far away from the referenceAngle
+  int upperBound = 25;
+  //Blockbound lets the car turn a lot if a Block is detected
+  float BlockDistance = (frontDistance - (67578.1 / (area + 514.89) - 13.4431) - 80) * (0.5 * direction * (abs(color - 1) - min(1, 2 - color)) + max(0.5, 1 - 0.5 * color));
+  float Blockbound = 120 * (BlockDistance < 0 && BlockDistance > -35 ? 0 : 1) + abs(1.25 * wallShift + referenceAngle) * abs(wallcheck - 1);
+
+  // Here the Bounds are checked and if necessary, the target_car_angle will be updated
+  sign = getSign(target_car_angle - referenceAngle);
+  if (!Blockcheck * Run)
+    target_car_angle = (abs(target_car_angle - referenceAngle) >= Blockbound ? referenceAngle + sign * Blockbound : target_car_angle);
+  else if (abs(roll - referenceAngle) > upperBound)
+    target_car_angle = referenceAngle;
+  else
+    target_car_angle = (abs(target_car_angle - referenceAngle) >= lowerBound ? referenceAngle + sign * lowerBound : target_car_angle);
+
   controlDataArr[0] = target_car_angle;
-  controlDataArr[1] = target_velocity;
-  lastShift = rightShift;
-  //if (abs(rightShift) < 5)
-  //velocity = 50;
+  lastShift = rightShift; 
 }
 
 // Forward the calculated data to the servo, thus adjusts the steering.
 void control_servo() {
   float target_car_angle = controlDataArr[0];
   float err = target_car_angle - roll;
-  steeringServo.drive(err * 0.1);  // 0.1 Eröffnungsrennen
+  steeringServo.drive(err * 0.1);
 }
-
-// adjusts the DC motor and thus the speed
-void control_DC() {
-  float target_velocity = controlDataArr[1];
-  drivingDC.drive(target_velocity);
-}
-
-// executes previous functions
-void drive() {
-  updateControlData();
-  control_servo();
-  control_DC();
-}
-
 #endif
 ```
 
 ## variables.h
 Here all important variables as well as pins for the Arduino are stored, which are needed for the program.
 ```c++
-//include required libraries for sensors 
 #ifndef variables_H
 #define variables_H
+
+// include the required libarries
 #include <Arduino.h>
 #include "CarOrientation.h"
 #include "UltrasonicManager.h"
@@ -240,9 +255,9 @@ Here all important variables as well as pins for the Arduino are stored, which a
 #include "camera.h"
 
 
-// declare variables, sensors
+// declaring the pins
 
-// UltrasonicManager für die Arduino Ports
+// declaring the pins for the ultrasonic sensors
 const uint8_t frontTrigPin = 2;
 const uint8_t frontEchoPin = 3;
 const uint8_t rightTrigPin = 4;
@@ -252,43 +267,51 @@ const uint8_t leftEchoPin = 7;
 UltrasonicManager manager(frontTrigPin, frontEchoPin, rightTrigPin, rightEchoPin, leftTrigPin, leftEchoPin);
 
 
-//ServoMotor Port Deklarierung
+// declaring the pin for the Servo motor
 byte servoPin = 9;
-byte servo_PWMpin = 38;
-
 MyServo steeringServo(servoPin, servo_PWMpin);
 
-//DC Motor Port Deklarierung
+// declaring the pin for the DC-motor
 byte DC_PWMpin = 11;
 MyDC drivingDC(DC_PWMpin);
 
-//CarOrientation Deklarierung
+// declaring the gyro-sensor
 CarOrientation orientation;
 
-//Camera Deklarierung
+// declaring the camera
 camera cam;
 
-//weitere nützliche Variablen
+//defining global variables
 float controlDataArr[] = { 0, 0 };  //[desired Car Angle, Speed]
 float distances[] = { 0, 0, 0 };
 float roll;
 float referenceAngle = 0;
+float theoreticalAngle = 0;
+int wallDistance = 20;
+int wallcheck;
+float wallShift;
 float rightShift;
-float lastShift = 10000000;
-bool stop;
+float camShift;
+int turns = 0;
 bool safeAngle;
-uint8_t color = 0;
-int secs = 3.5;
-int velocity = 90;//Grundgeschwindigkeit
-int Run = 1;// Unterscheidung Hindernisrennen, Eröffnungsrennen
+bool Sumcheck = true;
+float lastShift = 10000000;
+int velocity = 40;
+int direction = 0;
+int sign;
+int color;
+int x_pos;
+int frameWidth;
+int Blockcheck;
+int area;
+int Run = 1;  //0 for open Challenge and 1 for obstacle Challenge
 
-// Pins reservieren und initialisieren
+
+// initialize the sensors and motors
 void initializeHardware() {
-
   steeringServo.init();
   drivingDC.init();
   cam.init();
-
   if (!orientation.init()) {
     Serial.println("Failed to initialize CarOrientation");
     while (1) {
@@ -296,83 +319,25 @@ void initializeHardware() {
     }
   }
 }
-
-
 #endif
 ```
 
 ## UltrasonicManager.h
 Here, the ultrasonic sensor data is read out and then the median is calculated for five values each.
 ```c++
-//include required libraries
 #ifndef UltraSonic_h
 #define UltraSonic_h
+
+// include the required libarries
 #include <NewPing.h>
 #include <RunningMedian.h>
 
 
-#define MAX_DISTANCE 400  // maximale DIstanz in cm
-#define BUFFER_SIZE 7    // Anzahl der Messungen, welche für die Median Berechnung gespeichert werden
+#define MAX_DISTANCE 400  // maximal distance in cm
+#define BUFFER_SIZE 7    // Number of measurements saved for the median calculation
 
-// Vermittlung zwischen Pins und Arduino, Median für die Wichtigkeit der Sensordaten um Messfehler zu minimieren
+// connection between Pins and Arduino, median for minimizing measurement errors 
 class UltrasonicManager {
-public:
-  UltrasonicManager(uint8_t frontTrigPin, uint8_t frontEchoPin, uint8_t rightTrigPin, uint8_t rightEchoPin, uint8_t leftTrigPin, uint8_t leftEchoPin)
-    : frontSensor(frontTrigPin, frontEchoPin, MAX_DISTANCE),
-      rightSensor(rightTrigPin, rightEchoPin, MAX_DISTANCE),
-      leftSensor(leftTrigPin, leftEchoPin, MAX_DISTANCE),
-      median_front(BUFFER_SIZE),
-      median_right(BUFFER_SIZE),
-      median_left(BUFFER_SIZE) {}
-
-
-
-  void readDistances(float distances[3]) {
-    int frontMess = frontSensor.ping_cm();
-    int rightMess = rightSensor.ping_cm();
-    int leftMess = leftSensor.ping_cm();
-    if (frontMess != 0)
-      median_front.add(frontMess);
-    if (rightMess != 0)
-      median_right.add(rightMess);
-    if (leftMess != 0)
-      median_left.add(leftMess);
-
-    frontDistance = median_front.getMedian();
-    //frontDistance = (frontDistance != 0) ? frontDistance : MAX_DISTANCE;
-    rightDistance = median_right.getMedian();
-    //rightDistance = (rightDistance != 0) ? rightDistance : MAX_DISTANCE;
-    leftDistance = median_left.getMedian();
-    //leftDistance = (leftDistance != 0) ? leftDistance : MAX_DISTANCE;
-
-    distances[0] = frontDistance;
-    distances[1] = rightDistance;
-    distances[2] = leftDistance;
-
-
-    /*frontDistance = frontSensor.ping_cm();
-    frontDistance = (frontDistance != 0) ? frontDistance : MAX_DISTANCE;
-    distances[0] = frontDistance;
-    rightDistance = rightSensor.ping_cm();
-    rightDistance = (rightDistance != 0) ? rightDistance : MAX_DISTANCE;
-    distances[1] = rightDistance;
-    leftDistance = leftSensor.ping_cm();
-    leftDistance = (leftDistance != 0) ? leftDistance : MAX_DISTANCE;
-    distances[2] = leftDistance;*/
-
-    //printDistances();
-  }
-// Sensordaten für Bugfixing und Verständnis
-  void printDistances() {
-    Serial.print("front: ");
-    Serial.print(frontDistance);
-    Serial.print(" cm\ right: ");
-    Serial.print(rightDistance);
-    Serial.print(" cm\ left: ");
-    Serial.print(leftDistance);
-    Serial.println(" cm");
-  }
-
 private:
   NewPing frontSensor;  // Front Sensor
   NewPing rightSensor;  // Right Sensor
@@ -383,83 +348,97 @@ private:
   RunningMedian median_front;
   RunningMedian median_right;
   RunningMedian median_left;
+
+public:
+  UltrasonicManager(uint8_t frontTrigPin, uint8_t frontEchoPin, uint8_t rightTrigPin, uint8_t rightEchoPin, uint8_t leftTrigPin, uint8_t leftEchoPin)
+    : frontSensor(frontTrigPin, frontEchoPin, MAX_DISTANCE),
+      rightSensor(rightTrigPin, rightEchoPin, MAX_DISTANCE),
+      leftSensor(leftTrigPin, leftEchoPin, MAX_DISTANCE),
+      median_front(BUFFER_SIZE),
+      median_right(BUFFER_SIZE),
+      median_left(BUFFER_SIZE) {}
+
+
+  // get the Data from the Ultrasonic sensors
+  void readDistances(float distances[3]) {
+    int frontMess = frontSensor.ping_cm();
+    int rightMess = rightSensor.ping_cm();
+    int leftMess = leftSensor.ping_cm();
+
+    // sort our mismeasurements
+    if (frontMess != 0)
+      median_front.add(frontMess);
+    if (rightMess != 0)
+      median_right.add(rightMess);
+    if (leftMess != 0)
+      median_left.add(leftMess);
+
+    // take the median
+    frontDistance = median_front.getMedian();
+    rightDistance = median_right.getMedian();
+    leftDistance = median_left.getMedian();
+
+    // save the data in an array
+    distances[0] = frontDistance;
+    distances[1] = rightDistance;
+    distances[2] = leftDistance;
+  }
 };
-
-
 #endif
+
 ```
 
 ## MyServo.h
 Here the servo is addressed and the steering instructions from ControlRC.h are converted into the appropriate servo voltages.
 ```c++
 
-// include required libraries
 #ifndef MyServo_h
 #define MyServo_h
 
+// include the required libarries
 #include <Arduino.h>
 #include <Servo.h>
-// Vermittlung zwischen Pins des Servos und Arduino, Berechnen der passenden Servospannung durch Servo Bibliothek
+
+
 class MyServo {
 private:
+  // define the Control Pin
   byte pin;
-  byte servo_PWMpin;
-
-  byte limitR = 120;  //Winkel muss < 120
-  byte limitL = 40;   //Winkel muss >35
-  byte straightAngle = 90;
+  byte limitR = 133;   // Right limit for servo angle
+  byte limitL = 20;    // Left limit for servo angle
+  byte straightAngle = 90;  // Default angle for a straight position
   Servo steeringServo;
-public:
-  MyServo() {}  //Default constructor  // nicht benutzen!
 
-  MyServo(byte pin,byte servo_PWMpin) {
+public:
+  MyServo() {}    // Default constructor (empty)
+
+  MyServo(byte pin) {
     this->pin = pin;
-        this->servo_PWMpin = servo_PWMpin;
   }
 
+  // Initialize the servo and set its initial position
   void init() {
     steeringServo.attach(pin);
     pinMode(pin, OUTPUT);
-    int PWMSignal = 200;  //kann zwischen 0 and 255 varrieren
-    analogWrite(servo_PWMpin, PWMSignal);
     reset();
   }
 
+  // Reset the servo to the straight position
   void reset() {
     steeringServo.write(straightAngle);
   }
-  
-  //Rotate with in the limits
-  double rotatAngle(byte angle) {
-    if (angle > limitR) {
-      angle = limitR;
-    }
-    if (angle < limitL) {
-      angle = limitL;
-    }
-    steeringServo.write(angle);
-    return angle;
-  }
 
-  // value =0 ==> straightAngle / value =1 ==> limitR / value =-1 ==> limitL
+  // Control the servo angle based on the provided value
+  // value = 0 => straightAngle; value = 1 => limitR; value = -1 => limitL
   double drive(float value) {
-    if (value >= 0) {
-      if (value > 1) {
-        value = 1;
-      }
-      value = (limitR - straightAngle) * value + straightAngle;
-    } else {
-      if (value < -1) {
-        value = -1;
-      }
-      value = (-limitL + straightAngle) * value + straightAngle;
-    }
-    steeringServo.write(value);
+    value = min(1, max(-1, value));  // Ensure value is between -1 and 1
+    int sgn = (value == 0 ? 0 : 0.5 * value / abs(value) - 0.5);
+    value = (limitR * (sgn + 1) + limitL * sgn - straightAngle * 2 * (sgn + 0.5)) * value + straightAngle;
+    // Calculate the angle based on the provided value
+    steeringServo.write(value);  // Set the servo angle
     return value;
   }
 };
-
-
 #endif
 
 ```
@@ -467,34 +446,56 @@ public:
 ## MyDC.h
 Here the required DC-Moter voltage is calculated, which is necessary to guarantee the required speed from the other programs.
 ```c++
-//include required libraries
 #ifndef MyDC_h
 #define MyDC_h
 
 #include <Arduino.h>
-// Communication between DC pins, calculation of the DC voltage
+
+// Define a class named MyDC
 class MyDC {
 private:
-  byte pin;
+  byte speedPin;  // Pin to control motor speed
+  byte pinIN1;    // Motor input 1
+  byte pinIN2;    // Motor input 2
+
 public:
-  MyDC() {}  //Default constructor  // nicht benutzen!
+  // Default constructor (empty)
+  MyDC() {}  
 
-  MyDC(byte pin) {
-    this->pin = pin;
+  // Parameterized constructor to initialize the motor pins
+  MyDC(byte speedPin, byte pinIN1, byte pinIN2) {
+    this->speedPin = speedPin;
+    this->pinIN1 = pinIN1;
+    this->pinIN2 = pinIN2;
   }
-
+  // Initialize the motor pins as outputs
   void init() {
-    pinMode(pin, OUTPUT);
+    pinMode(speedPin, OUTPUT);
+    pinMode(pinIN1, OUTPUT);
+    pinMode(pinIN2, OUTPUT);
   }
-  //velocity threshold value between 0 and 100
+
+  // Drive the motor at a specified speed (0-100)
   void drive(float speed) {
-    speed= (speed>100)? 100:speed;
-    speed= (speed>0)?max(40,speed):speed;
-    speed = map(speed, 0, 100, 0, 255);
-    analogWrite(pin, speed);
+    speed = (speed > 100) ? 100 : speed;  // Ensure speed is <= 100
+    speed = (speed > 0) ? max(40, speed) : speed;  // Ensure a minimum speed of 40
+    speed = map(speed, 0, 100, 0, 255);  // Map speed to the PWM range
+    analogWrite(speedPin, speed);  // Set the motor speed
+  }
+
+  // Set the motor to move forward
+  void setForward() {
+    digitalWrite(pinIN1, LOW);
+    digitalWrite(pinIN2, HIGH);
+  }
+  // Set the motor to move backward
+  void setBackward() {
+    digitalWrite(pinIN1, HIGH);
+    digitalWrite(pinIN2, LOW);
   }
 };
 #endif
+
 
 
 ```
