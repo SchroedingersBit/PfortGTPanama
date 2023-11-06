@@ -23,7 +23,8 @@ https://1drv.ms/v/s!ArlfVHV2ERdOgsALv1Rfv7Yz_6fsXg?e=KO7QEp
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/tWKkKMLqZvE/0.jpg)](https://www.youtube.com/watch?v=tWKkKMLqZvE)
 
-[![YouTube Video](https://img.youtube.com/vi/tWKkKMLqZvE/0.jpg)](https://www.youtube.com/watch?v=tWKkKMLqZvE)
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/fEPD9FDqDcM/0.jpg)](https://www.youtube.com/watch?v=fEPD9FDqDcM)
 
 
 ## Team Video
