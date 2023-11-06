@@ -25,8 +25,10 @@ We then printed more and more parts and were able to replace most of the parts w
 
 This is our first attempt of placing the camera tower:
 
+<p align="center">
+  <img src="https://github.com/SchroedingersBit/PfortGTPanama/assets/109133963/41e67681-4d87-406a-a938-9dbbe58d593d" alt="camera tower" width="600" />
+</p>
 
-![344f1df3-7e8e-484f-adf2-9048e3558b69](https://github.com/SchroedingersBit/PfortGTPanama/assets/109133963/41e67681-4d87-406a-a938-9dbbe58d593d)
 
 
 (For understanding how each components were designed and built, have a look at [components](https://github.com/SchroedingersBit/PfortGTPanama/tree/main/vehicle/components).
