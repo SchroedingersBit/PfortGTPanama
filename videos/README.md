@@ -12,7 +12,7 @@ The videos have been uploaded to Youtube as 'unlisted'. The links can be found h
 
 
 
-https://1drv.ms/v/s!ArlfVHV2ERdOgsALv1Rfv7Yz_6fsXg?e=KO7QEp
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/LGjeWCiFthQ/0.jpg)](https://www.youtube.com/watch?v=LGjeWCiFthQ)
 
 ## Obstacle Challenge
 
