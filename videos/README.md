@@ -16,7 +16,7 @@ https://1drv.ms/v/s!ArlfVHV2ERdOgsALv1Rfv7Yz_6fsXg?e=KO7QEp
 
 ## Obstacle Challenge
 
-[![Alt text](https://img.youtube.com/vi/qHP3XNPUiOw/0.jpg)](https://www.youtube.com/watch?v=qHP3XNPUiOw)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/qHP3XNPUiOw/0.jpg)](https://www.youtube.com/watch?v=qHP3XNPUiOw)
 
 
 
