@@ -29,4 +29,19 @@ This is our first attempt of placing the camera tower:
 A crucial change is also the exchange of the two gears, so that instead of a large to small transmission, there is a small to large transmission. Therefore, the car drives slower, but has a greater torque and does not stop at low speeds, thus overcoming greater static friction forces / rolling friction forces. This was needed since it often slowed down during steering to a minimum speed risking to stop and not being able to continue its drive. A greater torque and a lower speed also provides more time for calculating the new steering correction.
 Another important step for increasing the time and power of computing was replacing the Arduino Uno with the Arduino Mega.
 
+
+## Old Obstacle program 
+After our tournamet in germany, we decided to change the logic in our Obstacle challenge program, because the robot had problems with driving curves and detecting blocks right behind them. Here is our old Flowchart:
+```mermaid
+flowchart TB;
+classDef redFill fill:#ff6666,stroke:#333,stroke-width:2px;
+classDef greenFill fill:#66ff66,stroke:#333,stroke-width:2px;
+Obstacle --> P{PixyCam color code} --> R{2 - red right} & G{1 - green left};
+R -->|turn off left and front USS| RU{right USS cenered distance wall};
+G -->|turn off right and front USS| LU{left USS centered distance wall};
+RU & LU --x |no more color code detected and smaller front USS | B{remains in position to walls};
+class R redFill;
+class G greenFill;
+```
+We now decided to reduce the influences of all Ultrasonic sensors and calculate a steering angel, the camera shift, only through location of the block in the camera frame.
  
