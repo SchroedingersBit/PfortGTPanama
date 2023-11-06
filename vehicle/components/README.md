@@ -39,7 +39,7 @@ The sensor mounting had to mount the ultrasonic sensors statically and opposite 
   <img src="Bild4.png" alt="P4" width="400" />
 </p>
 
-Small pins or wires are pushed through these, which can be melted or bent over on the other side. Between the holder and the sensor, the spacers are installed in such a way that the connection is as tight as possible, so that there is no play and the sensors wobble unnecessarily. The holder is screwed to the base plate via the two holes on the bottom side (see sensor base plate).
+Small pins or wires are pushed through these, which can be melted or bent over on the other side. Between the holder and the sensor, the spacers are installed in such a way that the connection is as tight as possible, so that there is no lash and the sensors don't wobble unnecessarily. The holder is screwed to the base plate via the two holes on the bottom side (see sensor base plate).
   
 <p align="center">
   <img src="Bild5.png" alt="P5" width="300" />
