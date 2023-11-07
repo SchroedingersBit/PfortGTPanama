@@ -26,23 +26,25 @@ void checkSafeDistance() {                                                      
 }
 
 void checkSafeSum() {  // when the car is in a straight section it is true, it is used in many areas.
-  if (distances[2] + distances[1] < 100 && safeAngle && distances[0] < 200) {
+  if (distances[2] + distances[1] < 160 && abs(referenceAngle - roll) <= 15 && distances[0] < 200) {
     Sumcheck = true;  // from now on i will speak about sumcheck as no curve detected when it is true and curve detected when its false
   }
 }
 
 void checkCurve() {                                                                          // Here we check if a curve is seen, where many conditions contribute
-  if (distances[2] + distances[1] >= 140 && Sumcheck) {                                      // the car sees a great Sumdistance from left and right sensor and he was in a straight section before the great Sumdistance
+  if (distances[2] + distances[1] >= 140 && Sumcheck) {                                      //                                    // the car sees a great Sumdistance from left and right sensor and he was in a straight section before the great Sumdistance
     if (distances[0] < 100) {                                                                // the frontdistance is small
       if (safeAngle) {                                                                       // we are near the referenceAngle, to ensure the robot doesnt see a curve when he is correcting because of the block or because he is near a wall
         if (Blockcheck || (!Blockcheck && abs(x_pos) - 45 > 0)) {                            // The car either sees no Block or the Block he sees is not in the mid of the frame to ensure the robot doesnt see a curve when he has finished turning a curve
-          if (abs(distances[2] - distances[1]) > 20) {                                       // there is difference between the reading of the side sensors which helps whith mismeausrments of the side sensors
+          if (abs(distances[2] - distances[1]) > 40) {                                       // there is difference between the reading of the side sensors which helps whith mismeausrments of the side sensors
             sign = (1 - abs(direction)) * getSign(distances[1] - distances[2]) + direction;  // the rotationdirection is determined through the difference of the side sensors whit the getSign function. After the first Curve the variable direction is set to 1 or -1 and therefore the getSign function is always 0 and we get either 1 or -1. In summary the first curve determines the rotationdirection for correcting false readings
-            referenceAngle = referenceAngle + sign * 90;                                     // the referenceAngle is updated whit the rotationdirection which comes from the variable sign
-            theoreticalAngle = theoreticalAngle + sign * 90;                                 // the same as referenceAngl
-            direction = sign;                                                                // Before direction was set after the first curve it was 0 and didnt have any influence on the sign variable.
-            Sumcheck = false;                                                                // This means that we are in a curve now and will only be set true again if checkSafeSum returns true. which means more or less when the curve ends, there are special cases which has no big contribuition to the code. This makes sure that no second curve is detected before we were in a straight path
-            turns += 1;                                                                      // this is used for the stop check. when it is 12 the car will stop after the conditions in RC_Control.ino
+            direction = sign;
+            if (getSign(distances[1] - distances[2]) == direction) {
+              referenceAngle = referenceAngle + sign * 90;      // the referenceAngle is updated whit the rotationdirection which comes from the variable sign
+              theoreticalAngle = theoreticalAngle + sign * 90;  // the same as referenceAngl                              // Before direction was set after the first curve it was 0 and didnt have any influence on the sign variable.
+              Sumcheck = false;                                 // This means that we are in a curve now and will only be set true again if checkSafeSum returns true. which means more or less when the curve ends, there are special cases which has no big contribuition to the code. This makes sure that no second curve is detected before we were in a straight path
+              turns += 1;
+            }  // this is used for the stop check. when it is 12 the car will stop after the conditions in RC_Control.ino
           }
         }
       }
@@ -90,14 +92,23 @@ void updateControlData() {  // here the true calculation happens
   int rightDistance = distances[1];
   int leftDistance = distances[2];
 
-  //compute Steering Angle
-  const float FACTOR_Steering = 1.25f;                                                                                                                                  // this is an empiracally determined factor which is a p factor to transform rightShift and camShift in a useful target car angle
-  float cam_Steering = (1.5 - 0.00635 * abs(x_pos)) * (abs(referenceAngle - roll) > 20 && (frontDistance < 20 || leftDistance * (2 -color) + rightDistance * (color - 1) < 30) ? 0 : 1)  + 2.5 * abs(Sumcheck - 1);                          // this is a p factor for the camShift to transform it into something usable like rightshift. It varies depending if a curve was detected or not. when a curve is detected it is bigger to allow the robot to correct more, so he can absolve the curve
-  rightShift = (leftDistance - rightDistance) * max(0, 1 - color * Run);                                                                                                // the rightShift is calculated as the difference between the left and the right sensor. Howerver when a block is seen, color is either one or two and therfore rightShift is zero which does not apply when color is zero.
-  camShift = (frameWidth * (3 * min(1, color) - 2 * color) - x_pos) * cam_Steering * wallcheck * (min(1, Sumcheck + direction * (1.5 - color) + 0.5)) * Run + wallShift;  // camShift is calculated differently for different blocks. for green blocks we do frameWidth -x_pos and for red Block it is -frameWidth - x_pos. this is then multiplied with the p factor cam_steering. This is multiplied with wallcheck to ensure it does not hit the wall. The second last factor is important for the case
-                                                                                                                                                                        // when the ca turns to the left and sees a green Block sinse there isnt any boundary it will start correcting to the left and it will hit the wall. to perimt this from happening we prohibit the car to correct when it turns left and sees green or turns right and sees red till the curve is finished. wallShift is summed to CamShift
-                                                                                                                                                                        // for the case wallchek happens to be zero so it gets away from the wall. it is important to notice that CamShift is zero when no Block is detected
-  float target_car_angle = -1 * FACTOR_Steering * (rightShift + camShift) + referenceAngle;                                                                             // the target_car_angle is simply calculated with a p factor FACTOR_Steering and adding referenceAngle. the p factor is multiplied to the sum of the rightShift and CamShift where only one of the two has a value in the calculation
+  if (turns < 8)  // save all colors till the seventh curve
+    redturn = color;
+  else if (turns == 8 && area > 1500 && !Sumcheck) // if on the last turn there was a block in front of the car, this is the last Block!
+    redturn = color;
+
+    //compute Steering Angle
+
+    const float FACTOR_Steering = 1.25f;                                                                                                                                                                                                                             // this is an empiracally determined factor which is a p factor to transform rightShift and camShift in a useful target car angle
+  float cam_Steering = ((1.4 - 0.4) / (2 * frameWidth) * (2 * color - 3) * x_pos + (1.4 + 0.4) / 2) * (abs(referenceAngle - roll) > 20 && (frontDistance < 10 || leftDistance * (2 - color) + rightDistance * (color - 1) < 20) ? 0 : 1) + 2.5 * abs(Sumcheck - 1);  // this is a p factor for the camShift to transform it into something usable like rightshift. It varies depending if a curve was detected or not. when a curve is detected it is bigger to allow the robot to correct more,
+  hh = cam_Steering;                                                                                                                                                                                                                                                 //so he can absolve the curve
+
+  rightShift = (leftDistance - rightDistance) * max(0, 1 - color * Run);                                                                                                                                                               // the rightShift is calculated as the difference between the left and the right sensor. Howerver when a block is seen, color is either one or two and therfore rightShift is zero which does not apply when color is zero.
+  camShift = (frameWidth * (3 * min(1, color) - 2 * color) - x_pos) * cam_Steering * wallcheck * min(1, Sumcheck + (direction * x_pos * (color * (color + direction) == 2 ? 0 : 1) >= -80 && area >= 200 ? 1 : 0)) * Run + wallShift;  // camShift is calculated differently for different blocks. for green blocks we do frameWidth -x_pos and for red Block it is -frameWidth - x_pos. this is then multiplied with the p factor cam_steering. This is multiplied with wallcheck to ensure it does not hit the wall.
+                                                                                                                                                                                                                                       //The second last factor is important for the case
+                                                                                                                                                                                                                                       // when the ca turns to the left and sees a green Block sinse there isnt any boundary it will start correcting to the left and it will hit the wall. to perimt this from happening we prohibit the car to correct when it turns left and sees green or turns right and sees
+                                                                                                                                                                                                                                       // red till the curve is finished. wallShift is summed to CamShift for the case wallchek happens to be zero so it gets away from the wall. it is important to notice that CamShift is zero when no Block is detected
+  float target_car_angle = -1 * FACTOR_Steering * (rightShift + camShift) + referenceAngle;                                                                                                                                            // the target_car_angle is simply calculated with a p factor FACTOR_Steering and adding referenceAngle. the p factor is multiplied to the sum of the rightShift and CamShift where only one of the two has a value in the calculation
 
   updateReference();  // the method is called here, it could have been done above but since it came last it just stayed there
   // Now comes the last part of the hard calculation where we insert Bounds.
@@ -109,7 +120,7 @@ void updateControlData() {  // here the true calculation happens
                                                                                                                                                                               // function where the numbers can be seen in the equation. Subtracting this distance from the frontdistance we get the Blocks distance to thw wall. since we know that the Block in front the curve has a distance of 100cm and the Block at the curve a distance of less than 60cm to the wall, we subtracted the Blockdistance with
                                                                                                                                                                               // eighty. summarily Blockdistance is >= 0 when the block is in front and less than zero when it is at the curve. Later we observed that it was good when he corrected for the red Blocks at the curve when he turned to the left. so we multiply this distance with a function which is 1 if he turns left and there is a green block
                                                                                                                                                                               // or turns to the right and there is a red block and returns one when the contrary.
-  float Blockbound = 120 * (BlockDistance < 0 && BlockDistance > -35 ? 0 : 1) + abs(1.25 * wallShift + referenceAngle) * abs(wallcheck - 1);                                  // Blockbound is set to 120 but is 0 when there is a block at the curve, which meanas Blockdistance is less than zero. Later on we saw the robot not correcting if the front Block was exactly in front of the frontsensor, because it changed the measurment of the frontsensor. so we added also a lowerbound which is -35.
+  float Blockbound = (130 + 55 * abs(Sumcheck - 1)) * (BlockDistance < 0 && BlockDistance > -35 || area < 100 ? 0 : 1) + abs(1.25 * wallShift + 25) * abs(wallcheck - 1);     // Blockbound is set to 120 but is 0 when there is a block at the curve, which meanas Blockdistance is less than zero. Later on we saw the robot not correcting if the front Block was exactly in front of the frontsensor, because it changed the measurment of the frontsensor. so we added also a lowerbound which is -35.
                                                                                                                                                                               // last but not least wr add the angle calculated through the wallShift which only applies if wallcheck is false. which means when he is near a wall
   sign = getSign(target_car_angle - referenceAngle);                                                                                                                          // here we get the sign of the required correction
   if (!Blockcheck * Run)                                                                                                                                                      // The first thing he looks for is the Blockbound, if a Block is detected than you should move according to the Blockbound and nothing else, so the car maneuvers the Block
@@ -128,4 +139,5 @@ void control_servo() {
   float err = target_car_angle - roll;         // Since target_car_angle is the angle of the car we should not correct anymore if target_car_angle = roll, which is why we calculate an error
   steeringServo.drive(err * 0.1);              //0.1 // The error is lastly multiplied by an p factor to transform it in something more usable to the Servo
 }
+
 #endif
