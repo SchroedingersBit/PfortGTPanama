@@ -10,23 +10,64 @@ void setup() {
 }
 
 
-int numRounds = 3; 
-int Stoptime = 3; // how many seconds to drice at least after seing the last curve
+int numRounds = 3;
+int Stoptime = 6;
 unsigned long tim = 0;
 void loop() {
-  updateControlData(); // updating the calculation
-  drivingDC.drive(velocity); // driving the Dc_Motor
-  control_servo(); // Driving the Servo Motor
-  //print(); // For Debugging we can activate print, but for the runss it should be commented out ore it will take a lot of calculation time
+  updateControlData();
+  drivingDC.drive(velocity);
+  control_servo();
+  //print();  //zzzzzzz
 
-  if (turns == 4 * numRounds) { // checking if we have turned enough times
-    tim = millis() + Stoptime * 1000; // defining tim 
-    while (distances[0] > 120 || !Sumcheck || tim > millis()) { // drive for at least tim and until frontDistance is less than 120 and SumDistance is less than 100 (which means you are not in a curve anymore)
+  if (redturn == 2 && turns == 8 && Sumcheck && redcheck) { // color = 2, end of round 2 and redcheck = true
+    tim = millis() + 1000;  // drive for a second in such a way you will become straight
+    while (tim > millis()) {
+      drivingDC.drive(velocity);
+      steeringServo.drive(-1 * roll);
+    }
+
+    //moving direction is backwards
+    drivingDC.drive(0);
+    drivingDC.setBackward();
+
+    // drive until you are out of the straight section
+    while (distances[1] + distances[2] < 150 || distances[0] < 150) {
+      drivingDC.drive(velocity);
+      steeringServo.drive(0);
+    }
+
+    //drive for one more second backwards
+    tim = millis() + 1000;
+    while (tim > millis()) {
+      drivingDC.drive(velocity);
+      steeringServo.drive(0);
+    }
+
+    // change the moving direction
+    drivingDC.drive(0);
+    drivingDC.setForward();
+    referenceAngle = referenceAngle + 90 * direction; // For the car now appears so as if a curve is on his left which is why he will turn to the left.
+    theoreticalAngle = theoreticalAngle + 90 * direction;
+
+    // let him drive till he is in the straight section
+    while (distances[1] + distances[2] > 150 || distances[0] > 150) {
       updateControlData();
       drivingDC.drive(velocity);
       control_servo();
     }
-    while (1) { // when the previous while loop is done, stop the robot.
+
+    direction = direction * (-1);     // changing the sign of direction so he turns right
+    redcheck = false; // to ensure he will never get in here again.
+  }
+
+  if (turns == 4 * numRounds) {
+    tim = millis() + Stoptime * 1000;
+    while (distances[0] > 120 || !Sumcheck || tim > millis()) {  // drive for at least tim and until frontDistance is less than 120 and SumDistance is less than 100
+      updateControlData();
+      drivingDC.drive(velocity);
+      control_servo();
+    }
+    while (1) {
       control_servo();
       drivingDC.drive(0);
       delay(100);
@@ -35,7 +76,7 @@ void loop() {
 }
 
 
-// the things we print for debugging
+
 void print() {
   float k = (distances[0] - (67578.1 / (cam.get_Blocksize() + 514.89) - 13.4431) - 80) * (0.5 * direction * (abs(cam.get_color() - 1) - min(1, 2 - cam.get_color())) + max(0.5, 1 - 0.5 * cam.get_color()));
   Serial.print("referenceAngle ");
@@ -48,6 +89,8 @@ void print() {
   Serial.print(rightShift);
   Serial.print("       camShift ");
   Serial.print(camShift);
+  Serial.print("       cam steerin ");
+  Serial.print(hh);
   Serial.print("       wallShift ");
   Serial.print(wallShift);
   Serial.print("       frontdistance ");
