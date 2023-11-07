@@ -31,5 +31,7 @@ With the right settings and values, we are able to recognize up to 4 blocks very
 <p align="center">
 <img width="1097" alt="Picture" src="https://github.com/SchroedingersBit/PfortGTPanama/assets/93491768/65e390ac-eaa0-42e4-8b80-3257d596aee9">
 </p>
-For more information on which setting has which effect and how to reduce false-positive and positive-false readings, please visit the official Pixyxcam website, where there is clear documentation on how to use PixyMon and how to set up Pixycam.
-The links can be found in the [sources](https://github.com/SchroedingersBit/PfortGTPanama/tree/main/sources )
+For more information on which setting has which effect and how to reduce false-positive and positive-false readings, please visit the official Pixyxcam website, where there is clear documentation on how to use PixyMon and how to set up Pixycam. 
+The links can be found in
+
+[sources](https://github.com/SchroedingersBit/PfortGTPanama/tree/main/sources/programming).
