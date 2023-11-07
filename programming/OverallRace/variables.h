@@ -62,11 +62,13 @@ int velocity = 40;
 int direction = 0;
 int sign;
 int color;
-int x_pos;
+float x_pos;
 int8_t obstacle;
-int frameWidth;
+float frameWidth;
 int Blockcheck;
 int area;
+int redturn;
+bool redcheck = true;
 int Run = 1;  //0 for open Challenge and 1 for obstacle Challenge
 
 //2.f) Camera
@@ -86,4 +88,7 @@ void initializeHardware() {
 }
 
 
+//ToDelete
+
+float hh=0;
 #endif
