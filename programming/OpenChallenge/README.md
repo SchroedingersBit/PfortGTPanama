@@ -3,32 +3,34 @@ In the opening race, the car incorporates ultrasonic and gyroscope sensor data i
 ## Flowchart for the ultrasonic sensors
 ```mermaid
 flowchart TB;
-USS-Code --> D{distance < 400} --> M{5 measurements};
+USS-Code --> D(distance < 400) --> Median;
 subgraph Median
-M-->ME{calculate median} -->N{new measurement} -->|update oldest measurement| M;
+N(new measurement) -->|update oldest measurement| M(5 measurements)-->ME[calculate median] --> N;
 end
-ME --> Rightshift;
+Median --> Rightshift;
 
 subgraph Rightshift
-LR{difference left right USS} --> |formula calculations| W{angle for steering};
+LR(difference left right USS) --> |formula calculations| W[angle for steering];
 end
 Rightshift --> Steering;
 
 subgraph Steering
-Calculations --> S{servo angle to set}
+Calculations --> S[servo angle to set]
 end
-Steering --> Z{car adjusts steering}
+Steering --> Z(car adjusts steering)
 ```
 
 ## Flowchart for curve logic
 ```mermaid
 flowchart TB;
-curve --> |amount left + right USS > 130| F{Front USS};
-F --> |Measured value < 100| G{Gyrosensor};
-G --> |car tilt < 20 |C{curve type};
-C --> |rightshift < 0| R{right curve};
-R --> |reference angle + 90 |K{finished curve};
-C --> |rightshift > 0| L{left curve};
+
+curve --> | left + right USS >= 140| S(car was in a straight section) --> F[Front USS];
+F--> |Measured value < 100| Gyrosensor;
+Gyrosensor --> |car tilt <= 12 | B(no block in front of camera);
+B --> |absolut of left - right USS > 20| C[curve check]
+C --> |rightshift < 0| R(right curve);
+R --> |reference angle + 90 |K[finish curve, store curve type];
+C --> |rightshift > 0| L(left curve);
 L --> |reference angle - 90 |K;
 
 ```
