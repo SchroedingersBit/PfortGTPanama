@@ -24,7 +24,14 @@ Steering --> Z(car adjusts steering)
 ```mermaid
 flowchart TB;
 
-curve --> | left + right USS >= 140| S(car was in a straight section) --> F[Front USS];
+curve --> | left + right USS >= 140| CheckSafeSum;
+
+subgraph  CheckSafeSum
+D(left + right USS <100) --> |car tilt <= 12| Front2[Front USS];
+Front2 --> |Measured value < 200| Straight(car was in a straight section);
+end
+
+CheckSafeSum --> F[Front USS];
 F--> |Measured value < 100| Gyrosensor;
 Gyrosensor --> |car tilt <= 12 | B(no block in front of camera);
 B --> |absolut of left - right USS > 20| C[curve check]
