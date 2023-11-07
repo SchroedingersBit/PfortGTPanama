@@ -19,7 +19,9 @@ void setup() {
   drivingDC.setForward();
 }
 
-
+int secs = 6;
+unsigned long Stoptime = 0;
+int numRounds = 3;
 // Instructions for the car
 void loop() {
 
@@ -29,6 +31,43 @@ void loop() {
   
   //print(); // will be turned on for Debugging
 
+  // Code to turn at the second round if he sees a redBlock
+  if (redturn == 2 && turns == 8 && Sumcheck && redcheck) {
+    tim = millis() + 1000;
+    while (tim > millis()) {
+      drivingDC.drive(velocity);
+      steeringServo.drive(-1 * roll);
+    }
+
+    drivingDC.drive(0);
+    drivingDC.setBackward();
+
+    while (distances[1] + distances[2] < 150 || distances[0] < 150) {
+      drivingDC.drive(velocity);
+      steeringServo.drive(0);
+    }
+
+    tim = millis() + 1000;
+    while (tim > millis()) {
+      drivingDC.drive(velocity);
+      steeringServo.drive(0);
+    }
+
+    drivingDC.drive(0);
+    drivingDC.setForward();
+    referenceAngle = referenceAngle + 90 * direction;
+    theoreticalAngle = theoreticalAngle + 90 * direction;
+
+    while (distances[1] + distances[2] > 150 || distances[0] > 150) {
+      updateControlData();
+      drivingDC.drive(velocity);
+      control_servo();
+    }
+
+    direction = direction * (-1);
+    redcheck = false;
+  }
+
   // Termination condition after 3 laps have been run
   if (turns == 4 * numRounds) { // 12 turns achieved
     Stoptime = millis() + secs * 1000; // 
@@ -36,7 +75,7 @@ void loop() {
       updateControlData();
       drivingDC.drive(velocity);
       control_servo();
-    } // turn everathing off
+    } // turn everything off
     while (1) {
       control_servo();
       drivingDC.drive(0);
@@ -193,14 +232,20 @@ void updateControlData() {
   int rightDistance = distances[1];
   int leftDistance = distances[2];
 
+  // saving the color of the last Block till the eights turn!!
+  if (turns < 8 && !Blockcheck)
+    redturn = color;
+  else if (turns == 8 && !Blockcheck && area > 300 && !Sumcheck)
+    redturn = color;
+
   // the following code calculates the targe_car_angle from the sensor Data
 
   // calculating rightShift
   rightShift = (leftDistance - rightDistance) * max(0, 1 - color * Run);
 
   // calculating camShift 
-  float cam_Steering = (1.5 - 0.00635 * abs(x_pos)) * (abs(referenceAngle - roll) > 20 && (frontDistance < 20 || leftDistance * (2 -color) + rightDistance * (color - 1) < 30) ? 0 : 1)  + 2.5 * abs(Sumcheck - 1);
-  camShift = (frameWidth * (3 * min(1, color) - 2 * color) - x_pos) * cam_Steering * wallcheck * (min(1, Sumcheck + direction * (1.5 - color) + 0.5)) * Run + wallShift;
+  float cam_Steering = ((1.4 - 0.4) / (2 * frameWidth) * (2 * color - 3) * x_pos + (1.4 + 0.4) / 2) * (abs(referenceAngle - roll) > 20 && (frontDistance < 10 || leftDistance * (2 - color) + rightDistance * (color - 1) < 20) ? 0 : 1) + 2.5 * abs(Sumcheck - 1);
+  camShift = (frameWidth * (3 * min(1, color) - 2 * color) - x_pos) * cam_Steering * wallcheck * min(1, Sumcheck + (direction * x_pos * (color * (color + direction) == 2 ? 0 : 1) >= -80 && area >= 200 ? 1 : 0)) * Run + wallShift;
 
   // calculating the target_car_angle
   const float FACTOR_Steering = 1.25f;
@@ -216,7 +261,7 @@ void updateControlData() {
   int upperBound = 25;
   //Blockbound lets the car turn a lot if a Block is detected
   float BlockDistance = (frontDistance - (67578.1 / (area + 514.89) - 13.4431) - 80) * (0.5 * direction * (abs(color - 1) - min(1, 2 - color)) + max(0.5, 1 - 0.5 * color));
-  float Blockbound = 120 * (BlockDistance < 0 && BlockDistance > -35 ? 0 : 1) + abs(1.25 * wallShift + referenceAngle) * abs(wallcheck - 1);
+  float Blockbound = (130 + 55 * abs(Sumcheck - 1)) * (BlockDistance < 0 && BlockDistance > -35 || area < 100 ? 0 : 1) + abs(1.25 * wallShift + 25) * abs(wallcheck - 1);
 
   // Here the Bounds are checked and if necessary, the target_car_angle will be updated
   sign = getSign(target_car_angle - referenceAngle);
@@ -304,6 +349,8 @@ int x_pos;
 int frameWidth;
 int Blockcheck;
 int area;
+int redturn;
+bool redcheck = true;
 int Run = 1;  //0 for open Challenge and 1 for obstacle Challenge
 
 
